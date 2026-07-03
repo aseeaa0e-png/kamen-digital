@@ -1,25 +1,40 @@
-# CODING AGENTS: READ THIS FIRST
+# كامن KAMEN™ — النسخة النظيفة للمراجعة
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+هذه الحزمة تحتوي فقط على ملفات النشر الأساسية لموقع كامن:
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+- `index.html` — الصفحة الرئيسية المختصرة.
+- `growth-map.html` — خارطة كامن للنمو.
+- `assets/` — شعارات كامن المستخدمة في الصفحتين.
+- `README.md` و `HANDOFF.md` — توثيق مختصر.
 
-## What you should do — IMPORTANT
+## القرارات المعتمدة
 
-**Read the chat transcripts first.** There are 1 chat transcript(s) in `chats/`. The transcripts show the full back-and-forth between the user and the design assistant — they tell you **what the user actually wants** and **where they landed** after iterating. Don't skip them. The final HTML files are the output, but the chat is where the intent lives.
+الأسماء المعتمدة فقط:
+1. خارطة كامن للنمو
+2. تأسيس كامن الرقمي
+3. كامن بلس 90 يوم
 
-**Read `project/Kamen Motion.dc.html` in full.** The user had this file open when they triggered the handoff, so it's almost certainly the primary design they want built. Read it top to bottom — don't skim. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+المنهجية المعتمدة:
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+كشف · أولوية · مواءمة · نمو
 
-## About the design files
+التسعير الظاهر في الموقع:
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+تأسيس كامن الرقمي — 3,900 ريال لأول 3 عملاء، بشرط شهادة عميل + دراسة حالة + إذن استخدام النتائج تسويقيًا.
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+لا يظهر سعر كامن بلس 90 يوم في الموقع.
 
-## Bundle contents
+## النشر على GitHub Pages
 
-- `README.md` — this file
-- `chats/` — conversation transcripts (read these!)
-- `project/` — the `Kamen brand story design` project files (HTML prototypes, assets, components)
+ارفع محتوى هذه الحزمة إلى جذر مستودع `kamen-digital` بحيث تكون البنية:
+
+```text
+kamen-digital/
+├── index.html
+├── growth-map.html
+├── assets/
+├── README.md
+└── HANDOFF.md
+```
+
+لا ترفع مجلد `project/` ولا `demo.html` في هذه المرحلة.
