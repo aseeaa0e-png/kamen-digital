@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خارطة كامن للنمو — اكتشف أول فرصة رقمية في مشروعك</title>
+  <meta name="description" content="أداة تشخيص مجانية تساعدك على اكتشاف أول فرصة رقمية في مشروعك وتحديد الخطوة التالية.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:      #161D2D;
+      --navy-2:    #1A2235;
+      --navy-card: #1B2238;
+      --teal:      #32BBA9;
+      --teal-dim:  rgba(50,187,169,0.12);
+      --teal-brd:  rgba(50,187,169,0.25);
+      --gold:      #E6C57A;
+      --gold-dim:  rgba(230,197,122,0.12);
+      --gold-brd:  rgba(230,197,122,0.28);
+      --text:      #E4EAF4;
+      --text-2:    #A8B8CC;
+      --text-3:    #60768E;
+      --border:    rgba(50,187,169,0.18);
+      --border-2:  rgba(255,255,255,0.07);
+      --r:         14px;
+      --ease:      0.22s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      direction: rtl;
+      text-align: right;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    h1, h2, h3 { font-family: 'Reem Kufi', sans-serif; line-height: 1.3; }
+
+    /* Layout */
+    .page { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
+
+    /* Header */
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 48px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-2);
+    }
+    .back-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.88rem;
+      color: var(--text-2);
+      transition: color var(--ease);
+    }
+    .back-link:hover { color: var(--teal); }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: var(--r);
+      font-family: 'Reem Kufi', sans-serif; font-size: 0.95rem; font-weight: 600;
+      transition: var(--ease); white-space: nowrap; cursor: pointer;
+    }
+    .btn-primary { background: var(--teal); color: var(--navy); }
+    .btn-primary:hover { background: #3DCCBA; transform: translateY(-1px); }
+    .btn-wa { background: #25D366; color: #fff; }
+    .btn-wa:hover { background: #20BD5A; }
+    .btn-ghost { color: var(--teal); border: 1.5px solid var(--border); padding: 11px 22px; }
+    .btn-ghost:hover { border-color: var(--teal); }
+
+    /* Hero section */
+    .gm-hero { margin-bottom: 48px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 4px 13px;
+      background: var(--gold-dim); border: 1px solid var(--gold-brd);
+      border-radius: 100px; font-size: 0.8rem; color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .badge .dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+    .gm-hero h1 { font-size: clamp(1.7rem, 5vw, 2.6rem); margin-bottom: 16px; }
+    .gm-hero h1 em { font-style: normal; color: var(--teal); }
+    .gm-hero p { font-size: 1rem; color: var(--text-2); max-width: 560px; line-height: 1.8; }
+
+    /* Step indicator */
+    .steps-bar {
+      display: flex; align-items: center; gap: 0;
+      margin-bottom: 36px;
+    }
+    .step-dot {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--navy-card);
+      border: 2px solid var(--border-2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Reem Kufi', sans-serif; font-size: 0.75rem;
+      color: var(--text-3);
+      flex-shrink: 0;
+      transition: var(--ease);
+    }
+    .step-dot.active  { border-color: var(--teal); background: var(--teal-dim); color: var(--teal); }
+    .step-dot.done    { background: var(--teal); border-color: var(--teal); color: var(--navy); }
+    .step-line {
+      flex: 1; height: 2px;
+      background: var(--border-2);
+      transition: var(--ease);
+    }
+    .step-line.done { background: var(--teal); }
+
+    /* Form card */
+    .form-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border-2);
+      border-radius: 18px;
+      padding: 36px 32px;
+    }
+    .form-card h2 { font-size: 1.2rem; margin-bottom: 6px; }
+    .form-card .card-sub { font-size: 0.88rem; color: var(--text-3); margin-bottom: 28px; }
+
+    /* Form controls */
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 0.88rem; font-weight: 600;
+      color: var(--text-2);
+      margin-bottom: 7px;
+    }
+    .form-group label .req { color: var(--teal); margin-right: 2px; }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: var(--navy-2);
+      border: 1px solid var(--border-2);
+      border-radius: var(--r);
+      padding: 11px 14px;
+      font-family: 'Tajawal', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      transition: border-color var(--ease);
+      direction: rtl;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+    }
+    .form-select { appearance: none; -webkit-appearance: none; cursor: pointer; }
+    .form-textarea { resize: vertical; min-height: 90px; }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--text-3); }
+    .form-select option { background: var(--navy-2); }
+
+    /* Option buttons (radio style) */
+    .option-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .opt-btn {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 14px;
+      background: var(--navy-2);
+      border: 1.5px solid var(--border-2);
+      border-radius: var(--r);
+      font-family: 'Tajawal', sans-serif; font-size: 0.9rem;
+      color: var(--text-2);
+      cursor: pointer; text-align: right;
+      transition: var(--ease);
+    }
+    .opt-btn:hover { border-color: var(--teal); color: var(--text); }
+    .opt-btn.selected { border-color: var(--teal); color: var(--teal); background: var(--teal-dim); }
+    .opt-dot {
+      width: 16px; height: 16px; min-width: 16px;
+      border-radius: 50%;
+      border: 1.5px solid var(--text-3);
+      transition: var(--ease);
+    }
+    .opt-btn.selected .opt-dot { background: var(--teal); border-color: var(--teal); }
+
+    /* Navigation */
+    .form-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-2);
+    }
+
+    /* Result screen */
+    .result-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 36px 32px;
+      text-align: center;
+    }
+    .result-icon {
+      width: 64px; height: 64px;
+      background: var(--teal-dim);
+      border: 1.5px solid var(--teal-brd);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 20px;
+    }
+    .result-card h2 { font-size: 1.5rem; margin-bottom: 12px; }
+    .result-card p { font-size: 0.96rem; color: var(--text-2); max-width: 480px; margin: 0 auto 24px; line-height: 1.8; }
+    .result-actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+    .info-box {
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-brd);
+      border-radius: var(--r);
+      padding: 14px 18px;
+      font-size: 0.85rem;
+      color: var(--gold);
+      margin-top: 20px;
+      text-align: right;
+    }
+
+    /* Hidden states */
+    .step-screen { display: none; }
+    .step-screen.active { display: block; }
+
+    @media (max-width: 600px) {
+      .page { padding: 32px 16px 60px; }
+      .form-card { padding: 24px 18px; }
+      .option-grid { grid-template-columns: 1fr; }
+      .form-nav { flex-direction: column-reverse; gap: 10px; }
+      .form-nav .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+  <!-- Page header -->
+  <div class="page-header">
+    <a href="index.html" class="back-link">← العودة إلى كامن</a>
+    <img src="project/assets/logo-mark.png" alt="كامن" style="height:32px;"
+         onerror="this.style.display='none'">
+  </div>
+
+  <!-- Hero -->
+  <div class="gm-hero">
+    <div class="badge"><span class="dot"></span>مجاني — لا يحتاج تسجيلاً</div>
+    <h1>خارطة كامن <em>للنمو</em></h1>
+    <p>
+      أداة تشخيص سريعة تساعدك على اكتشاف أول فرصة رقمية في مشروعك وتحديد الخطوة التالية الأنسب لك — مجاناً وبدون التزام.
+    </p>
+  </div>
+
+  <!-- Step indicator -->
+  <div class="steps-bar" id="stepsBar">
+    <div class="step-dot active" id="sd1">١</div>
+    <div class="step-line" id="sl1"></div>
+    <div class="step-dot" id="sd2">٢</div>
+    <div class="step-line" id="sl2"></div>
+    <div class="step-dot" id="sd3">٣</div>
+    <div class="step-line" id="sl3"></div>
+    <div class="step-dot" id="sd4">٤</div>
+  </div>
+
+  <!-- ─── STEP 1: Basic info ─── -->
+  <div class="step-screen active" id="step1">
+    <div class="form-card">
+      <h2>أخبرنا عن مشروعك</h2>
+      <div class="card-sub">معلومات أساسية تساعدنا على فهم واقعك</div>
+
+      <div class="form-group">
+        <label>اسمك <span class="req">*</span></label>
+        <input type="text" class="form-input" id="f-name" placeholder="محمد العمري">
+      </div>
+      <div class="form-group">
+        <label>اسم المشروع أو النشاط <span class="req">*</span></label>
+        <input type="text" class="form-input" id="f-biz" placeholder="مطعم / عيادة / معرض...">
+      </div>
+      <div class="form-group">
+        <label>نوع النشاط <span class="req">*</span></label>
+        <select class="form-select" id="f-sector">
+          <option value="" disabled selected>اختر القطاع</option>
+          <option>تجزئة ومعارض</option>
+          <option>مطاعم وكافيهات</option>
+          <option>عيادات وصحة</option>
+          <option>تعليم وتدريب</option>
+          <option>خدمات مهنية</option>
+          <option>صناعة وورش</option>
+          <option>عقارات ومقاولات</option>
+          <option>أخرى</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>رقم التواصل (اختياري)</label>
+        <input type="tel" class="form-input" id="f-phone" placeholder="05xxxxxxxx" dir="ltr" style="text-align:right">
+      </div>
+
+      <div class="form-nav">
+        <span></span>
+        <button class="btn btn-primary" onclick="nextStep(1)">التالي ←</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── STEP 2: Digital presence ─── -->
+  <div class="step-screen" id="step2">
+    <div class="form-card">
+      <h2>وجودك الرقمي الحالي</h2>
+      <div class="card-sub">ما الذي يملكه مشروعك الآن؟</div>
+
+      <div class="form-group">
+        <label>ما وجودك الرقمي الحالي؟</label>
+        <div class="option-grid" id="presenceGrid">
+          <button class="opt-btn" onclick="toggleOpt(this)"><span class="opt-dot"></span>لا يوجد شيء</button>
+          <button class="opt-btn" onclick="toggleOpt(this)"><span class="opt-dot"></span>حساب إنستغرام فقط</button>
+          <button class="opt-btn" onclick="toggleOpt(this)"><span class="opt-dot"></span>حساب واتساب تجاري</button>
+          <button class="opt-btn" onclick="toggleOpt(this)"><span class="opt-dot"></span>موقع إلكتروني</button>
+          <button class="opt-btn" onclick="toggleOpt(this)"><span class="opt-dot"></span>بطاقة Google Business</button>
+          <button class="opt-btn" onclick="toggleOpt(this)"><span class="opt-dot"></span>متجر إلكتروني</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>من أين يأتي معظم عملائك الآن؟</label>
+        <select class="form-select" id="f-source">
+          <option value="" disabled selected>اختر المصدر الرئيسي</option>
+          <option>التوصيات الشخصية</option>
+          <option>إنستغرام أو منصات التواصل</option>
+          <option>البحث في Google</option>
+          <option>الموقع أو المتجر المادي</option>
+          <option>لا أعرف بدقة</option>
+        </select>
+      </div>
+
+      <div class="form-nav">
+        <button class="btn btn-ghost" onclick="prevStep(2)">→ السابق</button>
+        <button class="btn btn-primary" onclick="nextStep(2)">التالي ←</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── STEP 3: Pain points ─── -->
+  <div class="step-screen" id="step3">
+    <div class="form-card">
+      <h2>أين تشعر بأكبر تحدٍّ؟</h2>
+      <div class="card-sub">اختر ما يمثّل واقعك الآن (يمكن اختيار أكثر من واحد)</div>
+
+      <div class="form-group">
+        <div class="option-grid" id="painGrid">
+          <button class="opt-btn" onclick="toggleOpt(this)"><span class="opt-dot"></span>يصعب إيجادنا عبر الإنترنت</button>
+          <button class="opt-btn" onclick="toggleOpt(this)"><span class="opt-dot"></span>الاستفسارات تضيع أو لا تُتابع</button>
+          <button class="opt-btn" onclick="toggleOpt(this)"><span class="opt-dot"></span>لا نعرف أداء مشروعنا بالأرقام</button>
+          <button class="opt-btn" onclick="toggleOpt(this)"><span class="opt-dot"></span>كثير من الوقت يضيع في مهام يدوية</button>
+          <button class="opt-btn" onclick="toggleOpt(this)"><span class="opt-dot"></span>صعوبة متابعة العملاء المحتملين</button>
+          <button class="opt-btn" onclick="toggleOpt(this)"><span class="opt-dot"></span>لا نعرف من أين نبدأ</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>هل جربتم حلولاً رقمية من قبل؟</label>
+        <select class="form-select" id="f-tried">
+          <option value="" disabled selected>اختر</option>
+          <option>لا، هذه أول مرة</option>
+          <option>نعم وما زال يعمل</option>
+          <option>نعم لكنه توقف</option>
+          <option>نعم وكانت تجربة سيئة</option>
+        </select>
+      </div>
+
+      <div class="form-nav">
+        <button class="btn btn-ghost" onclick="prevStep(3)">→ السابق</button>
+        <button class="btn btn-primary" onclick="nextStep(3)">التالي ←</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── STEP 4: Goals & notes ─── -->
+  <div class="step-screen" id="step4">
+    <div class="form-card">
+      <h2>ما الذي تأمل في تحقيقه؟</h2>
+      <div class="card-sub">سؤال أخير — ثم سنرسل لك ملاحظات الكشف</div>
+
+      <div class="form-group">
+        <label>ما الهدف الأساسي الذي تريد تحقيقه؟</label>
+        <div class="option-grid" id="goalGrid">
+          <button class="opt-btn" onclick="toggleOpt(this, true)"><span class="opt-dot"></span>زيادة استفسارات العملاء الجدد</button>
+          <button class="opt-btn" onclick="toggleOpt(this, true)"><span class="opt-dot"></span>تنظيم وتتبع العمليات الداخلية</button>
+          <button class="opt-btn" onclick="toggleOpt(this, true)"><span class="opt-dot"></span>تحسين ظهور المشروع أونلاين</button>
+          <button class="opt-btn" onclick="toggleOpt(this, true)"><span class="opt-dot"></span>قياس الأداء واتخاذ قرارات بالبيانات</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>أي معلومات إضافية تودّ مشاركتها؟ (اختياري)</label>
+        <textarea class="form-textarea" id="f-notes" placeholder="اكتب هنا أي تفاصيل إضافية عن مشروعك أو ما تواجهه..."></textarea>
+      </div>
+
+      <div class="form-nav">
+        <button class="btn btn-ghost" onclick="prevStep(4)">→ السابق</button>
+        <button class="btn btn-primary" onclick="submitForm()">أرسل الخارطة ←</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── RESULT ─── -->
+  <div class="step-screen" id="stepResult">
+    <div class="result-card">
+      <div class="result-icon">✓</div>
+      <h2>شكراً — وصلتنا خارطتك</h2>
+      <p>
+        سنراجع إجاباتك ونرسل لك ملاحظات الكشف الأولية خلال 24–48 ساعة.
+        إذا أردت التحدث معنا مباشرة، يمكنك التواصل عبر واتساب الآن.
+      </p>
+      <div class="result-actions">
+        <!-- ⚠️ استبدل الرقم برقمك الفعلي -->
+        <a href="https://wa.me/966553353448?text=أرسلت%20خارطة%20كامن%20للنمو%20وأريد%20التحدث%20معكم"
+           target="_blank" rel="noopener" class="btn btn-wa">
+          أرسل نتيجتي عبر واتساب
+        </a>
+        <a href="index.html" class="btn btn-ghost">العودة إلى كامن</a>
+      </div>
+      <div class="info-box">
+        💡 خطوتك التالية: انتظر ملاحظات الكشف، ثم نتفق معًا على خطوة التشخيص المنظم إن كانت هناك فرصة واضحة.
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+  let currentStep = 1;
+  const totalSteps = 4;
+
+  function updateBar(step) {
+    for (let i = 1; i <= totalSteps; i++) {
+      const dot  = document.getElementById('sd' + i);
+      const line = document.getElementById('sl' + i);
+      if (i < step)       { dot.className = 'step-dot done'; }
+      else if (i === step){ dot.className = 'step-dot active'; }
+      else                { dot.className = 'step-dot'; }
+      if (line && i < step) line.className = 'step-line done';
+      else if (line)        line.className = 'step-line';
+    }
+  }
+
+  function nextStep(from) {
+    // Basic validation for step 1
+    if (from === 1) {
+      const name = document.getElementById('f-name').value.trim();
+      const biz  = document.getElementById('f-biz').value.trim();
+      const sec  = document.getElementById('f-sector').value;
+      if (!name || !biz || !sec) {
+        alert('يرجى ملء الحقول المطلوبة (*)');
+        return;
+      }
+    }
+    document.getElementById('step' + from).classList.remove('active');
+    currentStep = from + 1;
+    const nextId = currentStep <= totalSteps ? 'step' + currentStep : 'stepResult';
+    document.getElementById(nextId).classList.add('active');
+    updateBar(currentStep);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function prevStep(from) {
+    document.getElementById('step' + from).classList.remove('active');
+    currentStep = from - 1;
+    document.getElementById('step' + currentStep).classList.add('active');
+    updateBar(currentStep);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleOpt(btn, single) {
+    const grid = btn.parentElement;
+    if (single) {
+      grid.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
+    }
+    btn.classList.toggle('selected');
+  }
+
+  function submitForm() {
+    /*
+      TODO: اربط هذا بـ Formspree أو Google Forms أو أي backend عند الجاهزية.
+      الآن يعرض شاشة النجاح مباشرة.
+    */
+    document.getElementById('step4').classList.remove('active');
+    document.getElementById('stepResult').classList.add('active');
+    // Hide steps bar on result
+    document.getElementById('stepsBar').style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>

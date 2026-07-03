@@ -1,825 +1,1211 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>كامن™ — وكالة تمكين ونمو رقمي للمنشآت الصغيرة والمتوسطة</title>
-  <meta name="description" content="كامن وكالة تمكين ونمو رقمي تساعد المنشآت الصغيرة والمتوسطة على اكتشاف الفرص الكامنة داخل مشاريعها وتحويلها إلى حلول رقمية عملية ومؤتمتة تزيد الظهور، تنظّم استقبال العملاء، وتحسّن فرص البيع والقياس.">
-  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>كامن KAMEN™ — اكتشف فرص النمو في مشروعك</title>
+  <meta name="description" content="كامن تساعد المنشآت الصغيرة والمتوسطة على كشف الفرص غير المستغلة وبناء مقر رقمي وقنوات استقبال وقياس تجعل النمو أوضح وأقرب للتنفيذ.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Montserrat:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700;800&family=Almarai:wght@400;500;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --ink:#1A1C20; --ink-soft:#43474E; --muted:#6B7079;
-      --bg:#F4F0E8; --beige:#E9E2D3; --dark:#0E1119; --dark-2:#141B2A;
-      --teal:#32BBA9; --teal-2:#5FD4C4; --teal-deep:#1A9485; --terra:#C97B4A;
-      --line:rgba(20,22,26,.12); --line-d:rgba(255,255,255,.13);
-      --r:18px; --r-sm:13px;
-      --shadow:0 18px 44px rgba(20,22,26,.10);
-      --shadow-d:0 26px 60px rgba(0,0,0,.45);
-    }
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:'Almarai',-apple-system,Tahoma,Arial,sans-serif;
-      background:var(--bg);color:var(--ink);line-height:1.85;font-size:1rem;
-      overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
-    }
-    .wrap{max-width:1040px;margin:0 auto;padding:0 1.5rem}
-    .section{padding:clamp(3.5rem,7vw,5.5rem) 0}
-    .section-sm{padding:clamp(2rem,4vw,2.6rem) 0}
-
-    /* backgrounds */
-    .s-beige{background:var(--beige)}
-    .s-dark{background:var(--dark);color:#fff}
-
-    /* typography */
-    h1{font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:800;letter-spacing:-.02em;
-       font-size:clamp(2.15rem,5.2vw,3.05rem);line-height:1.22}
-    .h2{font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:800;letter-spacing:-.015em;
-        font-size:clamp(1.7rem,3.6vw,2.2rem);line-height:1.3;margin-bottom:.7rem}
-    .eyebrow{font-family:'IBM Plex Sans Arabic',sans-serif;font-size:.82rem;font-weight:700;
-        letter-spacing:0;color:#A8551F;
-        display:flex;align-items:center;gap:.5rem;margin-bottom:1.1rem}
-    .eyebrow b{font-family:'IBM Plex Mono',monospace;color:var(--teal);font-weight:600}
-    .s-dark .eyebrow{color:#E6975F}
-    .lead{font-size:1.08rem;color:var(--ink-soft);max-width:44rem;line-height:1.9}
-    .s-dark .lead{color:#C3C8D0}
-    .head{max-width:46rem;margin-bottom:2.6rem}
-    p+p{margin-top:.85rem}
-
-    /* grids & cards */
-    .grid{display:grid;gap:1.1rem}
-    .c2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-    .c3{grid-template-columns:repeat(auto-fit,minmax(248px,1fr))}
-    .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.65rem;
-          display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease}
-    .card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-    .card-title{font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:800;font-size:1.12rem;
-          line-height:1.4;margin-bottom:.4rem}
-    .card p{font-size:.92rem;color:var(--muted);line-height:1.75}
-    .ghost{background:rgba(255,255,255,.05);border:1px solid var(--line-d);color:#fff}
-    .ghost p{color:#AAB0B9}
-
-    /* number badge */
-    .badge{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:1.05rem;
-        width:2.6rem;height:2.6rem;border-radius:50%;display:flex;align-items:center;justify-content:center;
-        flex:0 0 auto;background:rgba(50,187,169,.12);color:var(--teal-deep);margin-bottom:1rem}
-    .ghost .badge{background:rgba(95,212,196,.16);color:var(--teal-2)}
-    .badge-fill{background:linear-gradient(135deg,var(--teal),var(--teal-deep));color:#08110F}
-
-    /* buttons */
-    .btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--teal);color:#08110F;
-        font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:800;font-size:.97rem;
-        padding:1rem 1.7rem;border-radius:13px;text-decoration:none;
-        transition:transform .16s ease,box-shadow .16s ease}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(50,187,169,.4)}
-    .btn-sm{padding:.6rem 1.15rem;font-size:.82rem;border-radius:99px}
-    .btn-ghost{background:transparent;border:2px solid var(--teal);color:var(--teal-2)}
-    .btn-ghost:hover{background:rgba(50,187,169,.08);box-shadow:0 8px 24px rgba(50,187,169,.2)}
-    .cta-sub{font-size:.83rem;color:var(--muted);margin-top:.65rem}
-    .s-dark .cta-sub{color:#AAB0B9}
-
-    /* nav */
-    nav{position:sticky;top:0;z-index:60;background:rgba(14,17,25,.9);
-        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-        border-bottom:1px solid var(--line-d)}
-    .nav-in{display:flex;align-items:center;justify-content:space-between;
-        padding:.85rem 1.5rem;max-width:1040px;margin:0 auto}
-    .brand{display:flex;align-items:center;gap:.55rem;color:#fff;
-        font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:800;font-size:1.12rem}
-    .brand small{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:.7rem;
-        letter-spacing:.04em;color:#8F949D}
-
-    /* hero */
-    .hero{position:relative;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:0;opacity:.6;
-        background:radial-gradient(circle at 16% 18%,rgba(50,187,169,.2),transparent 42%),
-                   radial-gradient(circle at 88% 72%,rgba(201,123,74,.14),transparent 46%)}
-    .hero-grid{position:relative;z-index:1;display:grid;gap:2.4rem;align-items:center;
-        grid-template-columns:1.15fr .85fr}
-    @media(max-width:820px){.hero-grid{grid-template-columns:1fr}}
-
-    /* phone mockup */
-    .pv{display:flex;flex-direction:column;align-items:center;gap:.9rem}
-    .phone{width:min(280px,80vw);background:#0D0F12;border:1px solid rgba(255,255,255,.14);
-        border-radius:30px;padding:.7rem;box-shadow:var(--shadow-d)}
-    .phone-scr{background:#F1F3F4;border-radius:22px;padding:.9rem .8rem;overflow:hidden}
-    .gmaps-bar{display:flex;align-items:center;gap:.5rem;background:#fff;border:1px solid #E4E6E8;
-        border-radius:99px;padding:.5rem .85rem;margin-bottom:.85rem;box-shadow:0 1px 5px rgba(0,0,0,.08)}
-    .glogo{font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:800;font-size:.82rem;letter-spacing:-.02em}
-    .gq{flex:1;font-size:.74rem;color:#5F6368;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .gmag{font-size:.78rem;color:#4285F4;flex:0 0 auto}
-    .ph-res{display:flex;align-items:flex-start;gap:.7rem;background:#fff;border:1px solid #E4E6E8;
-        border-radius:13px;padding:.7rem .75rem;margin-bottom:.5rem}
-    .ph-res.top{border-color:var(--teal);box-shadow:0 6px 18px rgba(50,187,169,.2)}
-    .ph-res .ic{width:2rem;height:2rem;border-radius:8px;flex:0 0 auto;display:flex;
-        align-items:center;justify-content:center;background:rgba(50,187,169,.14);font-size:.95rem}
-    .ph-res.dim{opacity:.7}
-    .ph-res.dim .ic{background:rgba(20,22,26,.06)}
-    .rinfo{display:flex;flex-direction:column;gap:.12rem;min-width:0}
-    .ph-res b{font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:800;font-size:.9rem;color:#202124}
-    .ph-res small{font-size:.7rem;color:#5F6368}
-    .stars{font-size:.72rem;color:#FBBC05;letter-spacing:.5px}
-    .stars i{font-style:normal;color:#3C4043;font-weight:700;font-family:'IBM Plex Mono',monospace;letter-spacing:0}
-    .stars u{text-decoration:none;color:#9AA0A6}
-    .pv-cap{font-size:.88rem;color:#AAB0B9}
-    .pv-cap b{color:#fff;font-weight:800;font-family:'IBM Plex Sans Arabic',sans-serif}
-
-    /* quote bar */
-    .quote{border-inline-start:3px solid var(--teal);padding-inline-start:1.1rem;margin-top:1.7rem}
-    .quote p{margin:0}
-    .quote .q1{color:#C3C8D0;font-size:.95rem}
-    .quote .q2{color:#fff;font-weight:800;font-size:1.1rem;margin-top:.3rem;
-        font-family:'IBM Plex Sans Arabic',sans-serif}
-
-    /* compare cols */
-    .cmp{border-radius:var(--r);padding:1.65rem}
-    .cmp-head{font-family:'IBM Plex Mono',monospace;font-size:.72rem;margin-bottom:1rem}
-    .cmp-row{display:flex;align-items:center;gap:.6rem;font-size:1rem;padding:.15rem 0}
-    .strike{color:#AEB3BC;text-decoration:line-through}
-    .yes{font-weight:800;font-family:'IBM Plex Sans Arabic',sans-serif}
-    .yes .ck{color:var(--teal);font-weight:800}
-
-    /* flow row */
-    .flow{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
-    .flow .card{padding:1.25rem 1.1rem;align-items:flex-start}
-    .flow .badge{width:2.3rem;height:2.3rem;font-size:.95rem;margin-bottom:.8rem}
-    .flow .t{font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:800;font-size:.97rem;margin-bottom:.2rem}
-    .flow .d{font-size:.8rem;color:var(--muted);line-height:1.6}
-    .ghost .d{color:#AAB0B9}
-
-    /* before / after */
-    .ba{display:flex;flex-direction:column;gap:.55rem}
-    .ba-head,.ba-row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;direction:ltr}
-    .ba-h,.ba-c{direction:rtl}
-    .ba-h{font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:800;font-size:1.06rem;
-        padding:.85rem 1.15rem;border-radius:12px;display:flex;align-items:center;gap:.5rem}
-    .ba-c{padding:1rem 1.15rem;border-radius:12px;font-size:.96rem;line-height:1.6;
-        display:flex;gap:.6rem;align-items:flex-start}
-    .ba .bad{background:#FBE9E3;border:1px solid #F1CDC1;color:#9C3E2C}
-    .ba .good{background:#E2F4EE;border:1px solid #BFE6DA;color:#1C6E5A}
-    .ba-c .x{color:#D2553F;font-weight:800;flex:0 0 auto}
-    .ba-c .v{color:var(--teal-deep);font-weight:800;flex:0 0 auto}
-    .ba .mini{display:none}
-    @media(max-width:700px){
-      .ba-head{display:none}
-      .ba-row{grid-template-columns:1fr;gap:.5rem}
-      .ba .mini{display:block;font-weight:800;font-size:.72rem;opacity:.75;margin-bottom:.15rem}
+    /* ─── Brand Tokens ─── */
+    :root {
+      --navy:        #161D2D;
+      --navy-2:      #1A2235;
+      --navy-3:      #1E2840;
+      --navy-card:   #1B2238;
+      --teal:        #32BBA9;
+      --teal-dim:    rgba(50,187,169,0.12);
+      --teal-border: rgba(50,187,169,0.25);
+      --gold:        #E6C57A;
+      --gold-dim:    rgba(230,197,122,0.12);
+      --gold-border: rgba(230,197,122,0.28);
+      --text:        #E4EAF4;
+      --text-2:      #A8B8CC;
+      --text-3:      #60768E;
+      --border:      rgba(50,187,169,0.18);
+      --border-2:    rgba(255,255,255,0.07);
+      --r-sm:        8px;
+      --r:           14px;
+      --r-lg:        22px;
+      --max-w:       1080px;
+      --ease:        0.22s ease;
     }
 
-    /* pills */
-    .pills{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:1.6rem}
-    .pill{font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:800;font-size:.84rem;
-        background:var(--dark);color:var(--teal-2);border-radius:99px;padding:.45rem 1.05rem}
-    .pill-soft{background:rgba(255,255,255,.06);color:#C3C8D0;border:1px solid var(--line-d);font-weight:700}
+    /* ─── Reset ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      direction: rtl;
+      text-align: right;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
 
-    /* icon badge (trust cards) */
-    .iconb{width:3rem;height:3rem;border-radius:14px;display:flex;align-items:center;justify-content:center;
-        font-size:1.3rem;background:linear-gradient(135deg,var(--teal),var(--terra));margin-bottom:.9rem}
+    /* ─── Type ─── */
+    h1, h2, h3, h4 { font-family: 'Reem Kufi', sans-serif; line-height: 1.3; }
+    h1 { font-size: clamp(2rem, 5.5vw, 3.4rem); font-weight: 700; }
+    h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 600; }
+    h3 { font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 500; }
+    p  { color: var(--text-2); }
 
-    /* timeline */
-    .tl{position:relative;padding-inline-start:2.4rem}
-    .tl::before{content:"";position:absolute;inset-inline-start:.85rem;top:.4rem;bottom:.4rem;width:2px;
-        background:repeating-linear-gradient(180deg,var(--teal) 0 5px,transparent 5px 10px)}
-    .tl-item{position:relative;padding-bottom:1.8rem}
-    .tl-item:last-child{padding-bottom:0}
-    .tl-num{position:absolute;inset-inline-start:-2.4rem;top:-.15rem;width:1.75rem;height:1.75rem;
-        border-radius:50%;background:var(--dark);color:var(--teal-2);font-family:'IBM Plex Mono',monospace;
-        font-size:.78rem;display:flex;align-items:center;justify-content:center}
-    .tl-item h4{font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:800;font-size:1.02rem;margin-bottom:.25rem}
-    .tl-item p{font-size:.9rem;color:var(--muted)}
+    /* ─── Layout ─── */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .section    { padding: 80px 0; }
+    .section-alt{ background: var(--navy-2); }
 
-    /* kamen method cards */
-    .method-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-    .method-card{background:var(--dark-2);border:1px solid var(--line-d);border-radius:var(--r);
-        padding:1.5rem;display:flex;flex-direction:column;gap:.6rem}
-    .method-letter{font-family:'Tajawal',sans-serif;font-weight:900;font-size:2.4rem;
-        color:var(--teal);line-height:1}
-    .method-title{font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:800;font-size:1rem;color:#fff}
-    .method-desc{font-size:.88rem;color:#9AA4B4;line-height:1.7}
+    .section-label {
+      display: inline-block;
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+    .divider {
+      width: 40px; height: 2px;
+      background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+      margin-bottom: 18px;
+    }
+    .section-title { color: var(--text); margin-bottom: 14px; }
+    .section-sub   { max-width: 660px; font-size: 1.05rem; line-height: 1.8; margin-bottom: 44px; }
 
-    /* axiom / rule block */
-    .axiom{background:var(--dark-2);border:1px solid var(--line-d);border-radius:var(--r);
-        padding:2rem 1.8rem;margin-top:2rem}
-    .axiom-items{display:flex;flex-direction:column;gap:.7rem;margin-top:1rem}
-    .axiom-row{display:flex;align-items:flex-start;gap:.75rem;font-size:.95rem;color:#C3C8D0}
-    .axiom-row .no{color:#D2553F;font-weight:800;font-family:'IBM Plex Mono',monospace;flex:0 0 auto}
+    /* ─── Buttons ─── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: var(--r);
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 0.97rem;
+      font-weight: 600;
+      transition: var(--ease);
+      white-space: nowrap;
+    }
+    .btn-primary  { background: var(--teal); color: var(--navy); }
+    .btn-primary:hover { background: #3DCCBA; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(50,187,169,0.25); }
+    .btn-secondary{ border: 1.5px solid var(--border); color: var(--text); }
+    .btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+    .btn-wa       { background: #25D366; color: #fff; }
+    .btn-wa:hover { background: #20BD5A; }
 
-    /* phases */
-    .phases{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
-    .phase{border-radius:var(--r-sm);padding:1.3rem 1.2rem;border:1px solid var(--line)}
-    .phase-num{font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:600;
-        color:var(--teal);margin-bottom:.4rem}
-    .phase-title{font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:800;font-size:1rem;margin-bottom:.3rem}
-    .phase-desc{font-size:.85rem;color:var(--muted);line-height:1.65}
+    /* ─── HEADER ─── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(22,29,45,0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-2);
+      transition: border-color 0.3s;
+    }
+    header.scrolled { border-bottom-color: var(--border); }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+    .logo-link { display: flex; align-items: center; }
+    .logo-link img { height: 38px; width: auto; }
+    .logo-mark-fallback {
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--teal);
+    }
 
-    /* packages */
-    .pkgs{display:grid;gap:1.1rem;grid-template-columns:repeat(3,1fr)}
-    @media(max-width:820px){.pkgs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;
-        margin:0 -1.5rem;padding:.4rem 1.5rem 1rem;-webkit-overflow-scrolling:touch}
-      .pkg{flex:0 0 84%;max-width:320px;scroll-snap-align:center}}
-    .pkg{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:1.7rem 1.5rem;position:relative}
-    .pkg.feat{border:2px solid var(--teal)}
-    .pkg-tag{position:absolute;top:-.75rem;inset-inline-start:1.3rem;background:var(--teal);color:#08110F;
-        font-size:.68rem;font-weight:800;padding:.28rem .7rem;border-radius:99px;
-        font-family:'IBM Plex Sans Arabic',sans-serif}
-    .pkg-name{font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:800;font-size:1.22rem;margin-bottom:.2rem}
-    .pkg-sub{font-size:.82rem;color:var(--muted);margin-bottom:1.2rem;min-height:2.4em}
-    .pkg ul{list-style:none;display:flex;flex-direction:column;gap:.7rem}
-    .pkg li{display:flex;align-items:flex-start;gap:.55rem;font-size:.9rem}
-    .pkg li .ck{color:var(--teal);font-weight:800;flex:0 0 auto}
-    .pkg li.off{color:#AEB3BC}
-    .pkg li.off .ck{color:#C6CAD0}
-    .pkg li.rep{margin-top:.4rem;padding-top:.8rem;border-top:1px dashed var(--line);color:var(--ink-soft);font-weight:700}
-    .pkg li.rep .ck{color:var(--terra)}
-    .pkg-price{font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:800;font-size:1.65rem;
-        color:var(--ink);line-height:1.1;margin-bottom:.5rem}
-    .pkg-price span{font-size:.82rem;font-weight:700;color:var(--muted)}
-    .feat .pkg-price{color:var(--teal-deep)}
-    /* trial banner */
-    .trial{display:flex;align-items:center;gap:1.2rem;margin-bottom:1.5rem;border-radius:var(--r);
-        padding:1.5rem 1.7rem;background:linear-gradient(135deg,#C97B4A,#A8551F);color:#fff;
-        box-shadow:0 16px 40px rgba(168,85,31,.28)}
-    .trial-star{font-size:2.2rem;line-height:1;color:#FFE3CC;flex:0 0 auto}
-    .trial-title{font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:800;font-size:1.22rem;margin-bottom:.2rem}
-    .trial-text{font-size:.96rem;color:#FBEADF;line-height:1.7;margin:0}
-    .trial-text b{color:#fff;font-weight:800}
+    /* Desktop Nav */
+    .nav-desktop {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .nav-item { position: relative; }
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 7px 13px;
+      border-radius: var(--r-sm);
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-2);
+      transition: var(--ease);
+      cursor: pointer;
+      user-select: none;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--teal); background: var(--teal-dim); }
+    .nav-chevron {
+      width: 13px; height: 13px;
+      fill: none; stroke: currentColor; stroke-width: 1.8;
+      stroke-linecap: round;
+      transition: transform 0.2s;
+    }
+    .nav-item:hover .nav-chevron { transform: rotate(180deg); }
 
-    /* faq */
-    details{background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);padding:0 1.4rem;margin-bottom:.75rem}
-    summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;cursor:pointer;
-        list-style:none;padding:1.15rem 0;font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:800;font-size:1rem}
-    summary::-webkit-details-marker{display:none}
-    .faq-plus{color:var(--teal);font-size:1.4rem;font-weight:800;transition:transform .2s ease;flex:0 0 auto}
-    details[open] .faq-plus{transform:rotate(45deg)}
-    details p{font-size:.92rem;color:var(--muted);padding-bottom:1.15rem}
+    /* Dropdown */
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      min-width: 210px;
+      background: var(--navy-3);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 6px;
+      box-shadow: 0 18px 48px rgba(0,0,0,0.35);
+      z-index: 200;
+    }
+    .nav-item:hover .dropdown { display: block; }
+    .dropdown a {
+      display: block;
+      padding: 9px 13px;
+      border-radius: var(--r-sm);
+      font-size: 0.88rem;
+      color: var(--text-2);
+      transition: var(--ease);
+    }
+    .dropdown a:hover { background: var(--teal-dim); color: var(--teal); }
 
-    /* demo section */
-    .demo-label{display:inline-flex;align-items:center;gap:.5rem;background:rgba(50,187,169,.1);
-        border:1px solid rgba(50,187,169,.3);border-radius:99px;padding:.35rem 1rem;
-        font-size:.8rem;font-weight:700;color:var(--teal);margin-bottom:1rem;font-family:'IBM Plex Sans Arabic',sans-serif}
+    .nav-cta {
+      background: var(--teal);
+      color: var(--navy) !important;
+      padding: 8px 18px;
+      border-radius: var(--r);
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-right: 6px;
+      transition: var(--ease);
+    }
+    .nav-cta:hover { background: #3DCCBA !important; }
 
-    /* center block */
-    .center{text-align:center;max-width:42rem;margin:0 auto}
-    .center .lead{margin:0 auto 1.8rem}
-    footer{background:var(--dark);color:#8F949D;text-align:center;
-        border-top:1px solid var(--line-d)}
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: var(--ease);
+    }
+
+    /* ─── MOBILE NAV OVERLAY ─── */
+    .nav-overlay {
+      display: none;
+      position: fixed; inset: 0; z-index: 300;
+      background: var(--navy);
+      flex-direction: column;
+      padding: 24px;
+      overflow-y: auto;
+    }
+    .nav-overlay.open { display: flex; }
+    .mob-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+    .mob-head img { height: 34px; }
+    .mob-close {
+      width: 38px; height: 38px;
+      border: 1px solid var(--border-2);
+      border-radius: 50%;
+      color: var(--text-2);
+      font-size: 1.3rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+    }
+    .mob-nav-item {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border-2);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .mob-sub {
+      padding: 4px 0 4px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .mob-sub a {
+      padding: 10px 16px;
+      font-size: 0.9rem;
+      color: var(--text-2);
+      border-bottom: 1px solid var(--border-2);
+    }
+    .mob-sub a:last-child { border-bottom: none; }
+    .mob-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .mob-ctas .btn { justify-content: center; }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 96px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -120px; right: -80px;
+      width: 560px; height: 560px;
+      background: radial-gradient(circle, rgba(50,187,169,0.055) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 14px;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      border-radius: 100px;
+      font-size: 0.82rem;
+      color: var(--gold);
+      margin-bottom: 22px;
+    }
+    .hero-badge .dot {
+      width: 7px; height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .hero h1 {
+      max-width: 700px;
+      margin-bottom: 22px;
+      position: relative; z-index: 1;
+    }
+    .hero h1 em { font-style: normal; color: var(--teal); }
+    .hero .lead {
+      font-size: 1.1rem;
+      max-width: 590px;
+      margin-bottom: 38px;
+      line-height: 1.85;
+      position: relative; z-index: 1;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 56px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-2);
+    }
+    .stat-num {
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label { font-size: 0.82rem; color: var(--text-3); }
+
+    /* ─── VIDEO / HOW WE WORK ─── */
+    .video-section { background: var(--navy-2); padding: 80px 0; }
+    .video-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .video-frame {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      aspect-ratio: 9/16;
+      max-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .video-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 14px; padding: 32px;
+      background: linear-gradient(160deg, var(--navy-card) 0%, var(--navy-3) 100%);
+      width: 100%; height: 100%;
+    }
+    .play-ring {
+      width: 56px; height: 56px;
+      border: 1.5px solid var(--teal);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--teal); font-size: 1.4rem;
+    }
+    .video-placeholder p { font-size: 0.82rem; color: var(--text-3); text-align: center; }
+    .video-placeholder small { font-size: 0.72rem; color: var(--text-3); opacity: 0.6; }
+
+    .steps-list { display: flex; flex-direction: column; gap: 18px; margin-top: 28px; }
+    .step-row { display: flex; align-items: flex-start; gap: 13px; }
+    .step-letter {
+      flex-shrink: 0;
+      width: 34px; height: 34px;
+      background: var(--teal-dim);
+      border: 1px solid var(--teal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 0.88rem; font-weight: 700;
+      color: var(--teal);
+    }
+    .step-info h4 { color: var(--text); font-size: 0.93rem; margin-bottom: 2px; }
+    .step-info p  { font-size: 0.85rem; color: var(--text-3); margin: 0; }
+
+    /* ─── METHODOLOGY ─── */
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .method-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border-2);
+      border-radius: var(--r);
+      padding: 26px 24px;
+      transition: var(--ease);
+    }
+    .method-card:hover { border-color: var(--border); }
+    .method-letter {
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 2.6rem; font-weight: 700;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .method-title { font-size: 1rem; color: var(--text); margin-bottom: 8px; font-family: 'Reem Kufi', sans-serif; }
+    .method-desc  { font-size: 0.88rem; color: var(--text-3); line-height: 1.7; }
+
+    /* ─── ACCORDION ─── */
+    .accordion-wrap { display: flex; flex-direction: column; gap: 10px; }
+    .acc {
+      border: 1px solid var(--border-2);
+      border-radius: var(--r);
+      overflow: hidden;
+      transition: border-color var(--ease);
+    }
+    .acc.open { border-color: var(--border); }
+    .acc-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px;
+      background: var(--navy-card);
+      color: var(--text);
+      text-align: right;
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 0.97rem; font-weight: 500;
+      cursor: pointer;
+      transition: background var(--ease);
+      gap: 12px;
+    }
+    .acc-trigger:hover { background: var(--navy-3); }
+    .acc-plus {
+      flex-shrink: 0;
+      font-size: 1.3rem;
+      color: var(--teal);
+      transition: transform 0.22s;
+      line-height: 1;
+    }
+    .acc.open .acc-plus { transform: rotate(45deg); }
+    .acc-body {
+      display: none;
+      padding: 0 22px 20px;
+      background: var(--navy-card);
+    }
+    .acc.open .acc-body { display: block; }
+    .acc-body p { font-size: 0.92rem; color: var(--text-2); line-height: 1.75; }
+    .acc-body p + p { margin-top: 10px; }
+    .acc-body a { color: var(--teal); }
+
+    /* ─── PATHS ─── */
+    .paths-alert {
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--r);
+      padding: 14px 20px;
+      font-size: 0.88rem;
+      color: var(--gold);
+      margin-bottom: 30px;
+    }
+    .paths-track {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .paths-track::before {
+      content: '';
+      position: absolute;
+      top: 24px; right: 22px;
+      width: 2px;
+      height: calc(100% - 48px);
+      background: linear-gradient(to bottom, var(--teal), rgba(50,187,169,0.1));
+    }
+    .path-row {
+      display: flex;
+      gap: 20px;
+      padding: 22px 0;
+    }
+    .path-num {
+      flex-shrink: 0;
+      width: 46px; height: 46px;
+      border: 2px solid var(--teal);
+      border-radius: 50%;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 1rem; font-weight: 700;
+      color: var(--teal);
+      position: relative; z-index: 1;
+    }
+    .path-body {}
+    .path-name {
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+    .path-desc { font-size: 0.9rem; color: var(--text-2); line-height: 1.7; margin-bottom: 8px; }
+    .path-tag {
+      display: inline-block;
+      padding: 3px 12px;
+      background: var(--teal-dim);
+      border: 1px solid var(--teal-border);
+      border-radius: 100px;
+      font-size: 0.78rem;
+      color: var(--teal);
+      margin-bottom: 6px;
+    }
+    .path-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.85rem;
+      color: var(--teal);
+      margin-top: 4px;
+    }
+    .paths-note {
+      margin-top: 20px;
+      padding: 14px 20px;
+      background: var(--navy-card);
+      border: 1px solid var(--border-2);
+      border-radius: var(--r);
+      font-size: 0.85rem;
+      color: var(--text-3);
+    }
+
+    /* ─── SERVICES ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px;
+    }
+    .svc-card {
+      background: var(--navy-card);
+      border: 1px solid var(--border-2);
+      border-radius: var(--r);
+      padding: 22px;
+      transition: var(--ease);
+    }
+    .svc-card:hover { border-color: var(--border); transform: translateY(-2px); }
+    .svc-icon { font-size: 1.6rem; margin-bottom: 12px; }
+    .svc-name { font-family: 'Reem Kufi', sans-serif; font-size: 0.97rem; color: var(--text); margin-bottom: 7px; }
+    .svc-desc { font-size: 0.83rem; color: var(--text-3); line-height: 1.65; }
+    .svc-cta-card {
+      background: var(--teal-dim);
+      border: 1px solid var(--teal-border);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; gap: 12px;
+    }
+    .svc-cta-card .svc-name { color: var(--teal); }
+
+    /* ─── DEMO TEASER ─── */
+    .demo-teaser {
+      text-align: center;
+      padding: 80px 0;
+      background: var(--navy-3);
+    }
+    .demo-teaser .section-label { display: block; }
+    .demo-teaser .divider { margin: 12px auto 20px; }
+    .demo-teaser .section-sub { margin: 0 auto 32px; }
+
+    /* ─── CTA BANNER ─── */
+    .cta-banner {
+      padding: 96px 0;
+      background: var(--navy-2);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px; height: 300px;
+      background: radial-gradient(ellipse, rgba(50,187,169,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-banner h2 { margin-bottom: 14px; }
+    .cta-banner p  { margin: 0 auto 36px; max-width: 500px; }
+    .cta-actions   { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+    /* ─── FAQ ─── */
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy-2);
+      border-top: 1px solid var(--border-2);
+      padding: 48px 0 24px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 40px;
+    }
+    .footer-brand p { color: var(--text-3); font-size: 0.88rem; margin-top: 14px; max-width: 270px; line-height: 1.75; }
+    .footer-col h4 {
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 0.88rem; color: var(--text);
+      margin-bottom: 14px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-links a { font-size: 0.86rem; color: var(--text-3); transition: color var(--ease); }
+    .footer-links a:hover { color: var(--teal); }
+    .footer-wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      margin-top: 14px;
+      background: rgba(37,211,102,0.1);
+      border: 1px solid rgba(37,211,102,0.2);
+      border-radius: 100px;
+      color: #4be483;
+      font-size: 0.83rem;
+      transition: var(--ease);
+    }
+    .footer-wa-btn:hover { background: rgba(37,211,102,0.18); }
+    .footer-bottom {
+      border-top: 1px solid var(--border-2);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-bottom p { font-size: 0.8rem; color: var(--text-3); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .nav-desktop { display: none; }
+      .hamburger   { display: flex; }
+      .section     { padding: 60px 0; }
+      .hero        { padding: 72px 0 60px; }
+      .video-layout{ grid-template-columns: 1fr; gap: 36px; }
+      .video-frame { max-height: 340px; }
+      .method-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .hero-stats  { gap: 28px; }
+    }
+    @media (max-width: 480px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .paths-track::before { display: none; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- ===== Nav ===== -->
-  <nav>
-    <div class="nav-in">
-      <div class="brand" style="gap:.75rem">
-        <img src="assets/symbol_transparent.png" alt="كامن" style="width:38px;height:38px;display:block;object-fit:contain;filter:drop-shadow(0 0 8px rgba(50,187,169,.3))">
-        <div style="display:flex;flex-direction:column;line-height:1;gap:.3rem">
-          <span style="font-family:'Tajawal',sans-serif;font-weight:800;font-size:1.12rem;letter-spacing:.01em;color:#fff">كامن</span>
-          <span dir="ltr" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:.52rem;letter-spacing:.42em;color:#5C6677">KAMEN™</span>
+<!-- ━━━ HEADER ━━━ -->
+<header id="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <!-- Logo (right in RTL) -->
+      <a href="index.html" class="logo-link">
+        <img src="project/assets/logo-full.png" alt="كامن KAMEN™"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <span class="logo-mark-fallback" style="display:none">KAMEN™</span>
+      </a>
+
+      <!-- Desktop Nav (left in RTL) -->
+      <nav class="nav-desktop" aria-label="القائمة الرئيسية">
+        <a href="index.html" class="nav-link active">الرئيسية</a>
+
+        <div class="nav-item">
+          <span class="nav-link" tabindex="0">
+            كيف نعمل؟
+            <svg class="nav-chevron" viewBox="0 0 14 14"><path d="M3 5l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div class="dropdown" role="menu">
+            <a href="#methodology" role="menuitem">منهجية كامن</a>
+            <a href="#digital-hq"  role="menuitem">المقر الرقمي</a>
+            <a href="#paths"       role="menuitem">مراحل التنفيذ</a>
+            <a href="#why-no-promises" role="menuitem">لماذا لا نبيع وعود النمو؟</a>
+          </div>
         </div>
-      </div>
-      <a class="btn btn-sm" href="https://wa.me/966553353448?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20%F0%9F%91%8B%0A%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A8%D8%AF%D8%A1%20%D8%AE%D8%A7%D8%B1%D8%B7%D8%A9%20%D9%83%D8%A7%D9%85%D9%86%20%D9%84%D9%84%D9%86%D9%85%D9%88.%0A%D8%A8%D8%A7%D9%86%D8%AA%D8%B8%D8%A7%D8%B1%D9%83%D9%85%20%F0%9F%8C%BF" target="_blank" rel="noopener">ابدأ خارطة كامن للنمو</a>
+
+        <div class="nav-item">
+          <span class="nav-link" tabindex="0">
+            الحلول
+            <svg class="nav-chevron" viewBox="0 0 14 14"><path d="M3 5l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div class="dropdown" role="menu">
+            <a href="#services" role="menuitem">ظهور وثقة</a>
+            <a href="#services" role="menuitem">استقبال وتنظيم</a>
+            <a href="#services" role="menuitem">CRM ومتابعة</a>
+            <a href="#services" role="menuitem">تقارير وقياس</a>
+            <a href="#services" role="menuitem">أتمتة</a>
+          </div>
+        </div>
+
+        <a href="demo.html" class="nav-link">نموذج حي</a>
+        <a href="growth-map.html" class="nav-cta">ابدأ خارطة النمو</a>
+      </nav>
+
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" id="menuBtn" aria-label="فتح القائمة" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-  </nav>
+  </div>
+</header>
 
-  <!-- ===== Hero ===== -->
-  <header class="hero s-dark section">
-    <div class="wrap hero-grid">
+<!-- ━━━ MOBILE NAV OVERLAY ━━━ -->
+<div class="nav-overlay" id="mobileNav" role="dialog" aria-label="القائمة">
+  <div class="mob-head">
+    <img src="project/assets/logo-full.png" alt="كامن"
+         onerror="this.style.display='none'">
+    <button class="mob-close" id="mobileClose" aria-label="إغلاق">×</button>
+  </div>
+  <a href="index.html" class="mob-nav-item">الرئيسية</a>
+  <div class="mob-nav-item">كيف نعمل؟</div>
+  <div class="mob-sub">
+    <a href="#methodology">منهجية كامن</a>
+    <a href="#digital-hq">المقر الرقمي</a>
+    <a href="#paths">مراحل التنفيذ</a>
+    <a href="#why-no-promises">لماذا لا نبيع وعود النمو؟</a>
+  </div>
+  <div class="mob-nav-item">الحلول</div>
+  <div class="mob-sub">
+    <a href="#services">ظهور وثقة</a>
+    <a href="#services">استقبال وتنظيم</a>
+    <a href="#services">CRM ومتابعة</a>
+    <a href="#services">تقارير وقياس</a>
+    <a href="#services">أتمتة</a>
+  </div>
+  <a href="demo.html" class="mob-nav-item">نموذج حي</a>
+  <div class="mob-ctas">
+    <a href="growth-map.html" class="btn btn-primary">ابدأ خارطة كامن للنمو</a>
+    <!-- ⚠️ استبدل الرقم برقمك الفعلي -->
+    <a href="https://wa.me/966553353448" target="_blank" rel="noopener" class="btn btn-wa">تواصل معنا عبر واتساب</a>
+  </div>
+</div>
+
+<!-- ━━━ HERO ━━━ -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      KAMEN™ — من الكامن إلى الممكن
+    </div>
+    <h1>اكتشف أين تضيع <em>فرص النمو</em><br>في مشروعك.</h1>
+    <p class="lead">
+      كامن تساعد المنشآت الصغيرة والمتوسطة على كشف الفرص غير المستغلة وبناء مقر رقمي وقنوات استقبال وقياس تجعل النمو أوضح وأقرب للتنفيذ.
+    </p>
+    <div class="hero-actions">
+      <a href="growth-map.html" class="btn btn-primary">ابدأ خارطة كامن للنمو</a>
+      <a href="demo.html" class="btn btn-secondary">شاهد نموذجًا حيًا</a>
+    </div>
+    <div class="hero-stats">
       <div>
-        <div class="eyebrow"><b>//</b> وكالة تمكين ونمو رقمي — KAMEN™</div>
-        <h1>من الكامن إلى الممكن: <em style="font-style:normal;color:var(--teal-2)">نحوّل مشروعك إلى منظومة رقمية قابلة للنمو.</em></h1>
-        <p class="lead" style="margin-top:1.1rem">كامن تساعد أصحاب المنشآت الصغيرة والمتوسطة على كشف فرص النمو غير المستغلة، ثم تحويلها إلى مقر رقمي، قنوات استقبال منظمة، وأدوات قياس ومتابعة تساعد المشروع على النمو بوضوح لا بتخمين.</p>
-        <div style="margin-top:1.8rem;display:flex;flex-wrap:wrap;align-items:center;gap:.85rem">
-          <a class="btn" href="https://wa.me/966553353448?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20%F0%9F%91%8B%0A%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A8%D8%AF%D8%A1%20%D8%AE%D8%A7%D8%B1%D8%B7%D8%A9%20%D9%83%D8%A7%D9%85%D9%86%20%D9%84%D9%84%D9%86%D9%85%D9%88.%0A%D8%A8%D8%A7%D9%86%D8%AA%D8%B8%D8%A7%D8%B1%D9%83%D9%85%20%F0%9F%8C%BF" target="_blank" rel="noopener">ابدأ خارطة كامن للنمو ←</a>
-          <a class="btn btn-ghost" href="#demo">شاهد نموذجًا حيًا ↓</a>
-        </div>
-        <div style="margin-top:1.2rem;display:flex;gap:1.2rem;flex-wrap:wrap">
-          <span style="font-size:.83rem;color:#C3C8D0;display:flex;align-items:center;gap:.4rem"><span style="color:var(--teal)">✓</span> مجانية وبلا التزام</span>
-          <span style="font-size:.83rem;color:#C3C8D0;display:flex;align-items:center;gap:.4rem"><span style="color:var(--teal)">✓</span> نبدأ التحليل فور تواصلك</span>
+        <div class="stat-num">4</div>
+        <div class="stat-label">مراحل منهجية</div>
+      </div>
+      <div>
+        <div class="stat-num">90</div>
+        <div class="stat-label">يومًا لبرنامج النتائج</div>
+      </div>
+      <div>
+        <div class="stat-num">١</div>
+        <div class="stat-label">فرصة كامنة نبدأ منها</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━ HOW WE WORK — VIDEO ━━━ -->
+<section class="video-section" id="how-we-work">
+  <div class="container">
+    <div class="video-layout">
+      <!-- Video frame — الفيديو يُضاف لاحقاً -->
+      <div class="video-frame">
+        <div class="video-placeholder">
+          <div class="play-ring">▶</div>
+          <p>كامن موشن</p>
         </div>
       </div>
 
-      <!-- phone mockup -->
-      <div class="pv" data-reveal aria-hidden="true">
-        <div class="phone">
-          <div class="phone-scr">
-            <div class="gmaps-bar">
-              <span class="glogo"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span></span>
-              <span class="gq">خدمات ونشاطات قريبة مني</span>
-              <span class="gmag">🔍</span>
+      <!-- Text -->
+      <div>
+        <div class="section-label">كيف تعمل كامن؟</div>
+        <div class="divider"></div>
+        <h2 class="section-title">من الفرصة الكامنة إلى النتيجة الواضحة</h2>
+        <p style="margin-bottom: 6px;">
+          نبدأ من فرصة كامنة، نكشفها، نرتب أثرها، نحوّلها إلى حل عملي ذكي، ثم نقيس ونحسّن النتائج.
+        </p>
+        <div class="steps-list">
+          <div class="step-row">
+            <div class="step-letter">ك</div>
+            <div class="step-info">
+              <h4>كشف واستكشاف</h4>
+              <p>نكشف الفرص والفجوات غير الظاهرة داخل المشروع.</p>
             </div>
-            <div class="ph-res top">
-              <span class="ic">🏢</span>
-              <div class="rinfo">
-                <b>نشاطك</b>
-                <span class="stars">★★★★★ <i>4.9</i> <u>(213)</u></span>
-                <small>نشاط تجاري · يفتح الآن · 1.2 كم</small>
-              </div>
+          </div>
+          <div class="step-row">
+            <div class="step-letter">أ</div>
+            <div class="step-info">
+              <h4>أثر وأولوية</h4>
+              <p>نحدد ما يصنع الفرق أولًا، ونرتب التنفيذ حسب الأثر.</p>
             </div>
-            <div class="ph-res dim">
-              <span class="ic">📍</span>
-              <div class="rinfo"><b>منافس</b><span class="stars">★★★★☆ <i>4.1</i> <u>(48)</u></span><small>مغلق الآن · 3.0 كم</small></div>
+          </div>
+          <div class="step-row">
+            <div class="step-letter">م</div>
+            <div class="step-info">
+              <h4>مواءمة وتمكين</h4>
+              <p>نحوّل الأولوية إلى حل عملي ذكي يناسب قدرة المشروع.</p>
             </div>
-            <div class="ph-res dim">
-              <span class="ic">📍</span>
-              <div class="rinfo"><b>منافس</b><span class="stars">★★★☆☆ <i>3.6</i> <u>(12)</u></span><small>مغلق الآن · 4.5 كم</small></div>
+          </div>
+          <div class="step-row">
+            <div class="step-letter">ن</div>
+            <div class="step-info">
+              <h4>نضج ونتائج</h4>
+              <p>نقيس، نحسّن، ونحوّل التنفيذ إلى نتائج قابلة للتطوير.</p>
             </div>
           </div>
         </div>
-        <div class="pv-cap">حين يبحثون — <b>أنت أول ما يجدون.</b></div>
       </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <!-- ===== 1. المشكلة ===== -->
-  <section class="section">
-    <div class="wrap">
-      <div class="head" data-reveal>
-        <div class="eyebrow"><b>//</b> المشكلة</div>
-        <h2 class="h2">الفرصة موجودة — لكنها كامنة</h2>
-        <p class="lead">كثير من المنشآت لديها منتج أو خدمة جيدة، لكنها تخسر عملاء لا تراهم: من يبحث عبر الإنترنت، يقارن الخيارات، ويتّخذ قراره قبل أن يتصل أو يزور. والسبب ليس المنتج — بل غياب المنظومة الرقمية التي تجعل هذا العميل يجدك ويثق بك.</p>
+<!-- ━━━ METHODOLOGY ━━━ -->
+<section class="section" id="methodology">
+  <div class="container">
+    <div class="section-label">المنهجية</div>
+    <div class="divider"></div>
+    <h2 class="section-title">منهجية كامن — ك أ م ن</h2>
+    <p class="section-sub">أربع مراحل مترابطة تحوّل الفرصة غير المرئية إلى نتيجة قابلة للقياس والتطوير.</p>
+
+    <div class="method-grid">
+      <div class="method-card">
+        <div class="method-letter">ك</div>
+        <div class="method-title">كشف واستكشاف</div>
+        <div class="method-desc">نكشف الفرص والفجوات غير الظاهرة داخل المشروع، ونفهم الواقع كما هو لا كما يُفترض.</div>
       </div>
-      <div class="grid c3">
-        <div class="card" data-reveal>
-          <div class="badge">01</div>
-          <div class="card-title">يقرّر قبل أن يتواصل</div>
-          <p>العميل يبحث ويقارن ويختار من هاتفه. إن لم يجد حضورك واضحًا ومقنعًا في تلك اللحظة، لم يصل إليك أصلاً.</p>
-        </div>
-        <div class="card" data-reveal>
-          <div class="badge">02</div>
-          <div class="card-title">يسأل ولا يجد ردًا</div>
-          <p>استفسار بعد ساعات العمل دون رد فوري يعني عميلاً انتقل إلى منافس أسرع استجابة. كل دقيقة تأخير فرصة مهدورة.</p>
-        </div>
-        <div class="card" data-reveal>
-          <div class="badge">03</div>
-          <div class="card-title">لا يُقاس ما لا يُرى</div>
-          <p>بدون بيانات واضحة، القرارات تصدر بتخمين. لا تعرف ما نجح ولا ما يستحق الاستمرار — فيتوقف النمو.</p>
-        </div>
+      <div class="method-card">
+        <div class="method-letter">أ</div>
+        <div class="method-title">أثر وأولوية</div>
+        <div class="method-desc">نحدد ما يصنع الفرق أولًا، ونرتب التنفيذ حسب الأثر المتوقع لا حسب ما هو أسهل تنفيذًا.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-letter">م</div>
+        <div class="method-title">مواءمة وتمكين</div>
+        <div class="method-desc">نحوّل الأولوية المختارة إلى حل عملي ذكي يناسب قدرة المشروع، ويستخدم الرقمنة والأتمتة حيث تصنع فرقًا.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-letter">ن</div>
+        <div class="method-title">نضج ونتائج</div>
+        <div class="method-desc">نقيس، نحسّن، ونحوّل التنفيذ إلى نتائج أوضح قابلة للتطوير. لا نترك الأرقام تتراكم دون قراءة.</div>
       </div>
     </div>
-  </section>
 
-  <!-- ===== 2. الفرصة ===== -->
-  <section class="section s-beige">
-    <div class="wrap">
-      <div class="head" data-reveal>
-        <div class="eyebrow"><b>//</b> الفرصة</div>
-        <h2 class="h2">من يربح السوق اليوم؟</h2>
-        <p class="lead">لم يعد الأكبر حجمًا ولا الأقدم اسمًا هو من يكسب. المنشأة التي تبني منظومتها الرقمية بشكل صحيح تتفوق على من يضاعف ميزانيته الإعلانية.</p>
-      </div>
-      <div class="grid c2" data-reveal>
-        <div class="cmp" style="background:#fff;border:1px solid var(--line)">
-          <div class="cmp-head" style="color:var(--muted)">// ليس بالضرورة من يملك</div>
-          <div class="cmp-row strike">أكبر ميزانية</div>
-          <div class="cmp-row strike">أقدم اسم في السوق</div>
-          <div class="cmp-row strike">أكثر موظفين</div>
-        </div>
-        <div class="cmp s-dark">
-          <div class="cmp-head" style="color:var(--teal-2)">// بل غالبًا من</div>
-          <div class="cmp-row yes"><span class="ck">✓</span> يظهر أولاً في لحظة البحث</div>
-          <div class="cmp-row yes"><span class="ck">✓</span> يبني الثقة بسرعة ووضوح</div>
-          <div class="cmp-row yes"><span class="ck">✓</span> يُسهّل التواصل ويُسرّع القرار</div>
+    <!-- Expandable detail -->
+    <div class="accordion-wrap">
+      <div class="acc" id="acc-method">
+        <button class="acc-trigger" onclick="toggle('acc-method')">
+          لماذا هذا الترتيب بالذات؟
+          <span class="acc-plus">+</span>
+        </button>
+        <div class="acc-body">
+          <p>كثير من المشاريع تبدأ من التنفيذ مباشرة دون أن تعرف ما الذي تعمل عليه فعلًا. كامن تبدأ من الكشف — لأن حل المشكلة الخطأ بشكل مثالي لا يصنع نتيجة. نحتاج أن نفهم أين تكمن الفرصة أولًا، ثم ما أثرها، ثم كيف نحوّلها لحل حقيقي، ثم كيف نقيس ونحسّن.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== 3. منهجية كامن ===== -->
-  <section class="section s-dark">
-    <div class="wrap">
-      <div class="head" data-reveal>
-        <div class="eyebrow"><b>//</b> المنهجية</div>
-        <h2 class="h2">منهجية كامن — ك · أ · م · ن</h2>
-        <p class="lead">أربع خطوات متسلسلة تضمن أن كل قرار رقمي مبني على واقع مشروعك، لا على افتراض.</p>
-      </div>
-      <div class="method-grid" data-reveal>
-        <div class="method-card">
-          <div class="method-letter">ك</div>
-          <div class="method-title">كشف واستكشاف</div>
-          <div class="method-desc">نكتشف الفرص الكامنة داخل مشروعك — نقاط القوة الخفية، ثغرات الظهور، وسلوك العميل الفعلي — قبل أن نقترح أي حل.</div>
-        </div>
-        <div class="method-card">
-          <div class="method-letter">أ</div>
-          <div class="method-title">أثر وأولوية</div>
-          <div class="method-desc">نصنّف الحلول حسب أثرها الفعلي وجدواها في واقعك. لا نبدأ بما يبدو جميلاً، بل بما يجلب نتيجة ملموسة أولاً.</div>
-        </div>
-        <div class="method-card">
-          <div class="method-letter">م</div>
-          <div class="method-title">مواءمة وتمكين</div>
-          <div class="method-desc">نوائم الحلول الرقمية مع قدرات فريقك التشغيلية وطبيعة نشاطك. الحل الصحيح هو ما تقدر على الاستمرار فيه.</div>
-        </div>
-        <div class="method-card">
-          <div class="method-letter">ن</div>
-          <div class="method-title">نضج ونمو</div>
-          <div class="method-desc">نبني على ما نجح، نقيس الأثر، ونطوّر بشكل منهجي — حتى تتحول المكاسب الأولى إلى نمو مستدام وقابل للتكرار.</div>
-        </div>
-      </div>
-      <div class="quote" data-reveal style="margin-top:2rem">
-        <p class="q1">كامن لا تبيع وعود النمو —</p>
-        <p class="q2">بل تبني شروط النمو.</p>
-      </div>
+<!-- ━━━ PATHS — مسارات كامن ━━━ -->
+<section class="section section-alt" id="paths">
+  <div class="container">
+    <div class="section-label">مسارات كامن</div>
+    <div class="divider"></div>
+    <h2 class="section-title">كيف نبدأ معك؟</h2>
+    <p class="section-sub">
+      لا نبيع اشتراكًا شهريًا مفتوحًا بلا اتجاه؛ نبني مع العميل دورة 90 يومًا تبدأ من المؤشرات وتنتهي بقرار واضح للتحسين أو التوسع.
+    </p>
+
+    <div class="paths-alert">
+      ⚡ يتم تحديد النطاق والسعر النهائي بعد خارطة كامن للنمو، لأن كل مشروع يختلف في احتياجه وجاهزيته.
     </div>
-  </section>
 
-  <!-- ===== 4. رحلة العميل ===== -->
-  <section class="section">
-    <div class="wrap">
-      <div class="head" data-reveal>
-        <div class="eyebrow"><b>//</b> سلوك العميل</div>
-        <h2 class="h2">كيف يتحوّل الباحث إلى عميل؟</h2>
-        <p class="lead">في كل خطوة من هذه الرحلة تكسب العميل أو تخسره. ومنظومة كامن تضمن أن تكون حاضرًا بقوة في كل محطة.</p>
+    <div class="paths-track">
+      <div class="path-row">
+        <div class="path-num">١</div>
+        <div class="path-body">
+          <div class="path-name">كشف كامن المجاني</div>
+          <div class="path-desc">قراءة مبدئية سريعة لمشروعك نحدد فيها أين قد تضيع الفرص، ونقترح الخطوة التالية إن كانت هناك فرصة واضحة للعمل.</div>
+          <a href="growth-map.html" class="path-link">ابدأ الكشف المجاني ←</a>
+        </div>
       </div>
-      <div class="flow" data-reveal>
-        <div class="card ghost"><div class="badge">01</div><div class="t">يبحث</div><div class="d">عن منتج أو خدمة كالتي تقدّمها</div></div>
-        <div class="card ghost"><div class="badge">02</div><div class="t">يكتشفك</div><div class="d">يظهر مقرّك الرقمي أمامه ضمن الخيارات</div></div>
-        <div class="card ghost"><div class="badge">03</div><div class="t">يثق بك</div><div class="d">يطمئن من المحتوى والتقييمات والعرض</div></div>
-        <div class="card ghost"><div class="badge">04</div><div class="t">يتواصل</div><div class="d">يسأل ويحصل على رد فوري — ويرى خيار التقسيط مباشرة قبل أن يتردد</div></div>
-        <div class="card ghost"><div class="badge">05</div><div class="t">يزور أو يطلب</div><div class="d">وقد حسم قراره قبل الوصول</div></div>
-        <div class="card ghost" style="background:linear-gradient(135deg,var(--teal),var(--teal-deep));border-color:var(--teal)">
-          <div class="badge badge-fill" style="background:rgba(8,17,15,.18);color:#08110F">06</div>
-          <div class="t" style="color:#08110F">يشتري</div><div class="d" style="color:#08110F;opacity:.85">وتبدأ علاقة بيع مستمرة</div>
+      <div class="path-row">
+        <div class="path-num">٢</div>
+        <div class="path-body">
+          <div class="path-name">خارطة كامن للنمو</div>
+          <div class="path-desc">تشخيص منظم يحدد الأولوية الأولى، والحل العملي الذكي المناسب، والمؤشرات التي سنقيسها.</div>
+          <span class="path-tag">تبدأ من — السعر بعد الكشف</span>
+        </div>
+      </div>
+      <div class="path-row">
+        <div class="path-num">٣</div>
+        <div class="path-body">
+          <div class="path-name">تأسيس كامن الرقمي</div>
+          <div class="path-desc">أول تنفيذ عملي مدفوع لبناء مقر رقمي قابل للقياس — صفحة هبوط، استقبال منظم، نموذج طلب، أو تحسين ظهور محلي. خطوة واحدة واضحة ومحددة النطاق.</div>
+          <span class="path-tag">تبدأ من — السعر بعد خارطة النمو</span>
+        </div>
+      </div>
+      <div class="path-row">
+        <div class="path-num">٤</div>
+        <div class="path-body">
+          <div class="path-name">كامن+ 90 يوم</div>
+          <div class="path-desc">برنامج كامن بلس 90 يوم — متابعة ربع سنوية نقرأ فيها الأداء كل 30 يومًا، ونحدد خطوات التحسين بناءً على بيانات مشروعك لا على التخمين.</div>
+          <span class="path-tag">تبدأ من — السعر بعد تأسيس كامن الرقمي</span>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- ===== 5. المقر الرقمي والمراحل ===== -->
-  <section class="section s-beige">
-    <div class="wrap">
-      <div class="head" data-reveal>
-        <div class="eyebrow"><b>//</b> الحل</div>
-        <h2 class="h2">المقر الرقمي — الطبقة الأساس</h2>
-        <p class="lead">قبل أي حملة أو أتمتة، يحتاج نشاطك إلى مقر رقمي يمثّله بشكل احترافي. وقد يكون هذا المقر صفحة هبوط، معرضًا رقمياً للمنتجات، موقع خدمات، أو بوابة تشغيل متكاملة — حسب طبيعة نشاطك.</p>
-      </div>
+    <div class="paths-note">
+      ملاحظة: المسار يسير بالترتيب — خارطة كامن للنمو، ثم تأسيس كامن الرقمي، ثم كامن بلس 90 يوم. نادرًا ما نتخطى الخطوات دون أن نفهم مشروعك أولًا.
+    </div>
+  </div>
+</section>
 
-      <div class="phases" data-reveal>
-        <div class="phase" style="background:#fff">
-          <div class="phase-num">المرحلة 01</div>
-          <div class="phase-title">الأساس</div>
-          <div class="phase-desc">المقر الرقمي · هوية النشاط · Google Business · معلومات واضحة للعميل</div>
-        </div>
-        <div class="phase" style="background:#fff">
-          <div class="phase-num">المرحلة 02</div>
-          <div class="phase-title">التفعيل</div>
-          <div class="phase-desc">قنوات الاستقبال · بوت الواتساب · الظهور المحلي · جمع التقييمات</div>
-        </div>
-        <div class="phase" style="background:#fff">
-          <div class="phase-num">المرحلة 03</div>
-          <div class="phase-title">التنظيم</div>
-          <div class="phase-desc">أتمتة الردود · إدارة المحتوى · تنظيم منظومة التواصل مع العميل</div>
-        </div>
-        <div class="phase" style="background:#fff">
-          <div class="phase-num">المرحلة 04</div>
-          <div class="phase-title">النمو والتحسين</div>
-          <div class="phase-desc">إعلانات موجّهة · تقارير دورية · تحليل ما نجح وتطويره باستمرار</div>
+<!-- ━━━ WHY NO PROMISES ━━━ -->
+<section class="section" id="why-no-promises">
+  <div class="container">
+    <div class="section-label">فلسفتنا</div>
+    <div class="divider"></div>
+    <h2 class="section-title">لماذا لا نبيع وعود النمو؟</h2>
+
+    <div class="accordion-wrap">
+      <div class="acc open" id="acc-wp1">
+        <button class="acc-trigger" onclick="toggle('acc-wp1')">
+          لأن النمو ليس منتجًا جاهزًا
+          <span class="acc-plus">+</span>
+        </button>
+        <div class="acc-body">
+          <p>كثير من الشركات تبيعك "ضماناً للنمو" أو "اشتراكاً شهرياً" قبل أن تفهم مشروعك. كامن لا تفعل ذلك — لأن كل مشروع مختلف، وما نجح لمشروع آخر قد يكون خاطئاً تماماً لمشروعك.</p>
         </div>
       </div>
-
-      <div class="axiom s-dark" data-reveal>
-        <div class="eyebrow" style="margin-bottom:.5rem;color:#E6975F"><b>//</b> قواعد كامن التشغيلية</div>
-        <div class="axiom-items">
-          <div class="axiom-row"><span class="no">✗</span> لا نؤتمت الفوضى — نرتّب أولاً ثم نؤتمت</div>
-          <div class="axiom-row"><span class="no">✗</span> لا نعلن قبل تجهيز الاستقبال — الإعلان بدون مقر جاهز يهدر الميزانية</div>
-          <div class="axiom-row"><span class="no">✗</span> لا نقيس قبل وجود بيانات — التقرير الفارغ لا يعني نجاحًا</div>
-          <div class="axiom-row"><span class="no">✗</span> لا نوسّع قبل معرفة ما نجح — التوسع على أساس خاطئ يضاعف الخطأ</div>
+      <div class="acc" id="acc-wp2">
+        <button class="acc-trigger" onclick="toggle('acc-wp2')">
+          ماذا نبيع بدل الوعود؟
+          <span class="acc-plus">+</span>
+        </button>
+        <div class="acc-body">
+          <p>نبيع خطوة واضحة قابلة للقياس. في كل مرحلة نتفق مسبقاً على ما سيُبنى وكيف نقيس نجاحه. إذا لم تكن هناك نتيجة قابلة للقياس، لا نبدأ.</p>
+        </div>
+      </div>
+      <div class="acc" id="acc-wp3">
+        <button class="acc-trigger" onclick="toggle('acc-wp3')">
+          لماذا لا أسعار ثابتة مسبقاً؟
+          <span class="acc-plus">+</span>
+        </button>
+        <div class="acc-body">
+          <p>تقديم سعر قبل التشخيص يعني أننا نخمّن. بعد خارطة كامن للنمو، يصبح السعر واضحاً ومبرراً بالحل المحدد لمشروعك — لا بقائمة خدمات عامة.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== 6. منظومة كامن ===== -->
-  <section class="section s-dark">
-    <div class="wrap">
-      <div class="head" data-reveal>
-        <div class="eyebrow"><b>//</b> المنظومة</div>
-        <h2 class="h2">منظومة كامن — خدمات تعمل معًا</h2>
-        <p class="lead">ليست خدمات منفصلة تُشترى بالتشهية. بل حلول متسلسلة تعمل كمنظومة واحدة لتحويل الاهتمام إلى مبيعات.</p>
-      </div>
-      <div class="flow" data-reveal>
-        <div class="card ghost"><div class="badge">01</div><div class="t">المقر الرقمي</div><div class="d">الواجهة الاحترافية التي تمثّل نشاطك</div></div>
-        <div class="card ghost"><div class="badge">02</div><div class="t">الظهور والوصول</div><div class="d">تظهر أولاً أمام من يبحث عن خدمتك</div></div>
-        <div class="card ghost"><div class="badge">03</div><div class="t">المحتوى والثقة</div><div class="d">محتوى يبني الثقة ويحفّز قرار التواصل</div></div>
-        <div class="card ghost"><div class="badge">04</div><div class="t">الاستقبال الذكي</div><div class="d">واتساب مؤتمت يرد فورًا على مدار الساعة</div></div>
-        <div class="card ghost"><div class="badge">05</div><div class="t">القياس والمتابعة</div><div class="d">تقارير بأرقام فعلية تقود قراراتك</div></div>
-        <div class="card ghost" style="background:linear-gradient(135deg,var(--teal),var(--teal-deep));border-color:var(--teal)">
-          <div class="badge badge-fill" style="background:rgba(8,17,15,.18);color:#08110F">06</div>
-          <div class="t" style="color:#08110F">نمو قابل للقياس</div><div class="d" style="color:#08110F;opacity:.85">النتيجة التي تعمل المنظومة كلها لأجلها</div>
-        </div>
-      </div>
-      <div class="quote" data-reveal style="margin-top:2rem">
-        <p class="q1">النمو اليوم لا يعتمد على جودة المنتج وحدها، بل على قدرتك على الظهور وبناء الثقة وتسهيل التواصل.</p>
-        <p class="q2">ولهذا أسّسنا كامن.</p>
-      </div>
-    </div>
-  </section>
+<!-- ━━━ DIGITAL HQ ━━━ -->
+<section class="section section-alt" id="digital-hq">
+  <div class="container">
+    <div class="section-label">المقر الرقمي</div>
+    <div class="divider"></div>
+    <h2 class="section-title">ما هو المقر الرقمي؟</h2>
 
-  <!-- ===== 7. قبل وبعد ===== -->
-  <section class="section s-beige">
-    <div class="wrap">
-      <div class="head" data-reveal>
-        <div class="eyebrow"><b>//</b> قبل وبعد</div>
-        <h2 class="h2">الفرق الذي تراه — قبل وبعد</h2>
+    <div class="accordion-wrap">
+      <div class="acc open" id="acc-hq1">
+        <button class="acc-trigger" onclick="toggle('acc-hq1')">
+          التعريف — ما الذي يتضمنه المقر الرقمي؟
+          <span class="acc-plus">+</span>
+        </button>
+        <div class="acc-body">
+          <p>المقر الرقمي هو النقطة الرقمية الأساسية التي يجد فيها عميلك مشروعك — صفحة هبوط، بطاقة Google Business، حساب محلي، أو متجر بسيط — مرتبطة بأدوات استقبال وتنظيم تحوّل الزوار إلى عملاء يمكن تتبعهم وقياسهم.</p>
+        </div>
       </div>
-      <div class="ba" data-reveal>
-        <div class="ba-head">
-          <div class="ba-h bad"><span>🔴</span> بدون المنظومة</div>
-          <div class="ba-h good"><span>🟢</span> مع كامن</div>
+      <div class="acc" id="acc-hq2">
+        <button class="acc-trigger" onclick="toggle('acc-hq2')">
+          ما الفرق بين المقر الرقمي والموقع الإلكتروني؟
+          <span class="acc-plus">+</span>
+        </button>
+        <div class="acc-body">
+          <p>الموقع التقليدي ينشر معلومات. المقر الرقمي يستقبل، ينظم، ويتتبع. يشمل نموذج طلب، مسار استقبال واتساب منظم، ردوداً آلية للاستفسارات، وربطاً بأدوات القياس. الهدف أن يعمل مشروعك ويستقبل حتى وإن لم تكن موجوداً.</p>
         </div>
-        <div class="ba-row">
-          <div class="ba-c bad"><span class="x">✗</span><div><span class="mini">بدون المنظومة</span>تظهر في الصفحة الثالثة أو لا تظهر</div></div>
-          <div class="ba-c good"><span class="v">✓</span><div><span class="mini">مع كامن</span>تظهر في أول نتائج البحث المحلي</div></div>
-        </div>
-        <div class="ba-row">
-          <div class="ba-c bad"><span class="x">✗</span><div><span class="mini">بدون المنظومة</span>استفسار بعد الدوام — لا يجد ردًا</div></div>
-          <div class="ba-c good"><span class="v">✓</span><div><span class="mini">مع كامن</span>رد فوري على مدار الساعة</div></div>
-        </div>
-        <div class="ba-row">
-          <div class="ba-c bad"><span class="x">✗</span><div><span class="mini">بدون المنظومة</span>مقر رقمي ضعيف أو غير موجود</div></div>
-          <div class="ba-c good"><span class="v">✓</span><div><span class="mini">مع كامن</span>مقر رقمي يبني الثقة قبل التواصل</div></div>
-        </div>
-        <div class="ba-row">
-          <div class="ba-c bad"><span class="x">✗</span><div><span class="mini">بدون المنظومة</span>تخمين: هل الإعلان أجدى؟</div></div>
-          <div class="ba-c good"><span class="v">✓</span><div><span class="mini">مع كامن</span>تقرير دوري بالأرقام الفعلية</div></div>
-        </div>
-        <div class="ba-row">
-          <div class="ba-c bad"><span class="x">✗</span><div><span class="mini">بدون المنظومة</span>كل شهر تبدأ من الصفر</div></div>
-          <div class="ba-c good"><span class="v">✓</span><div><span class="mini">مع كامن</span>حضور رقمي يتراكم ويقوى شهرًا بعد شهر</div></div>
-        </div>
-        <div class="ba-row">
-          <div class="ba-c bad"><span class="x">✗</span><div><span class="mini">بدون المنظومة</span>فقدان فرص بيع بسبب تكلفة الفاتورة</div></div>
-          <div class="ba-c good"><span class="v">✓</span><div><span class="mini">مع كامن</span>فرص أكبر لإتمام البيع بخيارات دفع ميسرة
-            <span style="display:inline-flex;align-items:center;gap:.4rem;margin-top:.4rem;flex-wrap:wrap">
-              <span style="background:#3EB75E;color:#fff;font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:800;font-size:.72rem;padding:.2rem .65rem;border-radius:99px;letter-spacing:.01em">tabby</span>
-              <span style="background:#1D1D1B;color:#00D09C;font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:800;font-size:.72rem;padding:.2rem .65rem;border-radius:99px;letter-spacing:.01em">tamara</span>
-            </span>
-          </div></div>
+      </div>
+      <div class="acc" id="acc-hq3">
+        <button class="acc-trigger" onclick="toggle('acc-hq3')">
+          شاهد نموذجاً حياً لمقر رقمي
+          <span class="acc-plus">+</span>
+        </button>
+        <div class="acc-body">
+          <p>بنينا نموذجاً حياً لمعرض أرضيات كمثال توضيحي — وهذا مجرد مثال. كامن ليست محصورة في قطاع الأرضيات؛ تعمل مع المطاعم، العيادات، التعليم، الخدمات، وأي منشأة تريد بناء أساس رقمي قابل للقياس.</p>
+          <p style="margin-top: 10px;"><a href="demo.html">افتح صفحة النموذج الحي ←</a></p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== 8. لماذا كامن ===== -->
-  <section class="section">
-    <div class="wrap">
-      <div class="head" data-reveal>
-        <div class="eyebrow"><b>//</b> لماذا كامن</div>
-        <h2 class="h2">لماذا نستطيع مساعدتك؟</h2>
-        <p class="lead">في كامن لسنا فريقًا تقنيًا فحسب. نجمع بين خبرة الأعمال وتقنية المعلومات والأدوات الحديثة الذكية والتسويق وخدمة العملاء وجودة التنفيذ — وهذا ما يجعلنا نفهم واقع المنشآت والأعمال، لا أن نبني أدوات فقط.</p>
+<!-- ━━━ SERVICES ━━━ -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-label">الحلول</div>
+    <div class="divider"></div>
+    <h2 class="section-title">ما الذي تبنيه كامن معك؟</h2>
+    <p class="section-sub">ليست قائمة خدمات ثابتة — بل مناطق تدخل نختار منها ما يناسب أولويتك بعد الكشف.</p>
+
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-icon">🌐</div>
+        <div class="svc-name">ظهور وثقة</div>
+        <div class="svc-desc">صفحة هبوط، بطاقة Google Business، محتوى يبني الثقة قبل أول زيارة.</div>
       </div>
-      <div class="pills" data-reveal>
-        <span class="pill">خبرة الأعمال</span>
-        <span class="pill">تقنية المعلومات</span>
-        <span class="pill">أدوات حديثة ذكية</span>
-        <span class="pill">التسويق</span>
-        <span class="pill">خدمة العملاء</span>
-        <span class="pill">جودة التنفيذ</span>
+      <div class="svc-card">
+        <div class="svc-icon">📨</div>
+        <div class="svc-name">استقبال وتنظيم</div>
+        <div class="svc-desc">نموذج طلب ذكي، مسار واتساب منظم، ردود آلية، وتوجيه الاستفسار للشخص الصحيح.</div>
       </div>
-      <div class="grid c3">
-        <div class="card" data-reveal>
-          <div class="iconb">🧭</div>
-          <div class="card-title">نفهم لغة صاحب العمل</div>
-          <div class="eyebrow" style="margin:.1rem 0 .6rem">خبرة الأعمال وخدمة العملاء</div>
-          <p>خبرة في تقنية المعلومات وخدمات الأعمال، مع فهم عميق لواقع المنشآت الصغيرة والمتوسطة وتحديات أصحابها — نترجم هذا الفهم إلى حلول عملية تزيد المبيعات.</p>
+      <div class="svc-card">
+        <div class="svc-icon">📋</div>
+        <div class="svc-name">CRM ومتابعة</div>
+        <div class="svc-desc">تتبع العملاء والمبيعات، سجل تواصل منظم، ومتابعة ذكية للعملاء المحتملين.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">📊</div>
+        <div class="svc-name">تقارير وقياس</div>
+        <div class="svc-desc">لوحة بيانات بسيطة تُظهر الأداء أسبوعياً وشهرياً لقرارات مبنية على أرقام.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">⚙️</div>
+        <div class="svc-name">أتمتة</div>
+        <div class="svc-desc">ربط الأنظمة، تشغيل المهام المتكررة آلياً، وإزالة الاحتكاك من العمليات اليومية.</div>
+      </div>
+      <div class="svc-card svc-cta-card">
+        <div class="svc-name">أين تبدأ؟</div>
+        <a href="growth-map.html" class="btn btn-primary" style="font-size:0.85rem; padding:10px 20px;">خارطة كامن للنمو</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━ DEMO TEASER ━━━ -->
+<section class="demo-teaser" id="demo">
+  <div class="container">
+    <div class="section-label">نموذج حي</div>
+    <div class="divider"></div>
+    <h2 class="section-title">شاهد كامن في العمل</h2>
+    <p class="section-sub">مقر رقمي حي لمعرض أرضيات — نموذج توضيحي يُظهر كيف تبني كامن الأساس الرقمي لمشروع حقيقي. كامن ليست محصورة في قطاع الأرضيات.</p>
+    <a href="demo.html" class="btn btn-primary" style="font-size: 1rem; padding: 15px 34px;">شاهد النموذج الحي</a>
+  </div>
+</section>
+
+<!-- ━━━ FAQ ━━━ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-label">الأسئلة الشائعة</div>
+    <div class="divider"></div>
+    <h2 class="section-title">أسئلة تسمعها كثيراً</h2>
+
+    <div class="accordion-wrap">
+      <div class="acc" id="faq1">
+        <button class="acc-trigger" onclick="toggle('faq1')">
+          هل كامن مناسبة لقطاعي؟
+          <span class="acc-plus">+</span>
+        </button>
+        <div class="acc-body">
+          <p>كامن تعمل مع أي منشأة صغيرة أو متوسطة تريد بناء وجود رقمي يمكن قياسه. سواء كنت في التجزئة، الخدمات، التعليم، العيادات، أو أي قطاع آخر — المنهجية تتكيف مع واقع مشروعك لا العكس.</p>
         </div>
-        <div class="card" data-reveal>
-          <div class="iconb">⚙️</div>
-          <div class="card-title">نحوّل الأدوات الذكية إلى نتائج</div>
-          <div class="eyebrow" style="margin:.1rem 0 .6rem">التقنية والأدوات الذكية والتسويق</div>
-          <p>نبني أتمتة واتساب وإعلانات موجّهة ومقرًا رقميًا يخدم قرار الشراء مباشرة، لا تقنية للاستعراض.</p>
+      </div>
+      <div class="acc" id="faq2">
+        <button class="acc-trigger" onclick="toggle('faq2')">
+          من أين أبدأ إذا لم يكن لديّ أي وجود رقمي؟
+          <span class="acc-plus">+</span>
+        </button>
+        <div class="acc-body">
+          <p>ابدأ من الكشف المجاني. في خارطة كامن للنمو نفهم واقعك الحالي ونقترح الخطوة الأولى الأنسب — لا نفترض أن لديك موقعاً أو منصة أو نظام متابعة مسبقاً.</p>
         </div>
-        <div class="card" data-reveal>
-          <div class="iconb">✅</div>
-          <div class="card-title">نتابع حتى تصل النتيجة</div>
-          <div class="eyebrow" style="margin:.1rem 0 .6rem">جودة التنفيذ ونجاح الأعمال</div>
-          <p>تقرير دوري بأرقام قابلة للتحقق، ومتابعة دورية للتحسين — العلاقة لا تنتهي بالإطلاق.</p>
+      </div>
+      <div class="acc" id="faq3">
+        <button class="acc-trigger" onclick="toggle('faq3')">
+          ما الفرق بين كامن وشركة تسويق؟
+          <span class="acc-plus">+</span>
+        </button>
+        <div class="acc-body">
+          <p>شركات التسويق تبني محتوى وإعلانات. كامن تبني الأساس الذي يجعل التسويق مجدياً: مقر رقمي، استقبال منظم، وقياس فعلي. إذا لم تكن لديك بنية استقبال، الإعلان يضيع.</p>
+        </div>
+      </div>
+      <div class="acc" id="faq4">
+        <button class="acc-trigger" onclick="toggle('faq4')">
+          هل تعملون مع المشاريع الناشئة؟
+          <span class="acc-plus">+</span>
+        </button>
+        <div class="acc-body">
+          <p>نعم. المشاريع الناشئة تستفيد أكثر لأنها تضع الأساس الصحيح من البداية. نبدأ بما يناسب حجمك وميزانيتك، لا بما يناسب شركة قائمة منذ سنوات.</p>
+        </div>
+      </div>
+      <div class="acc" id="faq5">
+        <button class="acc-trigger" onclick="toggle('faq5')">
+          كم تستغرق كل مرحلة؟
+          <span class="acc-plus">+</span>
+        </button>
+        <div class="acc-body">
+          <p>الكشف المجاني: جلسة واحدة. خارطة كامن للنمو: 3–5 أيام عمل. تأسيس كامن الرقمي: 5–7 أيام. كامن بلس 90 يوم: دورة ربع سنوية كاملة. التوقيت يعتمد على تعقيد المشروع وجاهزية المعلومات.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ===== 9. كيف نبدأ ===== -->
-  <section class="section s-beige">
-    <div class="wrap">
-      <div class="head" data-reveal>
-        <div class="eyebrow"><b>//</b> كيف نبدأ</div>
-        <h2 class="h2">من أول استشارة حتى تبدأ النتائج</h2>
+<!-- ━━━ CTA BANNER ━━━ -->
+<section class="cta-banner" id="cta">
+  <div class="container">
+    <div class="section-label" style="display:block; text-align:center">ابدأ الآن</div>
+    <h2 class="section-title" style="text-align:center">الفرصة موجودة — الكشف عنها يبدأ هنا</h2>
+    <p style="text-align:center">ابدأ بخارطة كامن للنمو واكتشف أول فرصة كامنة في مشروعك.</p>
+    <div class="cta-actions">
+      <a href="growth-map.html" class="btn btn-primary" style="font-size:1rem; padding:15px 30px;">ابدأ خارطة كامن للنمو</a>
+      <!-- ⚠️ استبدل الرقم برقمك الفعلي -->
+      <a href="https://wa.me/966553353448" target="_blank" rel="noopener" class="btn btn-wa">تحدث مع كامن</a>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━ FOOTER ━━━ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="project/assets/logo-full.png" alt="كامن KAMEN™" style="height:36px;"
+             onerror="this.style.display='none'">
+        <p>كامن تساعد المنشآت الصغيرة والمتوسطة على كشف الفرص غير المستغلة وتحويلها إلى نتائج قابلة للقياس.</p>
       </div>
-      <div class="tl">
-        <div class="tl-item" data-reveal><div class="tl-num">1</div>
-          <h4>خارطة كامن للنمو (استشارة تعريفية)</h4>
-          <p>نفهم نشاطك وأهدافك، نحدد الفرص الكامنة، ونضع خارطة واضحة بالأولويات.</p>
-        </div>
-        <div class="tl-item" data-reveal><div class="tl-num">2</div>
-          <h4>بناء الأساس — المقر الرقمي</h4>
-          <p>ننطلق بالطبقة الأساس: المقر الرقمي وقنوات الاستقبال خلال أسابيع لا أشهر.</p>
-        </div>
-        <div class="tl-item" data-reveal><div class="tl-num">3</div>
-          <h4>التفعيل والإطلاق</h4>
-          <p>نُفعّل باقي المنظومة تباعًا وفق الأولويات التي حددناها معًا.</p>
-        </div>
-        <div class="tl-item" data-reveal><div class="tl-num">4</div>
-          <h4>قياس وتحسين مستمر</h4>
-          <p>تقرير دوري بالأرقام وتحسين قائم على ما نجح — لا على تخمين.</p>
-        </div>
+      <div class="footer-col">
+        <h4>روابط سريعة</h4>
+        <ul class="footer-links">
+          <li><a href="#methodology">منهجية كامن</a></li>
+          <li><a href="#paths">مسارات كامن</a></li>
+          <li><a href="#digital-hq">المقر الرقمي</a></li>
+          <li><a href="#services">الحلول</a></li>
+          <li><a href="demo.html">نموذج حي</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>ابدأ</h4>
+        <ul class="footer-links">
+          <li><a href="growth-map.html">خارطة كامن للنمو</a></li>
+          <li><a href="#faq">الأسئلة الشائعة</a></li>
+        </ul>
+        <!-- ⚠️ استبدل الرقم برقمك الفعلي -->
+        <a href="https://wa.me/966553353448" target="_blank" rel="noopener" class="footer-wa-btn">
+          💬 تواصل عبر واتساب
+        </a>
       </div>
     </div>
-  </section>
-
-  <!-- ===== 10. التقنيات (شريط ثقة) ===== -->
-  <section class="section-sm s-dark">
-    <div class="wrap center">
-      <div class="eyebrow" style="justify-content:center;color:#8F949D" data-reveal>مدعوم بأدوات وتقنيات عالمية موثوقة</div>
-      <div class="pills" data-reveal style="justify-content:center;margin-bottom:0">
-        <span class="pill pill-soft">أدوات حديثة ذكية</span>
-        <span class="pill pill-soft">واتساب للأعمال</span>
-        <span class="pill pill-soft">Google Business</span>
-        <span class="pill pill-soft">تقنيات الويب الحديثة</span>
-        <span class="pill pill-soft">منصات الأتمتة</span>
-      </div>
+    <div class="footer-bottom">
+      <p>© 2026 كامن KAMEN™ — من الكامن إلى الممكن</p>
+      <p>جميع الحقوق محفوظة</p>
     </div>
-  </section>
+  </div>
+</footer>
 
-  <!-- ===== 11. الباقات ===== -->
-  <section class="section">
-    <div class="wrap">
-      <div class="head" data-reveal>
-        <div class="eyebrow"><b>//</b> الاستثمار</div>
-        <h2 class="h2">باقات واضحة بلا مفاجآت</h2>
-        <p class="lead">ابدأ بالباقة التي تناسب حجم نشاطك والمرحلة التي أنت فيها، وارتقِ متى شئت.</p>
-      </div>
-      <!-- trial banner -->
-      <div class="trial" data-reveal>
-        <div class="trial-star">✦</div>
-        <div>
-          <div class="trial-title">ابدأ بخارطة كامن للنمو أولاً</div>
-          <p class="trial-text">قبل اختيار أي باقة، نبدأ بفهم نشاطك ووضع خارطة واضحة — <b>بلا تكلفة مسبقة</b>. ثم نختار معًا الباقة الأنسب بعد الصورة الكاملة.</p>
-        </div>
-      </div>
+<script>
+  /* ─── Accordion ─── */
+  function toggle(id) {
+    document.getElementById(id).classList.toggle('open');
+  }
 
-      <div class="pkgs" data-reveal>
-        <!-- التميّز -->
-        <div class="pkg">
-          <div class="pkg-name">التميّز</div>
-          <div class="pkg-price">3,499 <span>ريال / شهر</span></div>
-          <div class="pkg-sub">لمن يريد أن يتصدّر السوق فعليًا</div>
-          <ul>
-            <li class="yes"><span class="ck">✓</span> 3 منصات تواصل اجتماعي</li>
-            <li class="yes"><span class="ck">✓</span> 30 منشورًا شهريًا (تصميم + كتابة + نشر)</li>
-            <li class="yes"><span class="ck">✓</span> الرد على التعليقات والرسائل</li>
-            <li class="yes"><span class="ck">✓</span> إعداد + تحسين + محتوى Google Business Profile</li>
-            <li class="yes"><span class="ck">✓</span> بوت واتساب متقدم + كتالوج خدمات/منتجات</li>
-            <li class="yes"><span class="ck">✓</span> إعلانات مدفوعة — ميزانية 1,000 ريال مشمولة*</li>
-            <li class="yes"><span class="ck">✓</span> مقر رقمي احترافي</li>
-            <li class="yes"><span class="ck">✓</span> رقم تتبّع المكالمات</li>
-            <li class="yes"><span class="ck">✓</span> جلسة استشارة شهرية</li>
-            <li class="yes"><span class="ck">✓</span> تفعيل التقسيط (تابي / تمارا) وتوظيفه تسويقياً</li>
-            <li class="rep"><span class="ck">—</span> تقرير شهري احترافي + تحليل المنافسين</li>
-          </ul>
-        </div>
-        <!-- النمو (الأكثر طلبًا) -->
-        <div class="pkg feat">
-          <div class="pkg-tag">الأكثر طلبًا</div>
-          <div class="pkg-name">النمو</div>
-          <div class="pkg-price">2,499 <span>ريال / شهر</span></div>
-          <div class="pkg-sub">للأنشطة التي تريد حضورًا رقميًا متكاملًا ومستمرًا</div>
-          <ul>
-            <li class="yes"><span class="ck">✓</span> منصتا تواصل اجتماعي</li>
-            <li class="yes"><span class="ck">✓</span> 20 منشورًا شهريًا (تصميم + كتابة + نشر)</li>
-            <li class="yes"><span class="ck">✓</span> الرد على التعليقات والرسائل</li>
-            <li class="yes"><span class="ck">✓</span> إعداد وتحسين Google Business Profile</li>
-            <li class="yes"><span class="ck">✓</span> بوت واتساب أساسي</li>
-            <li class="yes"><span class="ck">✓</span> إعلانات مدفوعة — ميزانية 500 ريال مشمولة*</li>
-            <li class="off"><span class="ck">✗</span> مقر رقمي</li>
-            <li class="rep"><span class="ck">—</span> تقرير شهري متكامل</li>
-          </ul>
-        </div>
-        <!-- الانطلاقة -->
-        <div class="pkg">
-          <div class="pkg-name">الانطلاقة</div>
-          <div class="pkg-price">1,499 <span>ريال / شهر</span></div>
-          <div class="pkg-sub">لبناء الأساس الرقمي بخطوة واثقة</div>
-          <ul>
-            <li class="yes"><span class="ck">✓</span> منصة تواصل اجتماعي واحدة</li>
-            <li class="yes"><span class="ck">✓</span> 12 منشورًا شهريًا (تصميم + كتابة + نشر)</li>
-            <li class="yes"><span class="ck">✓</span> الرد على التعليقات والرسائل</li>
-            <li class="yes"><span class="ck">✓</span> إعداد Google Business Profile</li>
-            <li class="off"><span class="ck">✗</span> بوت واتساب</li>
-            <li class="off"><span class="ck">✗</span> إعلانات مدفوعة</li>
-            <li class="off"><span class="ck">✗</span> مقر رقمي</li>
-            <li class="rep"><span class="ck">—</span> تقرير شهري بسيط</li>
-          </ul>
-        </div>
-      </div>
-      <p style="font-size:.84rem;color:var(--muted);margin-top:1.1rem">* ميزانية الإعلانات في باقتَي النمو والتميّز مشمولة ضمن السعر الشهري ولا تُضاف عليه.</p>
-    </div>
-  </section>
+  /* ─── Mobile menu ─── */
+  const menuBtn    = document.getElementById('menuBtn');
+  const mobileNav  = document.getElementById('mobileNav');
+  const mobileClose= document.getElementById('mobileClose');
 
-  <!-- ===== 12. الأسئلة الشائعة ===== -->
-  <section class="section s-beige">
-    <div class="wrap">
-      <div class="head" data-reveal>
-        <div class="eyebrow"><b>//</b> قبل أن تبدأ</div>
-        <h2 class="h2">الأسئلة الشائعة</h2>
-      </div>
-      <div data-reveal>
-        <details><summary>هل أحتاج خبرة تقنية؟<span class="faq-plus">+</span></summary>
-          <p>إطلاقًا. نُنفّذ كل شيء نيابة عنك، وكل أداة مصمّمة ليستخدمها أي شخص بسهولة. دورك الوحيد أن تركّز على نشاطك.</p>
-        </details>
-        <details><summary>كم يستغرق الإطلاق؟<span class="faq-plus">+</span></summary>
-          <p>أسابيع لا أشهر. نبدأ بالمقر الرقمي وقنوات الاستقبال، ثم نُكمل بقية المنظومة تباعًا وفق الأولويات.</p>
-        </details>
-        <details><summary>لديّ حسابات تواصل اجتماعي بالفعل، هل أبدأ من الصفر؟<span class="faq-plus">+</span></summary>
-          <p>لا. نبني على ما لديك ونطوّره ليصبح جزءًا من منظومة واحدة بهدف واضح: تحويل المتابع إلى عميل فعلي.</p>
-        </details>
-        <details><summary>كيف أعرف أن المنظومة تعمل؟<span class="faq-plus">+</span></summary>
-          <p>تقرير دوري واضح بالأرقام يبيّن ما أُنفق وما عاد عليك من عملاء واستفسارات ومبيعات — شفافية كاملة بلا تخمين.</p>
-        </details>
-        <details><summary>هل الإعلانات المدفوعة مشمولة في السعر؟<span class="faq-plus">+</span></summary>
-          <p>نعم، في باقتَي النمو والتميّز. ميزانية 500 ريال و1,000 ريال على التوالي مشمولة ضمن السعر الشهري — لا تدفع إضافة.</p>
-        </details>
-        <details><summary>ماذا لو لم تناسبني النتائج؟<span class="faq-plus">+</span></summary>
-          <p>نبدأ بخارطة كامن للنمو قبل أي التزام. بعدها تختار الباقة الأنسب أو تقرر بحرية — القرار كاملاً بيدك، بلا غرامات إنهاء.</p>
-        </details>
-        <details><summary>هل يمكن لعملائي الدفع بالتقسيط؟<span class="faq-plus">+</span></summary>
-          <p>نعم — نساعدك على تفعيل تابي أو تمارا لنشاطك، ونوظّف التقسيط في بوت الواتساب والمقر الرقمي تلقائياً حتى يرى عميلك خيار القسط لحظة سؤاله — قبل أن يتردد.</p>
-        </details>
-        <details><summary>هل تعملون مع قطاعات معينة فقط؟<span class="faq-plus">+</span></summary>
-          <p>كامن متخصصة في المنشآت الصغيرة والمتوسطة وتعمل مع قطاعات متعددة. منهجيتنا قابلة للتكيف مع طبيعة أي نشاط — من المعارض والمحلات إلى الخدمات والمهن الحرة.</p>
-        </details>
-      </div>
-    </div>
-  </section>
+  menuBtn.addEventListener('click', () => {
+    mobileNav.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    menuBtn.setAttribute('aria-expanded', 'true');
+  });
+  mobileClose.addEventListener('click', closeMenu);
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
-  <!-- ===== 13. النموذج الحي ===== -->
-  <section id="demo" class="section">
-    <div class="wrap">
-      <div class="head" data-reveal>
-        <div class="eyebrow"><b>//</b> دليل واقعي لا مجرد وعد</div>
-        <h2 class="h2">نموذج حي: مقر رقمي لمعرض أرضيات</h2>
-        <div class="demo-label">نموذج تطبيقي — يمثّل طريقة عمل كامن في قطاع الأرضيات</div>
-        <p class="lead">هذا المقر الرقمي نموذج حي بنته كامن لمعرض أرضيات افتراضي — يُبيّن بشكل ملموس كيف تبدو المنظومة الرقمية عند تطبيقها: معرض منتجات، مستشار ذكي، حاسبة تكلفة، ومساعد واتساب — كل هذا هو ما تحصل عليه مع كامن مُطبَّقًا على نشاطك.</p>
-      </div>
-      <p data-reveal style="font-size:.95rem;color:var(--ink-soft);margin-bottom:1.4rem">داخل النموذج: معاينة المنتج · مستشار ذكي · حاسبة تكلفة · مساعد واتساب — جميعها تعمل أمامك مباشرة.</p>
-      <div data-reveal style="display:flex;flex-wrap:wrap;gap:.85rem;align-items:center">
-        <a class="btn" href="https://aseeaa0e-png.github.io/ardiyat-aldiyar/" target="_blank" rel="noopener">شاهد النموذج الحي ↗</a>
-        <a class="btn btn-ghost" href="https://wa.me/966553353448?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20%F0%9F%91%8B%0A%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A8%D8%AF%D8%A1%20%D8%AE%D8%A7%D8%B1%D8%B7%D8%A9%20%D9%83%D8%A7%D9%85%D9%86%20%D9%84%D9%84%D9%86%D9%85%D9%88.%0A%D8%A8%D8%A7%D9%86%D8%AA%D8%B8%D8%A7%D8%B1%D9%83%D9%85%20%F0%9F%8C%BF" target="_blank" rel="noopener">ابدأ خارطة كامن للنمو ←</a>
-      </div>
-    </div>
-  </section>
+  function closeMenu() {
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }
 
-  <!-- ===== 14. التواصل ===== -->
-  <section id="contact" class="section s-dark">
-    <div class="wrap center">
-      <h2 class="h2" data-reveal>جاهز تكتشف ما الكامن في مشروعك؟</h2>
-      <p class="lead" data-reveal>ابدأ اليوم مع كامن — نضع خارطة نمو مخصّصة لنشاطك، ونحوّل الفرص الكامنة إلى منظومة رقمية تعمل وتنمو.</p>
-      <div data-reveal style="display:flex;flex-wrap:wrap;gap:.85rem;justify-content:center;margin-bottom:.85rem">
-        <a class="btn" href="https://wa.me/966553353448?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20%F0%9F%91%8B%0A%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A8%D8%AF%D8%A1%20%D8%AE%D8%A7%D8%B1%D8%B7%D8%A9%20%D9%83%D8%A7%D9%85%D9%86%20%D9%84%D9%84%D9%86%D9%85%D9%88.%0A%D8%A8%D8%A7%D9%86%D8%AA%D8%B8%D8%A7%D8%B1%D9%83%D9%85%20%F0%9F%8C%BF" target="_blank" rel="noopener">ابدأ خارطة كامن للنمو ←</a>
-        <a class="btn btn-ghost" href="#demo">شاهد نموذجًا حيًا ↓</a>
-      </div>
-      <div class="cta-sub" data-reveal>من الكامن إلى الممكن · بلا التزام مسبق</div>
-    </div>
-  </section>
+  /* ─── Header scroll effect ─── */
+  const siteHeader = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    siteHeader.classList.toggle('scrolled', window.scrollY > 24);
+  }, { passive: true });
 
-  <footer style="display:flex;flex-direction:column;align-items:center;gap:.85rem;padding:2rem 1rem">
-    <div style="display:flex;align-items:center;gap:.75rem">
-      <img src="assets/symbol_transparent.png" alt="كامن" style="width:28px;height:28px;opacity:.85">
-      <span style="font-family:'Tajawal',sans-serif;font-weight:800;font-size:1rem;color:#EAEDF2">كامن</span>
-      <span dir="ltr" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:.55rem;letter-spacing:.38em;color:#5C6677">KAMEN™</span>
-    </div>
-    <div style="font-size:.82rem;color:#5C6677;text-align:center;line-height:1.8">
-      وكالة تمكين ونمو رقمي · للمنشآت الصغيرة والمتوسطة<br>
-      <span style="color:#32BBA9;font-size:.78rem">من الكامن إلى الممكن</span>
-    </div>
-  </footer>
-
-  <script>
-    (function () {
-      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (reduce) return;
-      var els = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
-      els.forEach(function (el) {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(18px)';
-        el.style.transition = 'opacity .6s ease, transform .6s ease';
-      });
-      function reveal(el){ el.style.opacity='1'; el.style.transform='none'; }
-      function check(){
-        var vh = window.innerHeight || document.documentElement.clientHeight;
-        els.forEach(function (el){
-          if (el.style.opacity === '1') return;
-          var r = el.getBoundingClientRect();
-          if (r.top < vh*0.92 && r.bottom > 0) reveal(el);
-        });
-      }
-      check();
-      window.addEventListener('scroll', check, {passive:true});
-      window.addEventListener('resize', check, {passive:true});
-      [120,350,700].forEach(function(t){ setTimeout(check,t); });
-      setTimeout(function(){ els.forEach(reveal); }, 1600);
-    })();
-  </script>
-
+  /* ─── Smooth scroll for hash links ─── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const el = document.querySelector(a.getAttribute('href'));
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+</script>
 </body>
 </html>
