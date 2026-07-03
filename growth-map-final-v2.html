@@ -1,0 +1,967 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>خارطة كامن للنمو — اكتشف أين تتسرب فرص مشروعك</title>
+  <meta name="description" content="تشخيص أولي مجاني يكشف أين تتسرب فرص مشروعك عبر منهجية كامن: كشف، أولوية، مواءمة، نمو.">
+  <meta name="theme-color" content="#161D2D">
+  <link rel="icon" href="assets/logo-mark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:  #161D2D;
+      --navy2: #1A2235;
+      --teal:  #32BBA9;
+      --gold:  #E6C57A;
+      --gold2: #f0d98f;
+      --paper: #f8f6ef;
+      --card:  #fff;
+      --ink:   #18202d;
+      --muted: #667085;
+      --line:  rgba(16,24,39,.12);
+      --radius: 26px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, Arial, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(860px, calc(100% - 32px)); margin: auto; }
+
+    /* ── Header ─────────────────────────────────────────── */
+    .site-header {
+      background: var(--navy);
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .site-header .wrap { display: flex; align-items: center; gap: 10px; }
+    .site-header img { width: 36px; height: 36px; object-fit: contain; }
+    .site-header a {
+      color: #fff;
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 1.05rem;
+      opacity: .9;
+    }
+    .site-header a:hover { opacity: 1; }
+
+    /* ── Hero ───────────────────────────────────────────── */
+    .hero {
+      background: radial-gradient(circle at 18% 15%, rgba(50,187,169,.22), transparent 30%),
+                  linear-gradient(145deg, var(--navy), #0b111c);
+      color: #fff;
+      padding: 34px 0 28px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: clamp(1.9rem, 5vw, 3rem);
+      margin: 0 0 10px;
+      letter-spacing: -.03em;
+      line-height: 1.2;
+    }
+    .hero p {
+      max-width: 620px;
+      margin: 0 auto 16px;
+      color: rgba(255,255,255,.75);
+      font-size: 1rem;
+    }
+    .phases-badge {
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+      border: 1px solid rgba(230,197,122,.35);
+      background: rgba(230,197,122,.1);
+      color: var(--gold2);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-weight: 900;
+      font-size: .88rem;
+      font-family: 'Reem Kufi', sans-serif;
+      letter-spacing: .02em;
+    }
+
+    /* ── Main ───────────────────────────────────────────── */
+    main { padding: 28px 0 70px; }
+
+    /* ── Card ───────────────────────────────────────────── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 18px 60px rgba(16,24,39,.09);
+      padding: 30px;
+    }
+
+    /* ── Intro ──────────────────────────────────────────── */
+    .intro-title {
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: clamp(1.25rem, 3vw, 1.85rem);
+      font-weight: 900;
+      margin: 0 0 6px;
+      color: var(--navy);
+    }
+    .intro-sub { color: var(--muted); margin: 0 0 24px; font-size: .97rem; }
+    .field { margin-bottom: 18px; }
+    .field label {
+      display: block;
+      font-weight: 900;
+      margin-bottom: 6px;
+      font-size: .95rem;
+      color: var(--ink);
+    }
+    .field label .opt-tag {
+      color: var(--muted);
+      font-weight: 400;
+      font-size: .85rem;
+      margin-right: 5px;
+    }
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: '▾';
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    .field select, .field input {
+      width: 100%;
+      border: 1.5px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: #faf8f2;
+      color: var(--ink);
+      appearance: none;
+      -webkit-appearance: none;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .field select:focus, .field input:focus { border-color: var(--teal); }
+
+    /* ── Progress ───────────────────────────────────────── */
+    .progress-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .progress { flex: 1; height: 8px; background: #ece7da; border-radius: 999px; overflow: hidden; }
+    .bar { height: 100%; background: linear-gradient(90deg, var(--gold), var(--teal)); border-radius: 999px; transition: width .28s; }
+    .progress-count { font-size: .87rem; color: var(--muted); white-space: nowrap; font-weight: 700; }
+
+    /* ── Question ───────────────────────────────────────── */
+    .phase-tag {
+      display: inline-block;
+      background: rgba(50,187,169,.11);
+      color: #0e7a70;
+      border-radius: 999px;
+      padding: 4px 13px;
+      font-size: .84rem;
+      font-weight: 900;
+      margin-bottom: 9px;
+      font-family: 'Reem Kufi', sans-serif;
+    }
+    .question-text {
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: clamp(1.25rem, 3.5vw, 1.95rem);
+      font-weight: 900;
+      line-height: 1.35;
+      margin: 0 0 20px;
+      color: var(--navy);
+    }
+
+    /* ── Options ────────────────────────────────────────── */
+    .options { display: grid; gap: 10px; }
+    .option {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 12px;
+      align-items: start;
+      text-align: right;
+      border: 2px solid var(--line);
+      background: #faf8f2;
+      border-radius: 17px;
+      padding: 14px 15px;
+      cursor: pointer;
+      transition: border-color .18s, background .18s, transform .18s;
+      width: 100%;
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    .option:hover { border-color: rgba(230,197,122,.5); background: #fff9e8; transform: translateY(-1px); }
+    .option.selected { border-color: var(--gold); background: #fff9e8; }
+    .dot {
+      width: 20px; height: 20px;
+      border-radius: 999px;
+      border: 2px solid #c9b573;
+      flex: 0 0 auto;
+      margin-top: 4px;
+      transition: background .18s, box-shadow .18s;
+    }
+    .option.selected .dot { background: var(--gold); border-color: var(--gold); box-shadow: inset 0 0 0 4px #fff; }
+    .opt-label { display: block; font-weight: 900; font-size: 1rem; line-height: 1.45; }
+    .opt-copy { min-width: 0; }
+    .opt-desc  { display: block; color: #526274; font-size: .93rem; margin-top: 3px; line-height: 1.6; }
+
+    /* ── Buttons ────────────────────────────────────────── */
+    .actions { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
+    button, .btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 22px;
+      font-weight: 900;
+      font-size: .98rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Reem Kufi', sans-serif;
+      transition: filter .18s, opacity .18s;
+    }
+    .primary { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #1f2937; }
+    .primary:hover:not(:disabled) { filter: brightness(1.06); }
+    .ghost { background: #fff; border: 1.5px solid var(--line); color: var(--ink); }
+    .ghost:hover:not(:disabled) { border-color: #aaa; }
+    button:disabled { opacity: .58; cursor: not-allowed; filter: grayscale(.2); }
+
+    /* ── Result ─────────────────────────────────────────── */
+    .result-pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-weight: 900;
+      font-size: .9rem;
+      margin-bottom: 13px;
+      font-family: 'Reem Kufi', sans-serif;
+    }
+    .pill-leak  { background: rgba(230,197,122,.16);  color: #8a6a21; }
+    .pill-ready { background: rgba(50,187,169,.12); color: #0e7a70; }
+
+    .result-title {
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: clamp(1.35rem, 3.5vw, 2.1rem);
+      font-weight: 900;
+      margin: 0 0 9px;
+      color: var(--navy);
+      line-height: 1.3;
+    }
+    .result-text { color: var(--muted); margin: 0 0 20px; font-size: .98rem; }
+
+    /* ── Journey map ────────────────────────────────────── */
+    .journey {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      margin: 0 0 22px;
+    }
+    .j-step { flex: 1; text-align: center; position: relative; }
+    .j-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 0; top: 21px;
+      width: 100%; height: 2px;
+      background: var(--line);
+      z-index: 0;
+    }
+    .j-circle {
+      width: 42px; height: 42px;
+      border-radius: 999px;
+      border: 2px solid var(--line);
+      background: #faf8f2;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 6px;
+      font-family: 'Reem Kufi', sans-serif;
+      font-weight: 900;
+      font-size: 1rem;
+      position: relative; z-index: 1;
+      transition: .2s;
+    }
+    .j-name { font-size: .8rem; font-weight: 700; color: var(--muted); }
+
+    .j-step.done .j-circle { background: var(--teal); border-color: var(--teal); color: #fff; }
+    .j-step.done .j-name   { color: #0e7a70; }
+
+    .j-step.leak .j-circle {
+      background: var(--gold); border-color: var(--gold); color: #1f2937;
+      box-shadow: 0 0 0 6px rgba(230,197,122,.18);
+    }
+    .j-step.leak .j-name { color: #8a6a21; font-weight: 900; }
+
+    .j-step.ready .j-circle { background: var(--gold); border-color: var(--gold); color: #1f2937; }
+    .j-step.ready .j-name   { color: #9b7b2e; font-weight: 900; }
+
+    /* ── Priorities ─────────────────────────────────────── */
+    .priorities { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 9px; }
+    .priorities li {
+      padding: 12px 15px;
+      border: 1.5px solid var(--line);
+      border-radius: 15px;
+      background: #faf8f2;
+      font-size: .96rem;
+      line-height: 1.6;
+    }
+
+    /* ── Price card ─────────────────────────────────────── */
+    .price-card {
+      background: linear-gradient(145deg, var(--navy), var(--navy2));
+      color: #fff;
+      border-radius: 20px;
+      padding: 20px 22px;
+      margin-bottom: 14px;
+    }
+    .price-label  { color: rgba(255,255,255,.6); font-size: .88rem; margin-bottom: 3px; }
+    .price-amount {
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1.1;
+    }
+    .price-note { font-size: .85rem; color: rgba(255,255,255,.5); margin-top: 2px; }
+
+    /* ── WhatsApp button ────────────────────────────────── */
+    .wa-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 999px;
+      padding: 15px 22px;
+      font-weight: 900;
+      font-size: .98rem;
+      font-family: 'Reem Kufi', sans-serif;
+      transition: background .18s;
+    }
+    .wa-btn:hover { background: #20b858; }
+
+    .disclaimer {
+      margin-top: 14px;
+      color: #815f18;
+      background: #fff7df;
+      border: 1px solid rgba(230,197,122,.35);
+      border-radius: 14px;
+      padding: 10px 14px;
+      font-size: .88rem;
+    }
+
+    /* ── Footer ─────────────────────────────────────────── */
+    footer { text-align: center; color: var(--muted); padding: 0 0 30px; font-size: .9rem; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── Analysis screen ──────────────────────────────── */
+    #screen-analysis.card {
+      background: linear-gradient(145deg, var(--navy), #0d1220);
+      padding: 0;
+      overflow: hidden;
+      border-color: rgba(255,255,255,.06);
+      box-shadow: 0 20px 70px rgba(0,0,0,.28);
+    }
+    .analysis-inner {
+      position: relative;
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 28px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .analysis-watermark {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 220px; height: 220px;
+      object-fit: contain;
+      opacity: .11;
+      filter: brightness(0) invert(1);
+      pointer-events: none;
+      user-select: none;
+    }
+    .analysis-dot-wrap {
+      position: relative;
+      width: 70px; height: 70px;
+      margin: 0 auto 28px;
+      flex-shrink: 0;
+    }
+    .analysis-dot-wrap::before,
+    .analysis-dot-wrap::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(230,197,122,.5);
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0;
+      animation: halo-ring 2s ease-out infinite;
+      pointer-events: none;
+    }
+    .analysis-dot-wrap::after { animation-delay: 1s; }
+    .analysis-dot {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--gold);
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      animation: pulse-dot 1.4s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(230,197,122,.35), 0 0 8px rgba(230,197,122,.22);
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        box-shadow: 0 0 0 6px rgba(230,197,122,.0), 0 0 20px rgba(230,197,122,.5);
+        transform: translate(-50%, -50%) scale(1.15);
+      }
+    }
+    @keyframes halo-ring {
+      0%   { transform: translate(-50%, -50%) scale(1);   opacity: .55; }
+      100% { transform: translate(-50%, -50%) scale(4.8); opacity: 0; }
+    }
+    .analysis-texts {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 3;
+    }
+    .atext {
+      font-family: 'Reem Kufi', sans-serif;
+      font-weight: 700;
+      margin: 0;
+      opacity: 0;
+      animation-name: fade-up-text;
+      animation-duration: .55s;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
+    }
+    .atext-1 {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      color: rgba(255,255,255,.95);
+      animation-delay: .2s;
+    }
+    .atext-2 {
+      font-size: clamp(.95rem, 2.5vw, 1.15rem);
+      color: rgba(255,255,255,.68);
+      animation-delay: .95s;
+    }
+    .atext-3 {
+      font-size: clamp(.9rem, 2.5vw, 1.05rem);
+      color: rgba(255,255,255,.5);
+      animation-delay: 1.7s;
+    }
+    @keyframes fade-up-text {
+      from { opacity: 0; transform: translateY(7px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .analysis-phases {
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: .05em;
+      opacity: 0;
+      animation: fade-up-text .5s ease 2.15s forwards;
+      position: relative;
+      z-index: 3;
+    }
+    @keyframes reduced-pulse {
+      0%, 100% { transform: translate(-50%, -50%); opacity: 1; }
+      50%       { transform: translate(-50%, -50%); opacity: .45; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .analysis-dot {
+        animation: reduced-pulse 2s ease-in-out infinite;
+        box-shadow: 0 0 14px rgba(230,197,122,.35);
+      }
+      .analysis-dot-wrap::before,
+      .analysis-dot-wrap::after { animation: none; opacity: 0; }
+    }
+
+    /* ── Responsive ─────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .hero { padding: 20px 0 16px; }
+      main { padding: 16px 0 44px; }
+      .card { padding: 18px; }
+      .option { padding: 13px 14px; gap: 10px; grid-template-columns: 22px 1fr; }
+      .dot { margin-top: 4px; }
+      .question-text { margin-bottom: 14px; }
+      .actions { flex-direction: column-reverse; gap: 10px; margin-top: 18px; }
+      button, .btn, .wa-btn { width: 100%; }
+      .j-circle { width: 36px; height: 36px; font-size: .85rem; }
+      .j-step:not(:last-child)::after { top: 18px; }
+      .j-name { font-size: .75rem; margin-top: 4px; }
+      .price-card { padding: 16px 18px; }
+      .price-amount { font-size: 1.8rem; }
+      .result-title { margin-bottom: 7px; }
+    }
+    @media (max-width: 400px) {
+      .wrap { width: calc(100% - 24px); }
+      .card { padding: 14px; }
+      .hero { padding: 16px 0 13px; }
+      .hero h1 { font-size: 1.65rem; }
+      .hero p { font-size: .92rem; }
+      .opt-label { font-size: .95rem; }
+      .opt-desc { font-size: .86rem; line-height: 1.65; }
+      .j-circle { width: 32px; height: 32px; font-size: .78rem; }
+      .j-step:not(:last-child)::after { top: 16px; }
+      .j-name { font-size: .7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="wrap">
+      <img src="assets/logo-mark.png" alt="رمز كامن">
+      <a href="index.html">كامن KAMEN™</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="wrap">
+      <h1>خارطة كامن للنمو</h1>
+      <p>7 أسئلة تكشف أين تتسرب فرص مشروعك وما الأولوية الأقرب قبل أي تنفيذ.</p>
+      <span class="phases-badge">كشف · أولوية · مواءمة · نمو</span>
+    </div>
+  </div>
+
+  <main>
+    <div class="wrap">
+
+      <!-- ── Intro screen ── -->
+      <section class="card" id="screen-intro">
+        <p class="intro-title">قبل أن نبدأ</p>
+        <p class="intro-sub">سؤالان فقط لنجعل التشخيص أدق لمشروعك.</p>
+
+        <div class="field">
+          <label for="sector">القطاع</label>
+          <div class="select-wrap">
+            <select id="sector">
+              <option value="">— اختر القطاع —</option>
+              <option>تجزئة وخدمات</option>
+              <option>مطاعم وضيافة</option>
+              <option>صحة وعافية</option>
+              <option>تعليم وتدريب</option>
+              <option>عقارات ومقاولات</option>
+              <option>خدمات مهنية واستشارية</option>
+              <option>تقنية وبرمجيات</option>
+              <option>أخرى</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="firstname">الاسم الأول <span class="opt-tag">(اختياري)</span></label>
+          <input type="text" id="firstname" placeholder="مثال: محمد" autocomplete="given-name">
+        </div>
+
+        <div class="actions" style="justify-content:flex-start">
+          <button class="primary" id="startBtn" type="button" disabled>ابدأ التشخيص</button>
+        </div>
+      </section>
+
+      <!-- ── Quiz screen ── -->
+      <section class="card" id="screen-quiz" style="display:none" aria-live="polite">
+        <div class="progress-row">
+          <div class="progress"><div class="bar" id="bar"></div></div>
+          <span class="progress-count" id="progressCount">السؤال 1 من 7</span>
+        </div>
+        <span class="phase-tag" id="phaseTag">كشف</span>
+        <div class="question-text" id="questionText"></div>
+        <div class="options" id="options"></div>
+        <div class="actions">
+          <button class="ghost" id="backBtn" type="button">السابق</button>
+          <button class="primary" id="nextBtn" type="button" disabled>التالي</button>
+        </div>
+      </section>
+
+      <!-- ── Analysis screen ── -->
+      <section class="card" id="screen-analysis" style="display:none" aria-label="جارٍ تحليل إجاباتك">
+        <div class="analysis-inner">
+          <img src="assets/logo-mark.png" alt="" aria-hidden="true" class="analysis-watermark">
+          <div class="analysis-dot-wrap">
+            <div class="analysis-dot"></div>
+          </div>
+          <div class="analysis-texts" role="status">
+            <p class="atext atext-1">نحلل إجاباتك…</p>
+            <p class="atext atext-2">نحدد أين تتسرب الفرص…</p>
+            <p class="atext atext-3">نرتب أولوياتك الأقرب…</p>
+          </div>
+          <div class="analysis-phases">كشف · أولوية · مواءمة · نمو</div>
+        </div>
+      </section>
+
+      <!-- ── Result screen ── -->
+      <section class="card" id="screen-result" style="display:none">
+        <span class="result-pill" id="resultPill"></span>
+        <h2 class="result-title" id="resultTitle"></h2>
+        <p class="result-text" id="resultText"></p>
+
+        <!-- Journey map -->
+        <div class="journey" id="journey">
+          <div class="j-step" data-phase="كشف">
+            <div class="j-circle">ك</div>
+            <div class="j-name">كشف</div>
+          </div>
+          <div class="j-step" data-phase="أولوية">
+            <div class="j-circle">أ</div>
+            <div class="j-name">أولوية</div>
+          </div>
+          <div class="j-step" data-phase="مواءمة">
+            <div class="j-circle">م</div>
+            <div class="j-name">مواءمة</div>
+          </div>
+          <div class="j-step" data-phase="نمو">
+            <div class="j-circle">ن</div>
+            <div class="j-name">نمو</div>
+          </div>
+        </div>
+
+        <ul class="priorities" id="priorities"></ul>
+
+        <div class="price-card">
+          <div class="price-label">تأسيس كامن الرقمي</div>
+          <div class="price-amount">3,900 ريال</div>
+          <div class="price-note">لأول 3 عملاء فقط</div>
+        </div>
+
+        <a class="wa-btn" id="waBtn" href="#" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.978-1.418A9.935 9.935 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2Z" fill="rgba(255,255,255,.25)"/>
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347Z" fill="#fff"/>
+          </svg>
+          ابدأ تأسيس كامن الرقمي بناءً على نتيجتك
+        </a>
+
+        <p class="disclaimer">هذه قراءة أولية وليست تقريرًا استشاريًا كاملًا. نستخدمها لبدء الحديث من الأولوية الأقرب لمشروعك.</p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <a href="index.html">العودة إلى موقع كامن</a> · من الكامن إلى الممكن
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+
+    /* ── Questions ────────────────────────────────────────────── */
+    const PHASES = ['كشف', 'أولوية', 'مواءمة', 'نمو'];
+
+    const QUESTIONS = [
+      // كشف — 1
+      {
+        phase: 'كشف',
+        text: 'كيف يصل إليك العميل الجديد اليوم؟',
+        options: [
+          { label: 'بالصدفة أو التوصية فقط',        desc: 'لا يوجد تواجد رقمي يُسهّل الوصول إليك',     score: 1 },
+          { label: 'عبر واتساب أو وسائل التواصل',   desc: 'موجود لكن بدون مسار واضح للوصول إليك',       score: 2 },
+          { label: 'عبر بحث جوجل أو صفحة متكاملة',  desc: 'من يبحث عنك يجدك بسهولة وبشكل احترافي',    score: 3 }
+        ]
+      },
+      // كشف — 2
+      {
+        phase: 'كشف',
+        text: 'أين تصل الاستفسارات وأين تُسجَّل؟',
+        options: [
+          { label: 'تصل بشكل مبعثر ولا تُسجَّل',       desc: 'واتساب شخصي ورسائل واتصالات بلا سجل',      score: 1 },
+          { label: 'تصل لقناة واحدة لكن بدون سجل',      desc: 'مكان واحد للاستقبال لكن المتابعة يدوية',    score: 2 },
+          { label: 'تُسجَّل في مكان محدد ومتابَعة',     desc: 'كل استفسار موثَّق وتعرف حالته',             score: 3 }
+        ]
+      },
+      // أولوية — 3
+      {
+        phase: 'أولوية',
+        text: 'أين تشعر أن الفرص تضيع أكثر؟',
+        options: [
+          { label: 'في الاستقبال',   desc: 'الاستفسار يأتي ولا نرد في الوقت المناسب',      score: 1 },
+          { label: 'في المتابعة',    desc: 'نرسل العروض لكن لا نعرف من يجب متابعته',       score: 2 },
+          { label: 'في التحويل',     desc: 'نتابع لكن إغلاق الصفقة أو الإقناع ضعيف',      score: 3 }
+        ]
+      },
+      // أولوية — 4
+      {
+        phase: 'أولوية',
+        text: 'ما هدفك الأقرب خلال 90 يومًا؟',
+        options: [
+          { label: 'ترتيب الاستقبال وتقليل الفرص الضائعة', desc: 'نحتاج أولًا أن يجدنا من يبحث عنا',           score: 1 },
+          { label: 'بناء مسار متابعة منتظم',               desc: 'الاستقبال موجود لكن المتابعة غير منتظمة',    score: 2 },
+          { label: 'تحسين النسب وقياس الأداء',             desc: 'لدينا مسار ونريد تطويره ببيانات أوضح',       score: 3 }
+        ]
+      },
+      // مواءمة — 5
+      {
+        phase: 'مواءمة',
+        text: 'هل لديك سجل يحفظ الفرص وحالتها؟',
+        options: [
+          { label: 'لا، كل شيء في المحادثات والذاكرة',    desc: 'لا يوجد توثيق خارج الرسائل',                score: 1 },
+          { label: 'جدول أو ملاحظات لكن غير منتظمة',      desc: 'نحاول لكن السجل غير مكتمل ولا يُتابَع',    score: 2 },
+          { label: 'نعم، سجل واضح ومحدَّث بانتظام',       desc: 'نعرف حالة كل فرصة وتاريخها',               score: 3 }
+        ]
+      },
+      // مواءمة — 6
+      {
+        phase: 'مواءمة',
+        text: 'هل جربت حلولًا رقمية من قبل؟',
+        options: [
+          { label: 'لا، لم نجرب شيئًا',              desc: 'العمل يسير بالطرق التقليدية فقط',              score: 1 },
+          { label: 'جربنا لكنها لم تناسبنا',          desc: 'كانت معقدة أو لم تتلاءم مع طبيعة العمل',       score: 2 },
+          { label: 'نعم ونستخدم بعضها الآن',          desc: 'لدينا أدوات رقمية نعتمد عليها بشكل منتظم',    score: 3 }
+        ]
+      },
+      // نمو — 7
+      {
+        phase: 'نمو',
+        text: 'كيف تتخذ قرار التحسين؟',
+        options: [
+          { label: 'بناءً على الإحساس أو ضغط اليوم',       desc: 'نقرر حسب ما يبدو عاجلًا أو مطلوبًا الآن',   score: 1 },
+          { label: 'ببعض الأرقام البسيطة',                 desc: 'لدينا مؤشرات لكنها غير كافية للقرار الكامل', score: 2 },
+          { label: 'بناءً على بيانات واضحة ومتابَعة دورية', desc: 'نعرف ما يعمل ونطوره بشكل منتظم',           score: 3 }
+        ]
+      }
+    ];
+
+    /* أسئلة كل مرحلة (indices) */
+    const PHASE_MAP = { 'كشف': [0,1], 'أولوية': [2,3], 'مواءمة': [4,5], 'نمو': [6] };
+
+    /* ── Result content ───────────────────────────────────────── */
+    const RESULTS = {
+      'كشف': {
+        pillClass: 'pill-leak',
+        pill:  'نقطة التسرب — كشف',
+        title: 'مشروعك لا يُرى كما يجب، وما يصل غير مُنظَّم.',
+        text:  'الفرص تضيع قبل أن تبدأ. الأولوية الأولى هي جعل الوصول إليك أوضح وتنظيم استقبال الاستفسارات حتى لا تضيع.',
+        priorities: [
+          '<strong>١. قناة استقبال واحدة واضحة:</strong> حدّد أين يصلك العميل وأعلن عنه.',
+          '<strong>٢. تواجد رقمي أساسي:</strong> صفحة أو ملف تجاري يُسهّل إيجادك عند البحث.',
+          '<strong>٣. سجل بسيط لكل استفسار:</strong> حتى جدول بسيط يُحدث فرقًا في التتبع.'
+        ],
+        waText (name, sector) {
+          return `مرحبًا، أكملت خارطة كامن للنمو.${name ? ` اسمي ${name}،` : ''} من قطاع ${sector}. نقطة التسرب لديّ في مرحلة الكشف — الاستقبال غير منظَّم والوصول إليّ غير واضح. أرغب في بدء تأسيس كامن الرقمي بناءً على نتيجتي.`;
+        }
+      },
+      'أولوية': {
+        pillClass: 'pill-leak',
+        pill:  'نقطة التسرب — أولوية',
+        title: 'تصلك الفرص، لكن تضيع في المتابعة أو الرد.',
+        text:  'لديك استقبال، لكن غياب الأولوية الواضحة يُضيّع فرصًا كان يمكن إنقاذها. الخطوة الأقرب ضبط من تتابع وكيف.',
+        priorities: [
+          '<strong>١. تحديد ما يستحق المتابعة:</strong> ليس كل استفسار يستحق نفس الجهد والوقت.',
+          '<strong>٢. روتين رد ومتابعة منتظم:</strong> وقت ثابت يوميًا للردود والمتابعة.',
+          '<strong>٣. توثيق نتائج العروض:</strong> لماذا أغلقنا؟ لماذا لم نُغلق؟ الإجابة تُحسّن القرار.'
+        ],
+        waText (name, sector) {
+          return `مرحبًا، أكملت خارطة كامن للنمو.${name ? ` اسمي ${name}،` : ''} من قطاع ${sector}. نقطة التسرب لديّ في مرحلة الأولوية — الفرص تصل لكن تضيع في المتابعة. أرغب في بدء تأسيس كامن الرقمي بناءً على نتيجتي.`;
+        }
+      },
+      'مواءمة': {
+        pillClass: 'pill-leak',
+        pill:  'نقطة التسرب — مواءمة',
+        title: 'العمليات غير مترابطة، والفرص تُدار بشكل متقطع.',
+        text:  'القنوات والسجلات منفصلة مما يجعل القرارات مبنية على انطباع لا بيانات. الخطوة الأقرب ربط ما لديك في مكان واحد.',
+        priorities: [
+          '<strong>١. سجل مركزي لكل الفرص:</strong> ربط قنوات الاستقبال بمكان تتبع واحد.',
+          '<strong>٢. مسار متابعة موحَّد:</strong> كل فرصة تسير في خطوات واضحة ومتفق عليها.',
+          '<strong>٣. مؤشرات بسيطة للقياس:</strong> عدد الاستفسارات الأسبوعية وحالتها كبداية.'
+        ],
+        waText (name, sector) {
+          return `مرحبًا، أكملت خارطة كامن للنمو.${name ? ` اسمي ${name}،` : ''} من قطاع ${sector}. نقطة التسرب لديّ في مرحلة المواءمة — العمليات غير مترابطة والقرارات بلا بيانات. أرغب في بدء تأسيس كامن الرقمي بناءً على نتيجتي.`;
+        }
+      },
+      'نمو': {
+        pillClass: 'pill-leak',
+        pill:  'نقطة التسرب — نمو',
+        title: 'لديك أساس جيد، لكن القرارات لا تستند لبيانات كافية.',
+        text:  'المسار موجود والاستقبال منظَّم، لكن التحسين المستمر يحتاج قياسًا أوضح حتى يكون كل قرار مبنيًا على واقع لا توقعات.',
+        priorities: [
+          '<strong>١. مؤشرات أداء أسبوعية:</strong> ثلاثة أرقام تعكس صحة المسار كاملًا.',
+          '<strong>٢. تحليل مصادر العملاء بانتظام:</strong> من أين يأتون وما الذي يُقنعهم.',
+          '<strong>٣. دورة تحسين شهرية:</strong> مراجعة منتظمة تبني على ما عمل وتُصلح ما لم يعمل.'
+        ],
+        waText (name, sector) {
+          return `مرحبًا، أكملت خارطة كامن للنمو.${name ? ` اسمي ${name}،` : ''} من قطاع ${sector}. نقطة التسرب لديّ في مرحلة النمو — القرارات تحتاج بيانات أوضح وقياسًا منتظمًا. أرغب في بدء تأسيس كامن الرقمي بناءً على نتيجتي.`;
+        }
+      },
+      'قريب من كامن بلس': {
+        pillClass: 'pill-ready',
+        pill:  'جاهزية عالية',
+        title: 'مشروعك أقرب من كامن بلس.',
+        text:  'مستوى التأسيس جيد في معظم المراحل. الخطوة الأنسب مراجعة التأسيس الحالي أولًا، ثم الانتقال لكامن بلس 90 يوم لتسريع النمو.',
+        priorities: [
+          '<strong>١. مراجعة شاملة للمسار الحالي:</strong> تحديد أي ثغرات قبل التوسع.',
+          '<strong>٢. ضبط قياس الأداء:</strong> التأكد من أن الأرقام تعكس الواقع الكامل.',
+          '<strong>٣. دورة نمو مستدامة:</strong> مع كامن بلس 90 يوم.'
+        ],
+        waText (name, sector) {
+          return `مرحبًا، أكملت خارطة كامن للنمو.${name ? ` اسمي ${name}،` : ''} من قطاع ${sector}. نتيجتي تشير إلى جاهزية عالية — قريب من كامن بلس. أرغب في بدء تأسيس كامن الرقمي ومراجعة المسار الحالي.`;
+        }
+      }
+    };
+
+    /* ── State ────────────────────────────────────────────────── */
+    let current   = 0;
+    const answers = Array(QUESTIONS.length).fill(null);
+    let userName   = '';
+    let userSector = '';
+
+    /* ── Elements ─────────────────────────────────────────────── */
+    const sIntro    = document.getElementById('screen-intro');
+    const sQuiz     = document.getElementById('screen-quiz');
+    const sAnalysis = document.getElementById('screen-analysis');
+    const sResult   = document.getElementById('screen-result');
+    const sectorEl    = document.getElementById('sector');
+    const firstnameEl = document.getElementById('firstname');
+    const startBtn    = document.getElementById('startBtn');
+    const barEl       = document.getElementById('bar');
+    const countEl     = document.getElementById('progressCount');
+    const phaseTagEl  = document.getElementById('phaseTag');
+    const questionEl  = document.getElementById('questionText');
+    const optionsEl   = document.getElementById('options');
+    const backBtn     = document.getElementById('backBtn');
+    const nextBtn     = document.getElementById('nextBtn');
+
+    /* ── Intro validation ─────────────────────────────────────── */
+    sectorEl.addEventListener('change', () => {
+      startBtn.disabled = !sectorEl.value;
+    });
+
+    startBtn.addEventListener('click', () => {
+      userSector = sectorEl.value;
+      userName   = firstnameEl.value.trim();
+      sIntro.style.display = 'none';
+      sQuiz.style.display  = 'block';
+      render();
+    });
+
+    /* ── Quiz render ──────────────────────────────────────────── */
+    function render () {
+      const q = QUESTIONS[current];
+      phaseTagEl.textContent  = q.phase;
+      questionEl.textContent  = q.text;
+      barEl.style.width       = ((current + 1) / QUESTIONS.length * 100) + '%';
+      countEl.textContent     = 'السؤال ' + (current + 1) + ' من ' + QUESTIONS.length;
+
+      optionsEl.innerHTML = '';
+      q.options.forEach((op, i) => {
+        const btn  = document.createElement('button');
+        btn.type   = 'button';
+        btn.className = 'option' + (answers[current]?.index === i ? ' selected' : '');
+        btn.innerHTML = `<span class="dot"></span><span class="opt-copy"><span class="opt-label">${op.label}</span><span class="opt-desc">${op.desc}</span></span>`;
+        btn.onclick = () => { answers[current] = { index: i, score: op.score }; render(); };
+        optionsEl.appendChild(btn);
+      });
+
+      backBtn.disabled    = current === 0;
+      nextBtn.disabled    = !answers[current];
+      nextBtn.textContent = current === QUESTIONS.length - 1 ? 'اعرض النتيجة' : 'التالي';
+    }
+
+    backBtn.addEventListener('click', () => { if (current > 0) { current--; render(); } });
+    nextBtn.addEventListener('click', () => {
+      if (!answers[current]) return;
+      if (current < QUESTIONS.length - 1) { current++; render(); }
+      else showResult();
+    });
+
+    /* ── Result logic ─────────────────────────────────────────── */
+    function showResult () {
+      /* Phase averages */
+      const avg = {};
+      PHASES.forEach(ph => {
+        const idxs  = PHASE_MAP[ph];
+        const total = idxs.reduce((s, i) => s + (answers[i]?.score ?? 1), 0);
+        avg[ph]     = total / idxs.length;
+      });
+
+      /* All strong? threshold ≥ 2.5 */
+      const allStrong = PHASES.every(ph => avg[ph] >= 2.5);
+      let resultKey;
+      let leakPhase = null;
+
+      if (allStrong) {
+        resultKey = 'قريب من كامن بلس';
+      } else {
+        /* Weakest phase — strict < so ties keep the first (earliest) phase */
+        let minAvg = Infinity;
+        PHASES.forEach(ph => {
+          if (avg[ph] < minAvg) { minAvg = avg[ph]; leakPhase = ph; }
+        });
+        resultKey = leakPhase;
+      }
+
+      const rd = RESULTS[resultKey];
+
+      /* Pill */
+      const pillEl = document.getElementById('resultPill');
+      pillEl.textContent = rd.pill;
+      pillEl.className   = 'result-pill ' + rd.pillClass;
+
+      /* Title & text */
+      document.getElementById('resultTitle').textContent = rd.title;
+      document.getElementById('resultText').textContent  = rd.text;
+
+      /* Priorities */
+      document.getElementById('priorities').innerHTML =
+        rd.priorities.map(p => `<li>${p}</li>`).join('');
+
+      /* Journey map */
+      document.querySelectorAll('.j-step').forEach(step => {
+        const ph = step.dataset.phase;
+        step.classList.remove('done', 'leak', 'ready');
+        if (allStrong) {
+          step.classList.add('ready');
+        } else {
+          const idx     = PHASES.indexOf(ph);
+          const leakIdx = PHASES.indexOf(leakPhase);
+          if      (idx < leakIdx)  step.classList.add('done');
+          else if (idx === leakIdx) step.classList.add('leak');
+        }
+      });
+
+      /* WhatsApp link */
+      document.getElementById('waBtn').href =
+        'https://wa.me/966553353448?text=' + encodeURIComponent(rd.waText(userName, userSector));
+
+      /* Analysis screen → then result after 2.8 s */
+      sQuiz.style.display     = 'none';
+      sAnalysis.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        sAnalysis.style.display = 'none';
+        sResult.style.display   = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 4500);
+    }
+
+  })();
+  </script>
+
+</body>
+</html>
