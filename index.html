@@ -97,7 +97,8 @@
     .final p{color:rgba(255,255,255,.75);margin:14px auto 26px;max-width:720px}
     footer{background:#0b111c;color:rgba(255,255,255,.62);padding:28px 0;font-size:.92rem}
     .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    .whatsapp-float{position:fixed;right:18px;bottom:18px;z-index:30;background:#20b15a;color:#fff;border-radius:999px;padding:13px 18px;font-weight:900;box-shadow:0 18px 48px rgba(32,177,90,.32)}
+    .assistant-float{position:fixed;left:18px;bottom:18px;z-index:29;width:58px;height:58px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;box-shadow:0 18px 48px rgba(16,24,39,.28);border:2px solid var(--gold)}
+    .assistant-float img{width:28px;height:28px;object-fit:contain}
     @media (max-width:900px){
       .navlinks{display:none}
       .hero{padding:48px 0 48px}
@@ -113,7 +114,6 @@
       section{padding:52px 0}
       .leak-grid,.method{grid-template-columns:1fr}
       .trust-box{display:block}
-      .whatsapp-float{left:14px;right:14px;text-align:center}
       footer{padding-bottom:86px}
     }
   </style>
@@ -129,6 +129,7 @@
         <a href="#leaks">المشكلة</a>
         <a href="#solution">التأسيس</a>
         <a href="#price">السعر</a>
+        <a href="assistant.html">مساعد كامن</a>
         <a href="growth-map.html" class="btn btn-light">خارطة كامن للنمو</a>
       </nav>
     </div>
@@ -281,6 +282,8 @@
       <span>واتساب: +966553353448</span>
     </div>
   </footer>
-  <a class="whatsapp-float" href="https://wa.me/966553353448?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AD%D8%AC%D8%B2%20%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%20%D9%83%D8%A7%D9%85%D9%86%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A" aria-label="تواصل عبر واتساب">واتساب كامن</a>
+  <a class="assistant-float" href="assistant.html" aria-label="مساعد كامن التفاعلي">
+    <img src="assets/logo-mark.png" alt="">
+  </a>
 </body>
 </html>
