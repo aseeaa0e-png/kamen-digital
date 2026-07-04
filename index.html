@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>كامن KAMEN™ — تأسيس رقمي يمنع ضياع الفرص</title>
+  <meta name="description" content="كامن تجهز أساس مشروعك الرقمي حتى لا تضيع الفرص: قناة استقبال منظمة، سجل فرص، قياس أولي، وأتمتة خفيفة. سعر الإطلاق 3,900 ريال لأول 3 عملاء.">
+  <meta name="theme-color" content="#101827">
+  <link rel="icon" href="assets/logo-mark.png">
+  <style>
+    :root {
+      --navy:#101827;
+      --navy-2:#172235;
+      --ink:#18202d;
+      --muted:#667085;
+      --paper:#fbf8ef;
+      --card:#ffffff;
+      --line:rgba(16,24,39,.12);
+      --gold:#d8b567;
+      --gold-2:#f0d98f;
+      --teal:#35c6b5;
+      --shadow:0 22px 70px rgba(16,24,39,.14);
+      --radius:26px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","IBM Plex Sans Arabic","Noto Kufi Arabic","Noto Sans Arabic",Tahoma,Arial,sans-serif;background:var(--paper);color:var(--ink);font-size:17px;line-height:1.8}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1120px,calc(100% - 36px));margin-inline:auto}
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(251,248,239,.86);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:76px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:42px;height:42px;object-fit:contain;border-radius:12px;background:var(--navy)}
+    .brand strong{display:block;font-size:1.08rem;letter-spacing:.02em}
+    .brand small{display:block;color:var(--muted);font-size:.78rem;margin-top:-4px}
+    .navlinks{display:flex;align-items:center;gap:16px;color:#344054;font-size:.92rem}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:999px;padding:14px 22px;font-weight:800;line-height:1.2;cursor:pointer;transition:.2s ease;white-space:nowrap}
+    .btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#1f2937;box-shadow:0 12px 34px rgba(216,181,103,.26)}
+    .btn-primary:hover{transform:translateY(-2px)}
+    .btn-secondary{border:1px solid rgba(255,255,255,.22);color:#fff;background:rgba(255,255,255,.08)}
+    .btn-light{border:1px solid var(--line);background:#fff;color:var(--navy)}
+    .hero{position:relative;overflow:hidden;background:radial-gradient(circle at 18% 12%,rgba(53,198,181,.22),transparent 30%),linear-gradient(145deg,var(--navy),#0b111c);color:#fff;padding:76px 0 70px}
+    .hero::after{content:"";position:absolute;inset:0;background:url('assets/logo-mark.png') left -80px top 40px / 420px auto no-repeat;opacity:.055;pointer-events:none}
+    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(216,181,103,.35);background:rgba(216,181,103,.10);color:#f5df9d;border-radius:999px;padding:8px 13px;font-size:.92rem;font-weight:700}
+    h1,h2,h3{line-height:1.25;margin:0;color:inherit}
+    h1{font-size:clamp(2.15rem,5vw,4.6rem);letter-spacing:-.04em;margin-top:18px}
+    .hero-lead{font-size:clamp(1.05rem,2.3vw,1.34rem);color:rgba(255,255,255,.82);max-width:720px;margin:20px 0 0}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .hero-note{margin-top:18px;color:rgba(255,255,255,.65);font-size:.94rem}
+    .hero-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:34px;padding:26px;box-shadow:0 30px 90px rgba(0,0,0,.22)}
+    .hero-card img{display:block;width:min(220px,70%);margin:0 auto 20px;border-radius:28px}
+    .mini-stat{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .mini-stat div{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);border-radius:18px;padding:14px;text-align:center}
+    .mini-stat strong{display:block;color:var(--gold-2);font-size:1.15rem}
+    section{padding:72px 0}
+    .section-head{max-width:780px;margin-bottom:28px}
+    .label{display:inline-block;color:#9b7b2e;background:rgba(216,181,103,.17);border:1px solid rgba(216,181,103,.22);border-radius:999px;padding:6px 12px;font-size:.86rem;font-weight:800;margin-bottom:12px}
+    h2{font-size:clamp(1.75rem,3.6vw,3rem);letter-spacing:-.03em}
+    .sub{color:var(--muted);font-size:1.05rem;margin:12px 0 0}
+    .leak-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 14px 40px rgba(16,24,39,.06)}
+    .icon{width:44px;height:44px;border-radius:16px;background:#f5ead1;color:#8a671b;display:flex;align-items:center;justify-content:center;font-weight:900;margin-bottom:14px}
+    .card h3{font-size:1.24rem;margin-bottom:8px}
+    .card p{margin:0;color:var(--muted)}
+    .quote-line{margin-top:18px;color:#344054;font-weight:800}
+    .solution{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .solution-grid{display:grid;grid-template-columns:1fr .85fr;gap:22px;align-items:stretch}
+    .result-list{display:grid;gap:12px;margin-top:18px}
+    .result-list div{display:flex;gap:12px;align-items:flex-start;background:#f7f5ee;border:1px solid var(--line);border-radius:18px;padding:14px}
+    .check{flex:0 0 auto;width:28px;height:28px;border-radius:999px;background:rgba(53,198,181,.16);color:#087c72;display:flex;align-items:center;justify-content:center;font-weight:900}
+    .price{position:relative;overflow:hidden;background:linear-gradient(145deg,var(--navy),var(--navy-2));color:#fff;border-radius:32px;padding:28px;box-shadow:var(--shadow)}
+    .price::after{content:"";position:absolute;inset:auto -60px -90px auto;width:260px;height:260px;border-radius:999px;background:rgba(216,181,103,.18)}
+    .price small{color:#f5df9d;font-weight:800}
+    .price .value{font-size:clamp(3rem,8vw,5.2rem);font-weight:900;line-height:1;margin:18px 0 10px;color:var(--gold-2);letter-spacing:-.06em}
+    .price .value span{font-size:1.15rem;color:#fff;letter-spacing:0}
+    .price p{color:rgba(255,255,255,.72);margin:0 0 22px}
+    .method{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .method .card{box-shadow:none}
+    .method-letter{width:42px;height:42px;border-radius:16px;background:var(--navy);color:var(--gold-2);display:flex;align-items:center;justify-content:center;font-weight:900;margin-bottom:12px}
+    .map-section{background:linear-gradient(180deg,#fff 0%,#fbf8ef 100%)}
+    .map-box{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:34px;padding:28px;box-shadow:var(--shadow)}
+    .demo-gate-box{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;background:#f7fdfb;border:1px solid rgba(53,198,181,.3);border-radius:34px;padding:28px;margin-top:18px}
+    .btn-demo{background:rgba(53,198,181,.13);color:#0e7a70;border:1.5px solid rgba(53,198,181,.4)}
+    .btn-demo:hover{background:rgba(53,198,181,.2)}
+    .plus{background:var(--navy);color:#fff}
+    .plus .wrap{display:grid;grid-template-columns:1fr .8fr;gap:24px;align-items:center}
+    .plus p{color:rgba(255,255,255,.76)}
+    .scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .scope ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+    .scope li{position:relative;padding-right:26px;color:#475467}
+    .scope li::before{content:"";position:absolute;right:0;top:.72em;width:9px;height:9px;border-radius:50%;background:var(--teal)}
+    .scope.no li::before{background:#d92d20}
+    .trust{background:#fff}
+    .trust-box{display:flex;gap:20px;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:34px;padding:28px;background:#f7f5ee}
+    .final{background:radial-gradient(circle at 20% 20%,rgba(216,181,103,.16),transparent 30%),var(--navy);color:#fff;text-align:center}
+    .final p{color:rgba(255,255,255,.75);margin:14px auto 26px;max-width:720px}
+    footer{background:#0b111c;color:rgba(255,255,255,.62);padding:28px 0;font-size:.92rem}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .assistant-float{position:fixed;left:18px;bottom:18px;z-index:29;width:58px;height:58px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;box-shadow:0 18px 48px rgba(16,24,39,.28);border:2px solid var(--gold)}
+    .assistant-float img{width:28px;height:28px;object-fit:contain}
+    @media (max-width:900px){
+      .navlinks{display:none}
+      .hero{padding:48px 0 48px}
+      .hero-grid,.solution-grid,.plus .wrap,.map-box,.demo-gate-box,.scope-grid{grid-template-columns:1fr}
+      .leak-grid,.method{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:620px){
+      body{font-size:17px}
+      .wrap{width:min(100% - 28px,1120px)}
+      .brand small{display:none}
+      .hero-actions .btn,.final .btn,.map-box .btn,.demo-gate-box .btn{width:100%}
+      .hero-card{display:none}
+      section{padding:52px 0}
+      .leak-grid,.method{grid-template-columns:1fr}
+      .trust-box{display:block}
+      footer{padding-bottom:86px}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="كامن KAMEN">
+        <img src="assets/logo-mark.png" alt="رمز كامن">
+        <span><strong>كامن KAMEN™</strong><small>تمكين ونمو رقمي</small></span>
+      </a>
+      <nav class="navlinks" aria-label="روابط الصفحة">
+        <a href="#leaks">المشكلة</a>
+        <a href="#solution">التأسيس</a>
+        <a href="#price">السعر</a>
+        <a href="assistant.html">مساعد كامن</a>
+        <a href="growth-map.html" class="btn btn-light">خارطة كامن للنمو</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">للمشاريع الصغيرة والمتوسطة</span>
+          <h1>الفرصة تصلك... ثم تضيع.</h1>
+          <p class="hero-lead">المشكلة ليست في التسويق وحده — بل في غياب النظام والمتابعة والقياس. نجهز أساس مشروعك الرقمي حتى لا تضيع الفرص، ثم نطوّر نموه بالبيانات لا بالوعود.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/966553353448?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AD%D8%AC%D8%B2%20%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%20%D9%83%D8%A7%D9%85%D9%86%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A">احجز تأسيس كامن الرقمي</a>
+            <a class="btn btn-secondary" href="growth-map.html">شخّص مشروعك مجانًا</a>
+          </div>
+          <div class="hero-note">أول تفعيل خلال 7 أيام، واكتمال التأسيس خلال 30 يومًا.</div>
+        </div>
+        <aside class="hero-card" aria-label="ملخص كامن">
+          <img src="assets/logo-full.png" alt="شعار كامن الكامل">
+          <div class="mini-stat">
+            <div><strong>كشف</strong><span>الفجوات</span></div>
+            <div><strong>قياس</strong><span>المصدر</span></div>
+            <div><strong>متابعة</strong><span>الفرص</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="leaks">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="label">أين تتسرب فرصك؟</span>
+          <h2>الفرص لا تضيع بسبب قلة التسويق فقط.</h2>
+          <p class="sub">كثير من المشاريع تحصل على استفسارات، لكنها تضيع بين المحادثات، غياب المتابعة، وعدم معرفة مصدر العميل.</p>
+        </div>
+        <div class="leak-grid">
+          <article class="card"><div class="icon">1</div><h3>بلا رد</h3><p>استفسارات واتساب أو الموقع تُنسى قبل أن تتحول إلى عملاء.</p></article>
+          <article class="card"><div class="icon">2</div><h3>بلا متابعة</h3><p>عروض أسعار تُرسل ثم لا يعرف أحد متى وكيف يتابعها.</p></article>
+          <article class="card"><div class="icon">3</div><h3>بلا قياس</h3><p>لا تعرف من أين جاء العميل الأخير، ولا لماذا اختفى.</p></article>
+        </div>
+        <p class="quote-line">التسريب لا يظهر في الفواتير — يظهر في الفرص التي لم تصبح فواتير.</p>
+      </div>
+    </section>
+
+    <section id="solution" class="solution">
+      <div class="wrap solution-grid">
+        <div>
+          <span class="label">الحل العملي</span>
+          <h2>تأسيس كامن الرقمي — 30 يومًا يسد الثغرات الثلاث.</h2>
+          <p class="sub">نبدأ بما يمنع ضياع الاستفسارات قبل زيادة الإنفاق على التسويق.</p>
+          <div class="result-list">
+            <div><span class="check">✓</span><span>مسار استقبال أوضح لكل استفسار.</span></div>
+            <div><span class="check">✓</span><span>متابعة لا تعتمد على الذاكرة أو ازدحام المحادثات.</span></div>
+            <div><span class="check">✓</span><span>سجل واضح تعرف منه مصدر الفرص وحالتها وما يحتاج متابعة.</span></div>
+          </div>
+        </div>
+        <aside id="price" class="price">
+          <small>سعر الإطلاق — لأول 3 عملاء فقط</small>
+          <div class="value">3,900 <span>ريال</span></div>
+          <p>يشترط عرض الإطلاق: شهادة عميل + دراسة حالة + إذن استخدام النتائج تسويقيًا.</p>
+          <a class="btn btn-primary" href="https://wa.me/966553353448?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AD%D8%AC%D8%B2%20%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%20%D9%83%D8%A7%D9%85%D9%86%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A">احجز مقعدك عبر واتساب</a>
+        </aside>
+      </div>
+    </section>
+
+    <section id="method">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="label">كيف نعمل</span>
+          <h2>منهجية كامن: كشف · أولوية · مواءمة · نمو</h2>
+        </div>
+        <div class="method">
+          <article class="card"><div class="method-letter">ك</div><h3>كشف</h3><p>نرى مشروعك كما هو، لا كما يبدو.</p></article>
+          <article class="card"><div class="method-letter">أ</div><h3>أولوية</h3><p>نبدأ بما يوقف التسريب أولًا.</p></article>
+          <article class="card"><div class="method-letter">م</div><h3>مواءمة</h3><p>كل أداة تُبنى على قدرة مشروعك واحتياجه، لا على قالب جاهز.</p></article>
+          <article class="card"><div class="method-letter">ن</div><h3>نمو</h3><p>نطوّر بما تقوله أرقامك، لا بما نعدك به.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="map-section">
+      <div class="wrap map-box">
+        <div>
+          <span class="label">خارطة كامن للنمو</span>
+          <h2>اكتشف بنفسك أين تتسرب فرصك — مجانًا.</h2>
+          <p class="sub">أداة تفاعلية تقيّم مشروعك على مراحل كشف · أولوية · مواءمة · نمو وتعطيك اتجاه الأولوية الأولى.</p>
+        </div>
+        <a class="btn btn-primary" href="growth-map.html">ابدأ التشخيص المجاني</a>
+      </div>
+      <div class="wrap demo-gate-box">
+        <div>
+          <span class="label">جولة تجريبية</span>
+          <h2>بوابة المشروع التجريبي</h2>
+          <p class="sub">استعرض المعرض التجريبي كما يراه العميل، ثم شاهد لوحة تحكم المدير بصورة مبسطة.</p>
+        </div>
+        <a class="btn btn-demo" href="demo.html">شاهد بوابة المشروع التجريبي</a>
+      </div>
+    </section>
+
+    <section class="plus">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">بعد التأسيس</span>
+          <h2>كامن بلس 90 يوم</h2>
+        </div>
+        <p>بعد تأسيس كامن الرقمي، يتحول الأساس إلى نمو مُدار بالأرقام: قراءة نتائج، تحسين رسائل، تطوير أتمتة خفيفة، وتجديد مبني على ما تحقق لا على وعود. يُعرض بعد المرحلة الأولى حسب جاهزية المشروع ونتائجه.</p>
+      </div>
+    </section>
+
+    <section id="scope">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="label">النطاق بوضوح</span>
+          <h2>ماذا يشمل تأسيس كامن الرقمي؟</h2>
+        </div>
+        <div class="scope-grid">
+          <article class="card scope"><h3>يشمل</h3><ul><li>توضيح العرض والرسالة الأساسية</li><li>صفحة تعريف أو رابط واضح</li><li>تنظيم واتساب بزنس أو قناة استقبال</li><li>سجل كامن للفرص</li><li>قياس أولي</li><li>أتمتة خفيفة وتشغيل ذاتي</li><li>تقرير كامن المختصر من صفحة واحدة</li><li>ضمان فني محدود على ما نفذته كامن فقط</li></ul></article>
+          <article class="card scope no"><h3>لا يشمل</h3><ul><li>إدارة سوشيال مستمرة</li><li>حملات إعلانية</li><li>تصميم هوية أو شعار كامل</li><li>متجر إلكتروني كامل</li><li>تعديلات مفتوحة</li><li>صيانة شهرية مفتوحة</li><li>رسوم الدومين أو الاستضافة أو الأدوات أو الإعلانات</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust">
+      <div class="wrap trust-box">
+        <div>
+          <span class="label">ملكية واضحة</span>
+          <h2>حساباتك وأصولك ملكك من اليوم الأول.</h2>
+          <p class="sub">الدومين، الاستضافة، الحسابات، والأدوات تكون باسم العميل، وتعمل كامن بصلاحية إدارة فقط.</p>
+        </div>
+        <a class="btn btn-light" href="https://wa.me/966553353448?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AD%D8%AC%D8%B2%20%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%20%D9%83%D8%A7%D9%85%D9%86%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A">تحدث مع كامن</a>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="wrap">
+        <h2>الفرص القادمة لن تنتظر نظامك القديم.</h2>
+        <p>ابدأ بخارطة كامن للنمو، أو احجز تأسيس كامن الرقمي مباشرة إذا كنت جاهزًا لإغلاق التسريب.</p>
+        <div class="hero-actions" style="justify-content:center">
+          <a class="btn btn-primary" href="growth-map.html">ابدأ خارطة كامن للنمو</a>
+          <a class="btn btn-secondary" href="https://wa.me/966553353448?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AD%D8%AC%D8%B2%20%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%20%D9%83%D8%A7%D9%85%D9%86%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A">احجز تأسيس كامن الرقمي</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>كامن KAMEN™ — المنطقة الشرقية، السعودية</span>
+      <span>واتساب: +966553353448</span>
+    </div>
+  </footer>
+  <a class="assistant-float" href="assistant.html" aria-label="مساعد كامن التفاعلي">
+    <img src="assets/logo-mark.png" alt="">
+  </a>
+</body>
+</html>
