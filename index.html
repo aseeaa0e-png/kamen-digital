@@ -80,6 +80,9 @@
     .method-letter{width:42px;height:42px;border-radius:16px;background:var(--navy);color:var(--gold-2);display:flex;align-items:center;justify-content:center;font-weight:900;margin-bottom:12px}
     .map-section{background:linear-gradient(180deg,#fff 0%,#fbf8ef 100%)}
     .map-box{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:34px;padding:28px;box-shadow:var(--shadow)}
+    .demo-gate-box{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;background:#f7fdfb;border:1px solid rgba(53,198,181,.3);border-radius:34px;padding:28px;margin-top:18px}
+    .btn-demo{background:rgba(53,198,181,.13);color:#0e7a70;border:1.5px solid rgba(53,198,181,.4)}
+    .btn-demo:hover{background:rgba(53,198,181,.2)}
     .plus{background:var(--navy);color:#fff}
     .plus .wrap{display:grid;grid-template-columns:1fr .8fr;gap:24px;align-items:center}
     .plus p{color:rgba(255,255,255,.76)}
@@ -98,14 +101,14 @@
     @media (max-width:900px){
       .navlinks{display:none}
       .hero{padding:48px 0 48px}
-      .hero-grid,.solution-grid,.plus .wrap,.map-box,.scope-grid{grid-template-columns:1fr}
+      .hero-grid,.solution-grid,.plus .wrap,.map-box,.demo-gate-box,.scope-grid{grid-template-columns:1fr}
       .leak-grid,.method{grid-template-columns:1fr 1fr}
     }
     @media (max-width:620px){
       body{font-size:17px}
       .wrap{width:min(100% - 28px,1120px)}
       .brand small{display:none}
-      .hero-actions .btn,.final .btn,.map-box .btn{width:100%}
+      .hero-actions .btn,.final .btn,.map-box .btn,.demo-gate-box .btn{width:100%}
       .hero-card{display:none}
       section{padding:52px 0}
       .leak-grid,.method{grid-template-columns:1fr}
@@ -215,6 +218,14 @@
           <p class="sub">أداة تفاعلية تقيّم مشروعك على مراحل كشف · أولوية · مواءمة · نمو وتعطيك اتجاه الأولوية الأولى.</p>
         </div>
         <a class="btn btn-primary" href="growth-map.html">ابدأ التشخيص المجاني</a>
+      </div>
+      <div class="wrap demo-gate-box">
+        <div>
+          <span class="label">جولة تجريبية</span>
+          <h2>بوابة المشروع التجريبي</h2>
+          <p class="sub">استعرض المعرض التجريبي كما يراه العميل، ثم شاهد لوحة تحكم المدير بصورة مبسطة.</p>
+        </div>
+        <a class="btn btn-demo" href="demo.html">شاهد بوابة المشروع التجريبي</a>
       </div>
     </section>
 
