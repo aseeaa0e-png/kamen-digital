@@ -97,8 +97,20 @@
     .final p{color:rgba(255,255,255,.75);margin:14px auto 26px;max-width:720px}
     footer{background:#0b111c;color:rgba(255,255,255,.62);padding:28px 0;font-size:.92rem}
     .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    .assistant-float{position:fixed;left:18px;bottom:18px;z-index:29;width:58px;height:58px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;box-shadow:0 18px 48px rgba(16,24,39,.28);border:2px solid var(--gold)}
-    .assistant-float img{width:28px;height:28px;object-fit:contain}
+    .assistant-float{position:fixed;left:18px;bottom:18px;z-index:29;display:inline-flex;align-items:center;gap:9px;max-width:calc(100vw - 36px);background:linear-gradient(135deg,var(--navy),#1c2942);color:#fff;border:1.5px solid var(--gold);border-radius:999px;padding:8px 14px 8px 7px;box-shadow:0 16px 40px rgba(16,24,39,.3);text-decoration:none;transition:transform .18s,box-shadow .18s}
+    .assistant-float:hover,.assistant-float:active{transform:translateY(-2px);box-shadow:0 20px 46px rgba(16,24,39,.4)}
+    .assistant-float .af-logo{width:30px;height:30px;border-radius:50%;background:#fff;flex:0 0 auto;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .assistant-float .af-logo img{width:19px;height:19px;object-fit:contain}
+    .assistant-float .af-text{display:flex;flex-direction:column;line-height:1.28;min-width:0}
+    .assistant-float .af-label{font-weight:900;font-size:.87rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .assistant-float .af-short{display:none}
+    .assistant-float .af-status{display:flex;align-items:center;gap:5px;font-size:.7rem;color:var(--teal);font-weight:700}
+    .assistant-float .af-dot{width:6px;height:6px;border-radius:50%;background:#2ecc71;flex:0 0 auto;box-shadow:0 0 0 2px rgba(46,204,113,.25)}
+    .assistant-float .af-arrow{font-weight:900;font-size:1rem;color:var(--gold);flex:0 0 auto;line-height:1}
+    @media (max-width:380px){
+      .assistant-float .af-full{display:none}
+      .assistant-float .af-short{display:inline}
+    }
     @media (max-width:900px){
       .navlinks{display:none}
       .hero{padding:48px 0 48px}
@@ -282,8 +294,13 @@
       <span>واتساب: +966553353448</span>
     </div>
   </footer>
-  <a class="assistant-float" href="assistant.html" aria-label="مساعد كامن التفاعلي">
-    <img src="assets/logo-mark.png" alt="">
+  <a class="assistant-float" href="assistant.html" aria-label="اسأل مساعد كامن — مساعد كامن التفاعلي">
+    <span class="af-logo"><img src="assets/logo-mark.png" alt=""></span>
+    <span class="af-text">
+      <span class="af-label"><span class="af-full">اسأل مساعد كامن</span><span class="af-short">مساعد كامن</span></span>
+      <span class="af-status"><span class="af-dot"></span>متصل</span>
+    </span>
+    <span class="af-arrow" aria-hidden="true">‹</span>
   </a>
 </body>
 </html>
