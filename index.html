@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>كامن KAMEN™ — تأسيس رقمي يمنع ضياع الفرص</title>
-  <meta name="description" content="كامن تجهز أساس مشروعك الرقمي حتى لا تضيع الفرص: قناة استقبال منظمة، سجل فرص، قياس أولي، وأتمتة خفيفة. سعر الإطلاق 3,900 ريال لأول 3 عملاء.">
+  <meta name="description" content="كامن يساعد المشاريع الصغيرة والمتوسطة على ترتيب الظهور واستقبال الطلبات وتسجيلها والتنبيه عليها ومتابعتها من سجل واحد حتى لا تضيع الفرص الكامنة.">
   <meta name="theme-color" content="#101827">
   <link rel="icon" href="assets/logo-mark.png">
   <style>
@@ -44,7 +44,7 @@
     .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
     .eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(216,181,103,.35);background:rgba(216,181,103,.10);color:#f5df9d;border-radius:999px;padding:8px 13px;font-size:.92rem;font-weight:700}
     h1,h2,h3{line-height:1.25;margin:0;color:inherit}
-    h1{font-size:clamp(2.15rem,5vw,4.6rem);letter-spacing:-.04em;margin-top:18px}
+    h1{font-size:clamp(1.9rem,4.4vw,3.4rem);letter-spacing:-.03em;margin-top:18px;line-height:1.35}
     .hero-lead{font-size:clamp(1.05rem,2.3vw,1.34rem);color:rgba(255,255,255,.82);max-width:720px;margin:20px 0 0}
     .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
     .hero-note{margin-top:18px;color:rgba(255,255,255,.65);font-size:.94rem}
@@ -55,10 +55,14 @@
     .mini-stat strong{display:block;color:var(--gold-2);font-size:1.15rem}
     section{padding:72px 0}
     .section-head{max-width:780px;margin-bottom:28px}
+    .section-head .btn{margin-top:18px}
     .label{display:inline-block;color:#9b7b2e;background:rgba(216,181,103,.17);border:1px solid rgba(216,181,103,.22);border-radius:999px;padding:6px 12px;font-size:.86rem;font-weight:800;margin-bottom:12px}
     h2{font-size:clamp(1.75rem,3.6vw,3rem);letter-spacing:-.03em}
     .sub{color:var(--muted);font-size:1.05rem;margin:12px 0 0}
     .leak-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .walls-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .walls-grid .card{text-align:center}
+    .walls-grid .icon{margin:0 auto 14px}
     .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 14px 40px rgba(16,24,39,.06)}
     .icon{width:44px;height:44px;border-radius:16px;background:#f5ead1;color:#8a671b;display:flex;align-items:center;justify-content:center;font-weight:900;margin-bottom:14px}
     .card h3{font-size:1.24rem;margin-bottom:8px}
@@ -97,25 +101,12 @@
     .final p{color:rgba(255,255,255,.75);margin:14px auto 26px;max-width:720px}
     footer{background:#0b111c;color:rgba(255,255,255,.62);padding:28px 0;font-size:.92rem}
     .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    .assistant-float{position:fixed;left:18px;bottom:18px;z-index:29;display:inline-flex;align-items:center;gap:9px;max-width:calc(100vw - 36px);background:linear-gradient(135deg,var(--navy),#1c2942);color:#fff;border:1.5px solid var(--gold);border-radius:999px;padding:8px 14px 8px 7px;box-shadow:0 16px 40px rgba(16,24,39,.3);text-decoration:none;transition:transform .18s,box-shadow .18s}
-    .assistant-float:hover,.assistant-float:active{transform:translateY(-2px);box-shadow:0 20px 46px rgba(16,24,39,.4)}
-    .assistant-float .af-logo{width:30px;height:30px;border-radius:50%;background:#fff;flex:0 0 auto;display:flex;align-items:center;justify-content:center;overflow:hidden}
-    .assistant-float .af-logo img{width:19px;height:19px;object-fit:contain}
-    .assistant-float .af-text{display:flex;flex-direction:column;line-height:1.28;min-width:0}
-    .assistant-float .af-label{font-weight:900;font-size:.87rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .assistant-float .af-short{display:none}
-    .assistant-float .af-status{display:flex;align-items:center;gap:5px;font-size:.7rem;color:var(--teal);font-weight:700}
-    .assistant-float .af-dot{width:6px;height:6px;border-radius:50%;background:#2ecc71;flex:0 0 auto;box-shadow:0 0 0 2px rgba(46,204,113,.25)}
-    .assistant-float .af-arrow{font-weight:900;font-size:1rem;color:var(--gold);flex:0 0 auto;line-height:1}
-    @media (max-width:380px){
-      .assistant-float .af-full{display:none}
-      .assistant-float .af-short{display:inline}
-    }
+    .whatsapp-float{position:fixed;right:18px;bottom:18px;z-index:30;background:#20b15a;color:#fff;border-radius:999px;padding:13px 18px;font-weight:900;box-shadow:0 18px 48px rgba(32,177,90,.32)}
     @media (max-width:900px){
       .navlinks{display:none}
       .hero{padding:48px 0 48px}
       .hero-grid,.solution-grid,.plus .wrap,.map-box,.demo-gate-box,.scope-grid{grid-template-columns:1fr}
-      .leak-grid,.method{grid-template-columns:1fr 1fr}
+      .leak-grid,.method,.walls-grid{grid-template-columns:1fr 1fr}
     }
     @media (max-width:620px){
       body{font-size:17px}
@@ -124,8 +115,9 @@
       .hero-actions .btn,.final .btn,.map-box .btn,.demo-gate-box .btn{width:100%}
       .hero-card{display:none}
       section{padding:52px 0}
-      .leak-grid,.method{grid-template-columns:1fr}
+      .leak-grid,.method,.walls-grid{grid-template-columns:1fr}
       .trust-box{display:block}
+      .whatsapp-float{left:14px;right:14px;text-align:center}
       footer{padding-bottom:86px}
     }
   </style>
@@ -141,7 +133,6 @@
         <a href="#leaks">المشكلة</a>
         <a href="#solution">التأسيس</a>
         <a href="#price">السعر</a>
-        <a href="assistant.html">مساعد كامن</a>
         <a href="growth-map.html" class="btn btn-light">خارطة كامن للنمو</a>
       </nav>
     </div>
@@ -152,11 +143,11 @@
       <div class="wrap hero-grid">
         <div>
           <span class="eyebrow">للمشاريع الصغيرة والمتوسطة</span>
-          <h1>الفرصة تصلك... ثم تضيع.</h1>
-          <p class="hero-lead">المشكلة ليست في التسويق وحده — بل في غياب النظام والمتابعة والقياس. نجهز أساس مشروعك الرقمي حتى لا تضيع الفرص، ثم نطوّر نموه بالبيانات لا بالوعود.</p>
+          <h1>زبائن يبحثون عنك وما يلقونك.<br>طلبات توصل وتضيع.<br>منافسون يكسبون زبائنك.<br>وأنت واقف تتفرج.</h1>
+          <p class="hero-lead">كامن: نظام يشغّل ظهورك، يلتقط طلباتك، يطوّر مسارك، ويمكّن نمو مبيعاتك.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://wa.me/966553353448?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AD%D8%AC%D8%B2%20%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%20%D9%83%D8%A7%D9%85%D9%86%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A">احجز تأسيس كامن الرقمي</a>
-            <a class="btn btn-secondary" href="growth-map.html">شخّص مشروعك مجانًا</a>
+            <a class="btn btn-primary" href="growth-map.html">افحص وضع مشروعك</a>
+            <a class="btn btn-secondary" href="https://aseeaa0e-png.github.io/ardiyat-aldiyar/" target="_blank" rel="noopener">جرّب المسار بنفسك</a>
           </div>
           <div class="hero-note">أول تفعيل خلال 7 أيام، واكتمال التأسيس خلال 30 يومًا.</div>
         </div>
@@ -168,6 +159,29 @@
             <div><strong>متابعة</strong><span>الفرص</span></div>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <section id="walls">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>الجدران الأربعة التي تمنع نمو مشروعك</h2>
+        </div>
+        <div class="walls-grid">
+          <article class="card"><div class="icon">1</div><p>زبائن لا يجدونك.</p></article>
+          <article class="card"><div class="icon">2</div><p>طلبات لا تُلتقط.</p></article>
+          <article class="card"><div class="icon">3</div><p>منافسون أكثر جاهزية.</p></article>
+          <article class="card"><div class="icon">4</div><p>نمو لا يُقاس.</p></article>
+        </div>
+        <p class="quote-line">كامن يحوّلها إلى مسار واضح: ظهور، استقبال، متابعة، وتحسين.</p>
+      </div>
+    </section>
+
+    <section id="local-presence">
+      <div class="wrap section-head">
+        <h2>وجودك في Google موجود... لكن هل يعمل لصالحك؟</h2>
+        <p class="sub">معظم الأنشطة التجارية موجودة أصلًا في Google، لكن ظهورها غالبًا غير مكتمل أو لا يساعد العميل على اتخاذ الخطوة التالية. في كامن نرتّب حضورك المحلي، نحسّن وضوح معلوماتك في البحث والخرائط، ونربطه بطريقة استقبال العملاء — حتى لا يكون وجودك مجرد اسم، بل مدخلًا لطلب يصل ويُسجَّل ويُتابع.</p>
+        <a class="btn btn-demo" href="growth-map.html">افحص ظهور نشاطك</a>
       </div>
     </section>
 
@@ -191,8 +205,8 @@
       <div class="wrap solution-grid">
         <div>
           <span class="label">الحل العملي</span>
-          <h2>تأسيس كامن الرقمي — 30 يومًا يسد الثغرات الثلاث.</h2>
-          <p class="sub">نبدأ بما يمنع ضياع الاستفسارات قبل زيادة الإنفاق على التسويق.</p>
+          <h2>تأسيس كامن الرقمي — 30 يومًا لترتيب الظهور واستقبال الطلبات.</h2>
+          <p class="sub">نبدأ بما يجعل العميل يجدك، يطلب منك، ويُسجَّل طلبه في مسار واضح قبل زيادة الإنفاق على التسويق.</p>
           <div class="result-list">
             <div><span class="check">✓</span><span>مسار استقبال أوضح لكل استفسار.</span></div>
             <div><span class="check">✓</span><span>متابعة لا تعتمد على الذاكرة أو ازدحام المحادثات.</span></div>
@@ -215,10 +229,10 @@
           <h2>منهجية كامن: كشف · أولوية · مواءمة · نمو</h2>
         </div>
         <div class="method">
-          <article class="card"><div class="method-letter">ك</div><h3>كشف</h3><p>نرى مشروعك كما هو، لا كما يبدو.</p></article>
-          <article class="card"><div class="method-letter">أ</div><h3>أولوية</h3><p>نبدأ بما يوقف التسريب أولًا.</p></article>
-          <article class="card"><div class="method-letter">م</div><h3>مواءمة</h3><p>كل أداة تُبنى على قدرة مشروعك واحتياجه، لا على قالب جاهز.</p></article>
-          <article class="card"><div class="method-letter">ن</div><h3>نمو</h3><p>نطوّر بما تقوله أرقامك، لا بما نعدك به.</p></article>
+          <article class="card"><div class="method-letter">ك</div><h3>كشف</h3><p>نكشف أين أنت الآن: هل يجدك الزبون؟ هل تمسك طلباتك؟ هل تسبق منافسك؟ هذا الفحص الأولي يجعل كل خطوة تالية دقيقة.</p></article>
+          <article class="card"><div class="method-letter">أ</div><h3>أولوية</h3><p>نطبّق معًا كل الحلول الرقمية العملية كمجموعة واحدة متكاملة. لكن نركّز قراءتنا وتحسيننا على نقطة وحيدة: الفرصة الأهم التي كشفناها. هكذا تعمل كل القطع، لكن عيننا على الهدف الأسرع أثرًا.</p></article>
+          <article class="card"><div class="method-letter">م</div><h3>مواءمة</h3><p>هنا يحدث التكامل. نربط واجهتك، نموذج الطلب، السجل، التنبيه، والمتابعة في مسار واحد.</p></article>
+          <article class="card"><div class="method-letter">ن</div><h3>نمو</h3><p>بعد أن يعمل النظام، نقرأ بياناته. نعرف أي قناة تجلب أفضل العملاء، وأي متابعة تحتاج تحسينًا، وأين توجد فرصة النمو التالية.</p></article>
         </div>
       </div>
     </section>
@@ -227,7 +241,7 @@
       <div class="wrap map-box">
         <div>
           <span class="label">خارطة كامن للنمو</span>
-          <h2>اكتشف بنفسك أين تتسرب فرصك — مجانًا.</h2>
+          <h2>اكتشف أين تتعطل فرصك — مجانًا.</h2>
           <p class="sub">أداة تفاعلية تقيّم مشروعك على مراحل كشف · أولوية · مواءمة · نمو وتعطيك اتجاه الأولوية الأولى.</p>
         </div>
         <a class="btn btn-primary" href="growth-map.html">ابدأ التشخيص المجاني</a>
@@ -236,9 +250,9 @@
         <div>
           <span class="label">جولة تجريبية</span>
           <h2>بوابة المشروع التجريبي</h2>
-          <p class="sub">استعرض المعرض التجريبي كما يراه العميل، ثم شاهد لوحة تحكم المدير بصورة مبسطة.</p>
+          <p class="sub">استعرض المعرض التجريبي كما يراه العميل، ثم شاهد سجل الطلبات وملخص المتابعة بصورة مبسطة.</p>
         </div>
-        <a class="btn btn-demo" href="demo.html">شاهد بوابة المشروع التجريبي</a>
+        <a class="btn btn-demo" href="demo.html">شاهد الديمو الحي كاملًا</a>
       </div>
     </section>
 
@@ -246,9 +260,9 @@
       <div class="wrap">
         <div>
           <span class="eyebrow">بعد التأسيس</span>
-          <h2>كامن بلس 90 يوم</h2>
+          <h2>كامن بلس — مرحلة لاحقة</h2>
         </div>
-        <p>بعد تأسيس كامن الرقمي، يتحول الأساس إلى نمو مُدار بالأرقام: قراءة نتائج، تحسين رسائل، تطوير أتمتة خفيفة، وتجديد مبني على ما تحقق لا على وعود. يُعرض بعد المرحلة الأولى حسب جاهزية المشروع ونتائجه.</p>
+        <p>بعد تشغيل تأسيس كامن وتجمّع بيانات حقيقية، يمكن قراءة سجل الطلبات لمعرفة مصادر العملاء، حالات المتابعة، وأين توجد فرص التحسين التالية. لا يُعرض كامن بلس قبل أن يعمل المسار الأساسي وتتضح البيانات.</p>
       </div>
     </section>
 
@@ -259,7 +273,7 @@
           <h2>ماذا يشمل تأسيس كامن الرقمي؟</h2>
         </div>
         <div class="scope-grid">
-          <article class="card scope"><h3>يشمل</h3><ul><li>توضيح العرض والرسالة الأساسية</li><li>صفحة تعريف أو رابط واضح</li><li>تنظيم واتساب بزنس أو قناة استقبال</li><li>سجل كامن للفرص</li><li>قياس أولي</li><li>أتمتة خفيفة وتشغيل ذاتي</li><li>تقرير كامن المختصر من صفحة واحدة</li><li>ضمان فني محدود على ما نفذته كامن فقط</li></ul></article>
+          <article class="card scope"><h3>يشمل</h3><ul><li>واجهة قطاعية توضّح عرضك وتستقبل الطلبات</li><li>نموذج طلب عرض سعر منظم</li><li>تسجيل تلقائي للطلبات في Google Sheets</li><li>سجل الطلبات وملخص المتابعة</li><li>حالات متابعة واضحة: جديد، تم التواصل، عرض مُرسل، يحتاج متابعة، تم الاتفاق، مؤجل، خسارة</li><li>رابط متابعة واتساب لكل طلب</li><li>تنبيه فوري عند وصول طلب جديد</li><li>تقرير تأسيس مختصر يوضح ما تم تركيبه وكيف تستخدمه</li></ul></article>
           <article class="card scope no"><h3>لا يشمل</h3><ul><li>إدارة سوشيال مستمرة</li><li>حملات إعلانية</li><li>تصميم هوية أو شعار كامل</li><li>متجر إلكتروني كامل</li><li>تعديلات مفتوحة</li><li>صيانة شهرية مفتوحة</li><li>رسوم الدومين أو الاستضافة أو الأدوات أو الإعلانات</li></ul></article>
         </div>
       </div>
@@ -276,10 +290,19 @@
       </div>
     </section>
 
+    <section id="why">
+      <div class="wrap section-head">
+        <h2>لماذا كامن؟</h2>
+        <p class="sub">المشاريع الصغيرة لا ينقصها الذكاء. ينقصها مسار واضح يربط الظهور بالطلب، والطلب بالتسجيل، والتسجيل بالمتابعة، والمتابعة بفرص النمو.</p>
+        <p class="sub">لهذا بنينا كامن. ليس أداة واحدة، ولا موقعًا جميلًا فقط، بل نظام عملي يرتّب ما يحدث من أول ظهور العميل لك حتى متابعة طلبه من سجل واحد.</p>
+        <p class="sub">هذه هي كامن: من حضور متفرق وطلبات ضائعة، إلى مسار واضح يساعدك ترى الفرص الكامنة وتتابعها بثقة.</p>
+      </div>
+    </section>
+
     <section class="final">
       <div class="wrap">
         <h2>الفرص القادمة لن تنتظر نظامك القديم.</h2>
-        <p>ابدأ بخارطة كامن للنمو، أو احجز تأسيس كامن الرقمي مباشرة إذا كنت جاهزًا لإغلاق التسريب.</p>
+        <p>ابدأ بخارطة كامن للنمو، أو احجز تأسيس كامن الرقمي مباشرة إذا كنت جاهزًا لترتيب ظهورك واستقبال طلباتك من مسار واحد.</p>
         <div class="hero-actions" style="justify-content:center">
           <a class="btn btn-primary" href="growth-map.html">ابدأ خارطة كامن للنمو</a>
           <a class="btn btn-secondary" href="https://wa.me/966553353448?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AD%D8%AC%D8%B2%20%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%20%D9%83%D8%A7%D9%85%D9%86%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A">احجز تأسيس كامن الرقمي</a>
@@ -294,13 +317,6 @@
       <span>واتساب: +966553353448</span>
     </div>
   </footer>
-  <a class="assistant-float" href="assistant.html" aria-label="اسأل مساعد كامن — مساعد كامن التفاعلي">
-    <span class="af-logo"><img src="assets/logo-mark.png" alt=""></span>
-    <span class="af-text">
-      <span class="af-label"><span class="af-full">اسأل مساعد كامن</span><span class="af-short">مساعد كامن</span></span>
-      <span class="af-status"><span class="af-dot"></span>متصل</span>
-    </span>
-    <span class="af-arrow" aria-hidden="true">‹</span>
-  </a>
+  <a class="whatsapp-float" href="https://wa.me/966553353448?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AD%D8%AC%D8%B2%20%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%20%D9%83%D8%A7%D9%85%D9%86%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A" aria-label="تواصل عبر واتساب">واتساب كامن</a>
 </body>
 </html>

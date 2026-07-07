@@ -52,6 +52,11 @@
     .path-card.primary .path-btn{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#1f2937}
     .path-card.secondary .path-btn{background:rgba(53,198,181,.13);color:#0e7a70;border:1.5px solid rgba(53,198,181,.4)}
 
+    /* ── Mini flow (inside secondary card) ─────────── */
+    .mini-flow{display:flex;flex-direction:column;gap:10px;margin:0 0 20px;flex:1}
+    .mf-step{display:flex;align-items:center;gap:10px;font-size:.92rem;color:var(--ink);font-weight:700}
+    .mf-dot{width:26px;height:26px;border-radius:50%;background:rgba(53,198,181,.15);color:#0e7a70;display:flex;align-items:center;justify-content:center;font-family:'Reem Kufi',sans-serif;font-weight:900;font-size:.8rem;flex:0 0 auto}
+
     /* ── Order note ───────────────────────────────── */
     .order-note{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 20px;color:#475467;font-size:.95rem;text-align:center;margin-bottom:34px}
 
@@ -106,13 +111,18 @@
         <article class="path-card primary">
           <span class="path-badge">من مُسلَّمات تأسيس كامن الرقمي</span>
           <h2>المعرض التجريبي كما يراه العميل</h2>
-          <p>شاهد نموذجًا حيًا لمعرض رقمي يتيح للعميل استعراض المنتجات، طلب عرض سعر، والتواصل بوضوح.</p>
-          <a class="path-btn" href="demo-customer.html">جرّب كأنك عميل</a>
+          <p>شاهد الواجهة كما يراها العميل، ثم اطلب عرض سعر من داخل المعرض.</p>
+          <a class="path-btn" href="https://aseeaa0e-png.github.io/ardiyat-aldiyar/" target="_blank" rel="noopener">جرّب كأنك عميل</a>
         </article>
         <article class="path-card secondary">
           <span class="path-badge">تصور مستقبلي من كامن بلس</span>
           <h2>سجل الطلبات وملخص المتابعة</h2>
-          <p>بعد أن يبدأ مسار استقبال الطلبات بالعمل وتتجمع بيانات حقيقية، يمكن قراءة السجل لمعرفة مصادر الطلبات، حالات المتابعة، وأين توجد فرص التحسين.</p>
+          <div class="mini-flow">
+            <div class="mf-step"><span class="mf-dot">1</span><span>طلب جديد</span></div>
+            <div class="mf-step"><span class="mf-dot">2</span><span>تسجيل تلقائي</span></div>
+            <div class="mf-step"><span class="mf-dot">3</span><span>تنبيه فوري</span></div>
+            <div class="mf-step"><span class="mf-dot">4</span><span>متابعة من سجل واحد</span></div>
+          </div>
           <a class="path-btn" href="demo-manager.html">شاهد سجل الطلبات وملخص المتابعة</a>
         </article>
       </div>
