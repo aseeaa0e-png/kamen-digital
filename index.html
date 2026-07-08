@@ -48,6 +48,29 @@
     .eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(216,181,103,.35);background:rgba(216,181,103,.10);color:#f5df9d;border-radius:999px;padding:8px 13px;font-size:.92rem;font-weight:700}
     h1,h2,h3{line-height:1.25;margin:0;color:inherit;font-family:'Reem Kufi','Tajawal',sans-serif}
     h1{font-size:clamp(1.7rem,3.2vw,2.7rem);line-height:1.45;font-weight:800;margin-top:18px}
+    .hero-title{
+      display:grid;
+      gap:6px;
+      max-width:760px;
+      font-size:clamp(1.85rem,4vw,3.35rem);
+      line-height:1.28;
+      font-weight:900;
+      letter-spacing:-.035em;
+      margin-top:18px;
+    }
+    .hero-title span{
+      display:block;
+    }
+    .hero-title-accent{
+      color:var(--gold-2);
+    }
+    .hero-insight{
+      font-size:.95rem;
+      color:rgba(255,255,255,.68);
+      margin:14px 0 8px;
+      font-weight:500;
+      max-width:720px;
+    }
     .hero-lead{font-size:clamp(1.05rem,2.3vw,1.34rem);color:rgba(255,255,255,.82);max-width:720px;margin:20px 0 0}
     .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
     .hero-note{margin-top:18px;color:rgba(255,255,255,.65);font-size:.94rem}
@@ -63,6 +86,7 @@
     .label{display:inline-block;color:#9b7b2e;background:rgba(216,181,103,.17);border:1px solid rgba(216,181,103,.22);border-radius:999px;padding:6px 12px;font-size:.86rem;font-weight:800;margin-bottom:12px}
     h2{font-size:clamp(1.75rem,3.6vw,3rem);letter-spacing:-.03em}
     .sub{color:var(--muted);font-size:1.05rem;margin:12px 0 0}
+    .local-note{color:var(--muted);font-size:.88rem;margin:10px 0 0}
     .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 14px 40px rgba(16,24,39,.06)}
     .card h3{font-size:1.24rem;margin-bottom:8px}
     .card p{margin:0;color:var(--muted)}
@@ -122,6 +146,14 @@
         text-align:center;
         gap:24px;
       }
+      .hero-title{
+        margin-left:auto;
+        margin-right:auto;
+        text-align:center;
+        font-size:clamp(1.75rem,7vw,2.55rem);
+        line-height:1.35;
+        gap:5px;
+      }
       .hero-card{
         width:min(100%,360px);
         margin:0 auto;
@@ -148,10 +180,12 @@
         font-size:.78rem;
         margin-top:10px;
       }
+      .hero-insight,
       .hero-lead,
       .hero-note{
         margin-left:auto;
         margin-right:auto;
+        text-align:center;
       }
     }
     @media (max-width:620px){
@@ -159,6 +193,11 @@
       .wrap{width:min(100% - 28px,1120px)}
       .brand small{display:none}
       .hero-actions .btn,.final .btn,.map-box .btn,.demo-gate-box .btn{width:100%}
+      .hero-title{
+        font-size:clamp(1.55rem,8vw,2.15rem);
+        line-height:1.45;
+        letter-spacing:-.02em;
+      }
       .hero-card{
         display:block;
         width:min(100%,320px);
@@ -203,7 +242,15 @@
       <div class="wrap hero-grid">
         <div>
           <span class="eyebrow">للمشاريع الصغيرة والمتوسطة</span>
-          <h1>زبائن يبحثون عنك.. ما يجدونك<br>طلبات توصل... وتضيع.<br>منافسون يكسبون زبائنك... وأنت واقف تتفرج؟</h1>
+          <h1 class="hero-title">
+            <span>زبائن يبحثون عنك… ولا يجدونك</span>
+            <span>طلبات تصل… ثم تضيع.</span>
+            <span>منافسون يكسبون زبائنك.</span>
+            <span class="hero-title-accent">وأنت لا ترى أين تضيع الفرصة؟</span>
+          </h1>
+          <p class="hero-insight">
+            المشكلة غالبًا ليست في قلة الطلب، بل في غياب مسار واضح يلتقط الطلب، يسجّله، وينبّهك عليه قبل أن يضيع.
+          </p>
           <p class="hero-lead">كامن: نظام يشغّل ظهورك، يلتقط طلباتك، يطوّر مسارك، ويمكّن نمو مبيعاتك.</p>
           <div class="hero-note">أول تفعيل خلال 7 أيام، واكتمال التأسيس خلال 30 يومًا.</div>
         </div>
@@ -224,7 +271,7 @@
       <div class="wrap section-head">
         <h2>وجودك في Google موجود... لكن هل يعمل لصالحك؟</h2>
         <p class="sub">إذا لم يجد العميل معلومات واضحة وطريقة طلب سهلة، فوجودك لا يعمل لصالحك.</p>
-        <a class="btn btn-demo" href="growth-map.html">افحص ظهور نشاطك</a>
+        <p class="local-note">يتم فحص هذه النقطة ضمن خارطة كشف كامن.</p>
       </div>
     </section>
 
