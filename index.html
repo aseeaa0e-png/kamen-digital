@@ -128,18 +128,6 @@
     .trust-bar span{display:flex;align-items:center;gap:8px}
     footer{background:#0b111c;color:rgba(255,255,255,.62);padding:28px 0;font-size:.92rem}
     .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    .whatsapp-float{position:fixed;right:18px;bottom:18px;z-index:30;background:#20b15a;color:#fff;border-radius:999px;padding:13px 18px;font-weight:900;box-shadow:0 18px 48px rgba(32,177,90,.32)}
-
-    /* FAQ Styles */
-    .faq-list{display:grid;gap:12px;margin-top:18px}
-    .faq-item{border:1px solid var(--line);border-radius:18px;background:#fff;overflow:hidden;transition:.2s}
-    .faq-item:hover{border-color:rgba(216,181,103,.3)}
-    .faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:transparent;border:0;padding:18px 22px;font-size:1rem;font-weight:800;color:var(--navy);cursor:pointer;font-family:inherit;text-align:right;line-height:1.5}
-    .faq-question::after{content:"+";font-size:1.5rem;color:var(--gold);flex-shrink:0;transition:.25s}
-    .faq-item.open .faq-question::after{content:"−"}
-    .faq-answer{padding:0 22px 22px;color:var(--muted);font-size:.96rem;display:none}
-    .faq-item.open .faq-answer{display:block}
-    .faq-item.open{border-color:rgba(216,181,103,.4);box-shadow:0 4px 16px rgba(16,24,39,.04)}
 
     @media (max-width:900px){
       .navlinks{display:none}
@@ -172,12 +160,7 @@
       .mini-caption{font-size:.74rem}
       section{padding:52px 0}
       .method{grid-template-columns:1fr}
-      .whatsapp-float{left:14px;right:14px;text-align:center;padding:12px;font-size:.95rem;bottom:14px}
-      footer{padding-bottom:86px}
       .trust-bar{flex-direction:column;align-items:center;gap:6px;font-size:.78rem}
-      .faq-question{padding:14px 16px;font-size:.92rem}
-      .faq-answer{padding:0 16px 16px;font-size:.88rem}
-      .label img{display:none} /* إخفاء الشعار في الجوال الصغير جداً للحفاظ على المساحة */
     }
   </style>
 </head>
@@ -191,7 +174,6 @@
       <nav class="navlinks" aria-label="روابط الصفحة">
         <a href="#solution">التأسيس</a>
         <a href="#price">السعر</a>
-        <a href="#faq">الأسئلة الشائعة</a>
         <a href="growth-map.html" class="btn btn-outline">خارطة كشف كامن</a>
       </nav>
     </div>
@@ -343,46 +325,6 @@
       </div>
     </section>
 
-    <!-- القسم 7: الأسئلة الشائعة (مساعد كامن الذكي مع شعار ترحيبي) -->
-    <section id="faq">
-      <div class="wrap">
-        <div class="section-head" style="text-align:center;">
-          <!-- شعار كامن مع نص ترحيبي -->
-          <span class="label" style="display:inline-flex;align-items:center;gap:8px;background:rgba(216,181,103,.08);border-color:rgba(216,181,103,.2);margin-bottom:12px;">
-            <img src="assets/logo-mark.png" alt="كامن" style="width:24px;height:24px;border-radius:6px;background:var(--navy);padding:3px;object-fit:contain;">
-            مساعد كامن الذكي
-          </span>
-          <h2>مرحباً! كيف يمكنني مساعدتك؟</h2>
-          <p class="sub" style="font-size:.95rem;margin-top:6px;">اختر السؤال الذي يهمك، أو تواصل معنا مباشرة عبر واتساب.</p>
-        </div>
-        <div class="faq-list" id="faqContainer">
-          <div class="faq-item open">
-            <button class="faq-question" onclick="toggleFAQ(this)">كم تكلفة تأسيس كامن الرقمي؟</button>
-            <div class="faq-answer">سعر الإطلاق الحالي هو <strong>3,900 ريال</strong> (شامل التأسيس الكامل). هذا العرض خاص بأول 3 عملاء فقط، ويتضمن دعمنا الكامل وتوثيق قصتكم كدراسة حالة ناجحة (باتفاق الطرفين).</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" onclick="toggleFAQ(this)">كم المدة من البداية حتى التشغيل؟</button>
-            <div class="faq-answer">نبدأ بالتفعيل الأولي خلال <strong>7 أيام</strong>، ونكمل التأسيس الكامل خلال <strong>30 يوماً</strong>. خلال هذه الفترة، نركّز على ترتيب ظهورك واستقبال الطلبات وتشغيل مسار المتابعة.</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" onclick="toggleFAQ(this)">هل أحتاج خبرة تقنية لتشغيله؟</button>
-            <div class="faq-answer">لا إطلاقاً. كل شيء مهيّأ ليكون سهل الاستخدام. نوفر لك تقرير تأسيس مختصر يشرح كيفية استخدام النظام، وجميع الأدوات (مثل Google Sheets) مألوفة وسهلة. نحن ندير التقنية، وأنت تدير أعمالك.</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" onclick="toggleFAQ(this)">هل البيانات التي تدخلها كامن آمنة؟</button>
-            <div class="faq-answer">نعم، بأمان تام. جميع الحسابات والأصول (مثل جداول البيانات ونماذج الطلبات) تنشأ <strong>باسمك أنت</strong>، ونحن نعمل بصلاحية إدارة فقط. أنت تملك بياناتك بالكامل، ولا نستخدمها لأي غرض آخر.</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" onclick="toggleFAQ(this)">ماذا لو احتجت تعديلات أو تطوير لاحقاً؟</button>
-            <div class="faq-answer">بعد تشغيل التأسيس وجمع بيانات حقيقية، نوفر اشتراك <strong>كامن بلس</strong> الشهري. نراجع معك سجل الطلبات، ونحلل مصادر العملاء، ونقترح فرص التحسين التالية. التطوير المستمر مبني على قراءة بياناتك الفعلية، وليس على افتراضات.</div>
-          </div>
-        </div>
-        <div style="text-align:center;margin-top:24px;">
-          <a href="https://wa.me/966553353448?text=%D9%84%D8%AF%D9%8A%D9%91%20%D8%B3%D8%A4%D8%A7%D9%84%20%D8%B9%D9%86%20%D9%83%D8%A7%D9%85%D9%86" class="btn btn-primary">اسألنا مباشرة على واتساب</a>
-        </div>
-      </div>
-    </section>
-
     <!-- القسم 8: بوابة المشروع التجريبي -->
     <section class="map-section">
       <div class="wrap demo-gate-box">
@@ -415,23 +357,5 @@
       <span>واتساب: +966553353448</span>
     </div>
   </footer>
-  <a class="whatsapp-float" href="https://wa.me/966553353448?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AD%D8%AC%D8%B2%20%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%20%D9%83%D8%A7%D9%85%D9%86%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A" aria-label="تواصل عبر واتساب">واتساب كامن</a>
-
-  <script>
-    function toggleFAQ(btn) {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      // Close all others
-      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
-      if (!isOpen) {
-        item.classList.add('open');
-        // Smooth scroll to show the answer
-        setTimeout(() => {
-          item.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 100);
-      }
-    }
-    // Open first by default already done via 'open' class in HTML
-  </script>
 </body>
 </html>
