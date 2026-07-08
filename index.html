@@ -29,7 +29,7 @@
     html{scroll-behavior:smooth}
     body{margin:0;font-family:'Tajawal',-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif;background:var(--paper);color:var(--ink);font-size:17px;line-height:1.8}
     a{color:inherit;text-decoration:none}
-    .wrap{width:min(1120px,calc(100% - 36px));margin-inline:auto}
+    .wrap{width:min(calc(100% - 36px),1120px);margin-inline:auto}
     .topbar{position:sticky;top:0;z-index:20;background:rgba(251,248,239,.86);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:76px}
     .brand{display:flex;align-items:center;gap:12px}
@@ -40,14 +40,16 @@
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:999px;padding:14px 22px;font-weight:800;line-height:1.2;cursor:pointer;transition:.2s ease;white-space:nowrap}
     .btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#1f2937;box-shadow:0 12px 34px rgba(216,181,103,.26)}
     .btn-primary:hover{transform:translateY(-2px)}
-    .btn-secondary{border:1px solid rgba(255,255,255,.22);color:#fff;background:rgba(255,255,255,.08)}
-    .btn-light{border:1px solid var(--line);background:#fff;color:var(--navy)}
+    .btn-secondary{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#fff}
+    .btn-secondary:hover{background:rgba(255,255,255,.15)}
+    .btn-outline{border:1px solid var(--line);background:#fff;color:var(--navy)}
+    .btn-teal{background:rgba(53,198,181,.13);color:#0e7a70;border:1.5px solid rgba(53,198,181,.4)}
+    .btn-teal:hover{background:rgba(53,198,181,.2)}
     .hero{position:relative;overflow:hidden;background:radial-gradient(circle at 18% 12%,rgba(53,198,181,.22),transparent 30%),linear-gradient(145deg,var(--navy),#0b111c);color:#fff;padding:76px 0 70px}
     .hero::after{content:"";position:absolute;inset:0;background:url('assets/logo-mark.png') left -80px top 40px / 420px auto no-repeat;opacity:.055;pointer-events:none}
     .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
     .eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(216,181,103,.35);background:rgba(216,181,103,.10);color:#f5df9d;border-radius:999px;padding:8px 13px;font-size:.92rem;font-weight:700}
     h1,h2,h3{line-height:1.25;margin:0;color:inherit;font-family:'Reem Kufi','Tajawal',sans-serif}
-    h1{font-size:clamp(1.7rem,3.2vw,2.7rem);line-height:1.45;font-weight:800;margin-top:18px}
     .hero-title{
       display:grid;
       gap:6px;
@@ -58,21 +60,12 @@
       letter-spacing:-.035em;
       margin-top:18px;
     }
-    .hero-title span{
-      display:block;
-    }
-    .hero-title-accent{
-      color:var(--gold-2);
-    }
-    .hero-insight{
-      font-size:.95rem;
-      color:rgba(255,255,255,.68);
-      margin:14px 0 8px;
-      font-weight:500;
-      max-width:720px;
-    }
+    .hero-title span{display:block}
+    .hero-title-accent{color:var(--gold-2)}
+    .hero-insight{font-size:.95rem;color:rgba(255,255,255,.68);margin:14px 0 8px;font-weight:500;max-width:720px}
     .hero-lead{font-size:clamp(1.05rem,2.3vw,1.34rem);color:rgba(255,255,255,.82);max-width:720px;margin:20px 0 0}
     .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .hero-actions .btn{flex:1 1 auto}
     .hero-note{margin-top:18px;color:rgba(255,255,255,.65);font-size:.94rem}
     .hero-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:34px;padding:26px;box-shadow:0 30px 90px rgba(0,0,0,.22)}
     .hero-card img{display:block;width:min(220px,70%);margin:0 auto 20px;border-radius:28px}
@@ -107,8 +100,6 @@
     .map-section{background:linear-gradient(180deg,#fff 0%,#fbf8ef 100%)}
     .map-box{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:34px;padding:28px;box-shadow:var(--shadow)}
     .demo-gate-box{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;background:#f7fdfb;border:1px solid rgba(53,198,181,.3);border-radius:34px;padding:28px;margin-top:18px}
-    .btn-demo{background:rgba(53,198,181,.13);color:#0e7a70;border:1.5px solid rgba(53,198,181,.4)}
-    .btn-demo:hover{background:rgba(53,198,181,.2)}
     .price-stack{display:flex;flex-direction:column;gap:16px}
     .plus-mini{background:#f7f5ee;border:1px solid var(--line);border-radius:22px;padding:20px}
     .plus-mini h3{font-size:1.05rem;margin:0 0 10px;color:var(--navy)}
@@ -133,92 +124,60 @@
     .scope.no li::before{background:#d92d20}
     .final{background:radial-gradient(circle at 20% 20%,rgba(216,181,103,.16),transparent 30%),var(--navy);color:#fff;text-align:center}
     .final p{color:rgba(255,255,255,.75);margin:14px auto 26px;max-width:720px}
+    .trust-bar{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;font-size:.82rem;color:rgba(255,255,255,.5);margin:12px 0 0}
+    .trust-bar span{display:flex;align-items:center;gap:8px}
     footer{background:#0b111c;color:rgba(255,255,255,.62);padding:28px 0;font-size:.92rem}
     .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
     .whatsapp-float{position:fixed;right:18px;bottom:18px;z-index:30;background:#20b15a;color:#fff;border-radius:999px;padding:13px 18px;font-weight:900;box-shadow:0 18px 48px rgba(32,177,90,.32)}
+
+    /* FAQ Styles */
+    .faq-list{display:grid;gap:12px;margin-top:18px}
+    .faq-item{border:1px solid var(--line);border-radius:18px;background:#fff;overflow:hidden;transition:.2s}
+    .faq-item:hover{border-color:rgba(216,181,103,.3)}
+    .faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:transparent;border:0;padding:18px 22px;font-size:1rem;font-weight:800;color:var(--navy);cursor:pointer;font-family:inherit;text-align:right;line-height:1.5}
+    .faq-question::after{content:"+";font-size:1.5rem;color:var(--gold);flex-shrink:0;transition:.25s}
+    .faq-item.open .faq-question::after{content:"−"}
+    .faq-answer{padding:0 22px 22px;color:var(--muted);font-size:.96rem;display:none}
+    .faq-item.open .faq-answer{display:block}
+    .faq-item.open{border-color:rgba(216,181,103,.4);box-shadow:0 4px 16px rgba(16,24,39,.04)}
+
     @media (max-width:900px){
       .navlinks{display:none}
       .hero{padding:48px 0 48px}
       .solution-grid,.map-box,.demo-gate-box,.scope-grid,.journey-compare{grid-template-columns:1fr}
       .method{grid-template-columns:1fr 1fr}
-      .hero-grid{
-        grid-template-columns:1fr;
-        text-align:center;
-        gap:24px;
-      }
-      .hero-title{
-        margin-left:auto;
-        margin-right:auto;
-        text-align:center;
-        font-size:clamp(1.75rem,7vw,2.55rem);
-        line-height:1.35;
-        gap:5px;
-      }
-      .hero-card{
-        width:min(100%,360px);
-        margin:0 auto;
-        padding:18px;
-        border-radius:24px;
-      }
-      .hero-card img{
-        width:min(150px,48%);
-        margin-bottom:14px;
-        border-radius:22px;
-      }
-      .mini-stat{
-        grid-template-columns:repeat(2,1fr);
-        gap:8px;
-      }
-      .mini-stat div{
-        padding:10px 6px;
-        border-radius:14px;
-      }
-      .mini-stat strong{
-        font-size:.92rem;
-      }
-      .mini-caption{
-        font-size:.78rem;
-        margin-top:10px;
-      }
-      .hero-insight,
-      .hero-lead,
-      .hero-note{
-        margin-left:auto;
-        margin-right:auto;
-        text-align:center;
-      }
+      .hero-grid{grid-template-columns:1fr;text-align:center;gap:24px}
+      .hero-title{margin-left:auto;margin-right:auto;text-align:center;font-size:clamp(1.75rem,7vw,2.55rem);line-height:1.35;gap:5px}
+      .hero-card{width:min(100%,360px);margin:0 auto;padding:18px;border-radius:24px}
+      .hero-card img{width:min(150px,48%);margin-bottom:14px;border-radius:22px}
+      .mini-stat{grid-template-columns:repeat(2,1fr);gap:8px}
+      .mini-stat div{padding:10px 6px;border-radius:14px}
+      .mini-stat strong{font-size:.92rem}
+      .mini-caption{font-size:.78rem;margin-top:10px}
+      .hero-insight,.hero-lead,.hero-note{margin-left:auto;margin-right:auto;text-align:center}
+      .map-box,.demo-gate-box{text-align:center}
+      .map-box .btn,.demo-gate-box .btn{width:100%;justify-content:center}
     }
     @media (max-width:620px){
       body{font-size:17px}
-      .wrap{width:min(100% - 28px,1120px)}
+      .wrap{width:min(calc(100% - 28px),1120px)}
       .brand small{display:none}
-      .hero-actions .btn,.final .btn,.map-box .btn,.demo-gate-box .btn{width:100%}
-      .hero-title{
-        font-size:clamp(1.55rem,8vw,2.15rem);
-        line-height:1.45;
-        letter-spacing:-.02em;
-      }
-      .hero-card{
-        display:block;
-        width:min(100%,320px);
-        padding:16px;
-      }
-      .hero-card img{
-        width:128px;
-      }
-      .mini-stat{
-        grid-template-columns:repeat(2,1fr);
-      }
-      .mini-stat div{
-        padding:9px 6px;
-      }
-      .mini-caption{
-        font-size:.74rem;
-      }
+      .hero-actions .btn{width:100%;flex:1 1 100%}
+      .final .hero-actions .btn{width:100%}
+      .hero-title{font-size:clamp(1.55rem,8vw,2.15rem);line-height:1.45;letter-spacing:-.02em}
+      .hero-card{display:block;width:min(100%,320px);padding:16px}
+      .hero-card img{width:128px}
+      .mini-stat{grid-template-columns:repeat(2,1fr)}
+      .mini-stat div{padding:9px 6px}
+      .mini-caption{font-size:.74rem}
       section{padding:52px 0}
       .method{grid-template-columns:1fr}
-      .whatsapp-float{left:14px;right:14px;text-align:center}
+      .whatsapp-float{left:14px;right:14px;text-align:center;padding:12px;font-size:.95rem;bottom:14px}
       footer{padding-bottom:86px}
+      .trust-bar{flex-direction:column;align-items:center;gap:6px;font-size:.78rem}
+      .faq-question{padding:14px 16px;font-size:.92rem}
+      .faq-answer{padding:0 16px 16px;font-size:.88rem}
+      .label img{display:none} /* إخفاء الشعار في الجوال الصغير جداً للحفاظ على المساحة */
     }
   </style>
 </head>
@@ -232,12 +191,14 @@
       <nav class="navlinks" aria-label="روابط الصفحة">
         <a href="#solution">التأسيس</a>
         <a href="#price">السعر</a>
-        <a href="growth-map.html" class="btn btn-light">خارطة كشف كامن</a>
+        <a href="#faq">الأسئلة الشائعة</a>
+        <a href="growth-map.html" class="btn btn-outline">خارطة كشف كامن</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
+    <!-- القسم 1: الهيرو -->
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
@@ -248,11 +209,17 @@
             <span>منافسون يكسبون زبائنك.</span>
             <span class="hero-title-accent">وأنت لا ترى أين تضيع الفرصة؟</span>
           </h1>
-          <p class="hero-insight">
-            المشكلة غالبًا ليست في قلة الطلب، بل في غياب مسار واضح يلتقط الطلب، يسجّله، وينبّهك عليه قبل أن يضيع.
-          </p>
-          <p class="hero-lead">كامن: نظام يشغّل ظهورك، يلتقط طلباتك، يطوّر مسارك، ويمكّن نمو مبيعاتك.</p>
-          <div class="hero-note">أول تفعيل خلال 7 أيام، واكتمال التأسيس خلال 30 يومًا.</div>
+          <p class="hero-insight">المشكلة ليست في قلة الطلب، بل في غياب مسار يلتقطه، يسجّله، ويُنبّهك قبل أن يضيع.</p>
+          <p class="hero-lead">كامن: يُفعّل حضورك، يُنظّم طلباتك، ويُحسّن متابعتك.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="growth-map.html">ابدأ خارطة كشف كامن مجاناً</a>
+            <a class="btn btn-secondary" href="https://wa.me/966553353448?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AD%D8%AC%D8%B2%20%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%20%D9%83%D8%A7%D9%85%D9%86%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A">تواصل عبر واتساب</a>
+          </div>
+          <div class="trust-bar">
+            <span>✓ يعمل بتقنية Google Workspace</span>
+            <span>✓ ملكية البيانات محفوظة لديك</span>
+          </div>
+          <div class="hero-note">التفعيل خلال 7 أيام، والتأسيس خلال 30 يوماً.</div>
         </div>
         <aside class="hero-card" aria-label="ملخص كامن">
           <img src="assets/logo-full.png" alt="شعار كامن الكامل">
@@ -267,19 +234,13 @@
       </div>
     </section>
 
-    <section id="local-presence">
-      <div class="wrap section-head">
-        <h2>وجودك في Google موجود... لكن هل يعمل لصالحك؟</h2>
-        <p class="sub">إذا لم يجد العميل معلومات واضحة وطريقة طلب سهلة، فوجودك لا يعمل لصالحك.</p>
-        <p class="local-note">يتم فحص هذه النقطة ضمن خارطة كشف كامن.</p>
-      </div>
-    </section>
-
+    <!-- القسم 2: رحلة العميل -->
     <section id="journey">
       <div class="wrap">
         <div class="section-head">
-          <h2>رحلة العميل قبل كامن وبعده</h2>
-          <p class="sub">الفرق ليس موقعًا أجمل فقط، بل مسارًا يمنع ضياع الفرصة بعد وصولها.</p>
+          <h2>وجودك في Google موجود… لكن هل يعمل لصالحك؟</h2>
+          <p class="sub">إذا لم يجد العميل معلومات واضحة وطريقة طلب سهلة، فوجودك لا يعمل لصالحك. الفرق ليس موقعاً أجمل، بل مساراً يمنع ضياع الفرصة بعد وصولها.</p>
+          <p class="local-note">يتم فحص هذه النقطة ضمن خارطة كشف كامن.</p>
         </div>
         <div class="journey-compare">
           <div class="journey-col bad">
@@ -287,7 +248,7 @@
             <div class="journey-steps">
               <div class="journey-step">عميل يبحث عنك</div>
               <div class="journey-arrow">↓</div>
-              <div class="journey-step">لا يجد عرضًا واضحًا</div>
+              <div class="journey-step">لا يجد عرضاً واضحاً</div>
               <div class="journey-arrow">↓</div>
               <div class="journey-step">الطلب يتوزع بين المحادثات</div>
               <div class="journey-arrow">↓</div>
@@ -299,9 +260,9 @@
             <div class="journey-steps">
               <div class="journey-step">عميل يبحث عنك</div>
               <div class="journey-arrow">↓</div>
-              <div class="journey-step">يجد عرضًا واضحًا</div>
+              <div class="journey-step">يجد عرضاً واضحاً</div>
               <div class="journey-arrow">↓</div>
-              <div class="journey-step">يرسل طلبًا منظمًا</div>
+              <div class="journey-step">يرسل طلباً منظماً</div>
               <div class="journey-arrow">↓</div>
               <div class="journey-step">يُسجَّل ويصلك تنبيه</div>
               <div class="journey-arrow">↓</div>
@@ -312,34 +273,19 @@
       </div>
     </section>
 
-    <section id="solution" class="solution">
-      <div class="wrap solution-grid">
+    <!-- القسم 3: خارطة كشف كامن -->
+    <section class="map-section" id="map">
+      <div class="wrap map-box">
         <div>
-          <span class="label">الحل العملي</span>
-          <h2>تأسيس كامن الرقمي — 30 يومًا لترتيب الظهور واستقبال الطلبات.</h2>
-          <p class="sub">نبدأ بما يجعل العميل يجدك، يطلب منك، ويُسجَّل طلبه في مسار واضح قبل زيادة الإنفاق على التسويق.</p>
-          <div class="result-list">
-            <div><span class="check">✓</span><span>مسار استقبال أوضح لكل استفسار.</span></div>
-            <div><span class="check">✓</span><span>متابعة لا تعتمد على الذاكرة أو ازدحام المحادثات.</span></div>
-            <div><span class="check">✓</span><span>سجل واضح تعرف منه مصدر الفرص وحالتها وما يحتاج متابعة.</span></div>
-          </div>
+          <span class="label">خارطة كشف كامن</span>
+          <h2>اكتشف أين تتعطل فرصك — مجاناً.</h2>
+          <p class="sub">أداة تفاعلية تقيّم مشروعك على مراحل كشف · أولوية · مواءمة · نمو وتعطيك اتجاه الأولوية الأولى.</p>
         </div>
-        <div class="price-stack">
-          <aside id="price" class="price">
-            <small>سعر الإطلاق — لأول 3 عملاء فقط</small>
-            <div class="value">3,900 <span>ريال</span></div>
-            <p>عرض إطلاق لأول 3 عملاء مقابل التعاون في شهادة استخدام ودراسة حالة بعد التسليم. التفاصيل عند التواصل.</p>
-            <a class="btn btn-primary" href="https://wa.me/966553353448?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AD%D8%AC%D8%B2%20%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%20%D9%83%D8%A7%D9%85%D9%86%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A">احجز مقعدك عبر واتساب</a>
-          </aside>
-          <aside class="plus-mini">
-            <h3>كامن بلس — اشتراك شهري بعد التأسيس</h3>
-            <p>بعد تشغيل تأسيس كامن وتجمّع بيانات حقيقية، يمكن الاشتراك في كامن بلس لمراجعة سجل الطلبات شهريًا، قراءة مصادر العملاء، متابعة حالات الطلب، واقتراح فرص التحسين التالية.</p>
-            <small>لا يُعرض قبل أن يعمل المسار الأساسي وتتضح البيانات.</small>
-          </aside>
-        </div>
+        <a class="btn btn-primary" href="growth-map.html">ابدأ التشخيص المجاني</a>
       </div>
     </section>
 
+    <!-- القسم 4: منهجية كامن -->
     <section id="method">
       <div class="wrap">
         <div class="section-head">
@@ -348,13 +294,42 @@
         </div>
         <div class="method">
           <article class="card"><div class="method-letter">ك</div><h3>كشف</h3><p>نكشف أين أنت الآن: هل يجدك الزبون؟ هل تمسك طلباتك؟ هل تسبق منافسك؟ هذا الفحص الأولي يجعل كل خطوة تالية دقيقة.</p></article>
-          <article class="card"><div class="method-letter">أ</div><h3>أولوية</h3><p>نطبّق معًا كل الحلول الرقمية العملية كمجموعة واحدة متكاملة. لكن نركّز قراءتنا وتحسيننا على نقطة وحيدة: الفرصة الأهم التي كشفناها. هكذا تعمل كل القطع، لكن عيننا على الهدف الأسرع أثرًا.</p></article>
+          <article class="card"><div class="method-letter">أ</div><h3>أولوية</h3><p>نطبّق معًا كل الحلول الرقمية العملية كمجموعة واحدة متكاملة. لكن نركّز قراءتنا وتحسيننا على نقطة وحيدة: الفرصة الأهم التي كشفناها.</p></article>
           <article class="card"><div class="method-letter">م</div><h3>مواءمة</h3><p>هنا يحدث التكامل. نربط واجهتك، نموذج الطلب، السجل، التنبيه، والمتابعة في مسار واحد.</p></article>
-          <article class="card"><div class="method-letter">ن</div><h3>نمو</h3><p>بعد أن يعمل النظام، نقرأ بياناته. نعرف أي قناة تجلب أفضل العملاء، وأي متابعة تحتاج تحسينًا، وأين توجد فرصة النمو التالية.</p></article>
+          <article class="card"><div class="method-letter">ن</div><h3>نمو</h3><p>بعد أن يعمل النظام، نقرأ بياناته. نعرف أي قناة تجلب أفضل العملاء، وأين توجد فرصة النمو التالية.</p></article>
         </div>
       </div>
     </section>
 
+    <!-- القسم 5: الحل + السعر -->
+    <section id="solution" class="solution">
+      <div class="wrap solution-grid">
+        <div>
+          <span class="label">الحل العملي</span>
+          <h2>تأسيس كامن الرقمي — 30 يوماً لترتيب الظهور واستقبال الطلبات.</h2>
+          <p class="sub">نبدأ بما يجعل العميل يجدك، يطلب منك، ويُسجَّل طلبه في مسار واضح قبل زيادة الإنفاق على التسويق.</p>
+          <div class="result-list">
+            <div><span class="check">✓</span><span>استقبال منظم وتنبيه فوري لكل طلب جديد.</span></div>
+            <div><span class="check">✓</span><span>سجل متابعة موحّد تعرف منه مصدر الفرص وحالتها.</span></div>
+          </div>
+        </div>
+        <div class="price-stack">
+          <aside id="price" class="price">
+            <small>سعر الإطلاق — لأول 3 عملاء فقط</small>
+            <div class="value">3,900 <span>ريال</span></div>
+            <p>عرض خاص بأول 3 متبنين، يشمل دعمنا الكامل وتوثيق قصتكم كدراسة حالة ناجحة (باتفاق الطرفين). التفاصيل عند التواصل.</p>
+            <a class="btn btn-primary" href="https://wa.me/966553353448?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AD%D8%AC%D8%B2%20%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%20%D9%83%D8%A7%D9%85%D9%86%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A">احجز مقعدك عبر واتساب</a>
+          </aside>
+          <aside class="plus-mini">
+            <h3>كامن بلس — اشتراك شهري بعد التأسيس</h3>
+            <p>بعد تشغيل تأسيس كامن وتجمّع بيانات حقيقية، يمكن الاشتراك في كامن بلس لمراجعة سجل الطلبات شهرياً، قراءة مصادر العملاء، متابعة حالات الطلب، واقتراح فرص التحسين التالية.</p>
+            <small>لا يُعرض قبل أن يعمل المسار الأساسي وتتضح البيانات.</small>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- القسم 6: النطاق -->
     <section id="scope">
       <div class="wrap">
         <div class="section-head">
@@ -362,47 +337,73 @@
           <h2>ماذا يشمل تأسيس كامن الرقمي؟</h2>
         </div>
         <div class="scope-grid">
-          <article class="card scope"><h3>يشمل</h3><ul><li>واجهة قطاعية مخصصة تعرض خدماتك وتستقبل الطلبات</li><li>مساعد رد آلي أولي يجيب على الأسئلة المتكررة داخل الصفحة أو القناة المفعّلة</li><li>مستشار ذكي للعميل يقدّم إرشادات أولية مناسبة للقطاع، مثل نصائح الديكور أو اختيار الأرضيات</li><li>تجربة تفاعلية حسب النشاط، مثل: جرّب صورتك بنفسك، عندما تكون مناسبة ومفعّلة في الديمو</li><li>نموذج طلب عرض سعر منظم</li><li>تسجيل تلقائي للطلبات في Google Sheets</li><li>سجل الطلبات وملخص المتابعة</li><li>حالات متابعة واضحة: جديد، تم التواصل، عرض مُرسل، يحتاج متابعة، تم الاتفاق، مؤجل، خسارة</li><li>رابط متابعة واتساب لكل طلب</li><li>تنبيه فوري عند وصول طلب جديد</li><li>تقرير تأسيس مختصر يوضح ما تم تركيبه وكيف تستخدمه</li><li>الحسابات والأصول تكون باسم العميل، وتعمل كامن بصلاحية إدارة فقط</li></ul></article>
-          <article class="card scope no"><h3>لا يشمل</h3><ul><li>إدارة سوشيال مستمرة</li><li>حملات إعلانية</li><li>تصميم هوية أو شعار كامل</li><li>متجر إلكتروني كامل</li><li>تعديلات مفتوحة</li><li>صيانة شهرية مفتوحة</li><li>رسوم الدومين أو الاستضافة أو الأدوات أو الإعلانات</li><li>تشغيل دعم بشري 24 ساعة أو تقديم استشارات تخصصية ملزمة بدل المختص</li></ul></article>
+          <article class="card scope"><h3>يشمل</h3><ul><li>واجهة قطاعية مخصصة تعرض خدماتك وتستقبل الطلبات</li><li>مساعد رد آلي أولي يجيب على الأسئلة المتكررة داخل الصفحة أو القناة المفعّلة</li><li>مستشار ذكي للعميل يقدّم إرشادات أولية مناسبة للقطاع</li><li>تجربة تفاعلية حسب النشاط (جرّب صورتك بنفسك عند توفرها)</li><li>نموذج طلب عرض سعر منظم</li><li>تسجيل تلقائي للطلبات في Google Sheets</li><li>سجل الطلبات وملخص المتابعة</li><li>حالات متابعة واضحة</li><li>رابط متابعة واتساب لكل طلب</li><li>تنبيه فوري عند وصول طلب جديد</li><li>تقرير تأسيس مختصر</li><li>الحسابات والأصول تكون باسم العميل، وتعمل كامن بصلاحية إدارة فقط</li></ul></article>
+          <article class="card scope no"><h3>لا يشمل</h3><ul><li>إدارة سوشيال مستمرة</li><li>حملات إعلانية</li><li>تصميم هوية أو شعار كامل</li><li>متجر إلكتروني كامل</li><li>تعديلات مفتوحة</li><li>صيانة شهرية مفتوحة</li><li>رسوم الدومين أو الاستضافة أو الأدوات أو الإعلانات</li><li>تشغيل دعم بشري 24 ساعة أو تقديم استشارات تخصصية ملزمة</li></ul></article>
         </div>
       </div>
     </section>
 
-    <section class="map-section">
-      <div class="wrap map-box">
-        <div>
-          <span class="label">خارطة كشف كامن</span>
-          <h2>اكتشف أين تتعطل فرصك — مجانًا.</h2>
-          <p class="sub">أداة تفاعلية تقيّم مشروعك على مراحل كشف · أولوية · مواءمة · نمو وتعطيك اتجاه الأولوية الأولى.</p>
+    <!-- القسم 7: الأسئلة الشائعة (مساعد كامن الذكي مع شعار ترحيبي) -->
+    <section id="faq">
+      <div class="wrap">
+        <div class="section-head" style="text-align:center;">
+          <!-- شعار كامن مع نص ترحيبي -->
+          <span class="label" style="display:inline-flex;align-items:center;gap:8px;background:rgba(216,181,103,.08);border-color:rgba(216,181,103,.2);margin-bottom:12px;">
+            <img src="assets/logo-mark.png" alt="كامن" style="width:24px;height:24px;border-radius:6px;background:var(--navy);padding:3px;object-fit:contain;">
+            مساعد كامن الذكي
+          </span>
+          <h2>مرحباً! كيف يمكنني مساعدتك؟</h2>
+          <p class="sub" style="font-size:.95rem;margin-top:6px;">اختر السؤال الذي يهمك، أو تواصل معنا مباشرة عبر واتساب.</p>
         </div>
-        <a class="btn btn-primary" href="growth-map.html">ابدأ التشخيص المجاني</a>
+        <div class="faq-list" id="faqContainer">
+          <div class="faq-item open">
+            <button class="faq-question" onclick="toggleFAQ(this)">كم تكلفة تأسيس كامن الرقمي؟</button>
+            <div class="faq-answer">سعر الإطلاق الحالي هو <strong>3,900 ريال</strong> (شامل التأسيس الكامل). هذا العرض خاص بأول 3 عملاء فقط، ويتضمن دعمنا الكامل وتوثيق قصتكم كدراسة حالة ناجحة (باتفاق الطرفين).</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">كم المدة من البداية حتى التشغيل؟</button>
+            <div class="faq-answer">نبدأ بالتفعيل الأولي خلال <strong>7 أيام</strong>، ونكمل التأسيس الكامل خلال <strong>30 يوماً</strong>. خلال هذه الفترة، نركّز على ترتيب ظهورك واستقبال الطلبات وتشغيل مسار المتابعة.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">هل أحتاج خبرة تقنية لتشغيله؟</button>
+            <div class="faq-answer">لا إطلاقاً. كل شيء مهيّأ ليكون سهل الاستخدام. نوفر لك تقرير تأسيس مختصر يشرح كيفية استخدام النظام، وجميع الأدوات (مثل Google Sheets) مألوفة وسهلة. نحن ندير التقنية، وأنت تدير أعمالك.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">هل البيانات التي تدخلها كامن آمنة؟</button>
+            <div class="faq-answer">نعم، بأمان تام. جميع الحسابات والأصول (مثل جداول البيانات ونماذج الطلبات) تنشأ <strong>باسمك أنت</strong>، ونحن نعمل بصلاحية إدارة فقط. أنت تملك بياناتك بالكامل، ولا نستخدمها لأي غرض آخر.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">ماذا لو احتجت تعديلات أو تطوير لاحقاً؟</button>
+            <div class="faq-answer">بعد تشغيل التأسيس وجمع بيانات حقيقية، نوفر اشتراك <strong>كامن بلس</strong> الشهري. نراجع معك سجل الطلبات، ونحلل مصادر العملاء، ونقترح فرص التحسين التالية. التطوير المستمر مبني على قراءة بياناتك الفعلية، وليس على افتراضات.</div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:24px;">
+          <a href="https://wa.me/966553353448?text=%D9%84%D8%AF%D9%8A%D9%91%20%D8%B3%D8%A4%D8%A7%D9%84%20%D8%B9%D9%86%20%D9%83%D8%A7%D9%85%D9%86" class="btn btn-primary">اسألنا مباشرة على واتساب</a>
+        </div>
       </div>
+    </section>
+
+    <!-- القسم 8: بوابة المشروع التجريبي -->
+    <section class="map-section">
       <div class="wrap demo-gate-box">
         <div>
           <span class="label">جولة تجريبية</span>
           <h2>بوابة المشروع التجريبي</h2>
-          <p class="sub">استعرض المعرض التجريبي كما يراه العميل، ثم شاهد سجل الطلبات وملخص المتابعة بصورة مبسطة.</p>
+          <p class="sub">استعرض المعرض التجريبي كما يراه العميل، ثم شاهد سجل الطلبات وملخص المتابعة.</p>
         </div>
-        <a class="btn btn-demo" href="demo.html">شاهد الديمو الحي كاملًا</a>
+        <a class="btn btn-teal" href="demo.html">استعرض الديمو التجريبي</a>
       </div>
     </section>
 
-    <section id="why">
-      <div class="wrap section-head">
-        <h2>لماذا كامن؟</h2>
-        <p class="sub">المشاريع الصغيرة لا ينقصها الذكاء. ينقصها مسار واضح يربط الظهور بالطلب، والطلب بالتسجيل، والتسجيل بالمتابعة، والمتابعة بفرص النمو.</p>
-        <p class="sub">لهذا بنينا كامن. ليس أداة واحدة، ولا موقعًا جميلًا فقط، بل نظام عملي يرتّب ما يحدث من أول ظهور العميل لك حتى متابعة طلبه من سجل واحد.</p>
-        <p class="sub">هذه هي كامن: من حضور متفرق وطلبات ضائعة، إلى مسار واضح يساعدك ترى الفرص الكامنة وتتابعها بثقة.</p>
-      </div>
-    </section>
-
+    <!-- القسم 9: الخاتمة -->
     <section class="final">
       <div class="wrap">
-        <h2>الفرص القادمة لن تنتظر نظامك القديم.</h2>
-        <p>ابدأ بخارطة كشف كامن، أو شاهد بوابة المشروع التجريبي لترى كيف يتحول الظهور والطلب والمتابعة إلى مسار واحد واضح.</p>
+        <h2>المشاريع الصغيرة لا ينقصها الذكاء، بل مسار واضح.</h2>
+        <p>من حضور متفرق وطلبات ضائعة، إلى سجل واحد يُنبّهك ويُتابع معك كل فرصة. هذا ما تفعله كامن.</p>
+        <p style="font-weight:700;color:var(--gold-2);margin:-10px 0 20px;">الفرص القادمة لن تنتظر نظامك القديم.</p>
         <div class="hero-actions" style="justify-content:center">
           <a class="btn btn-primary" href="growth-map.html">ابدأ خارطة كشف كامن</a>
-          <a class="btn btn-secondary" href="demo.html">اذهب إلى بوابة المشروع التجريبي</a>
+          <a class="btn btn-teal" href="demo.html" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#fff;">استعرض الديمو التجريبي</a>
         </div>
       </div>
     </section>
@@ -415,5 +416,22 @@
     </div>
   </footer>
   <a class="whatsapp-float" href="https://wa.me/966553353448?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AD%D8%AC%D8%B2%20%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%20%D9%83%D8%A7%D9%85%D9%86%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A" aria-label="تواصل عبر واتساب">واتساب كامن</a>
+
+  <script>
+    function toggleFAQ(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      // Close all others
+      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+      if (!isOpen) {
+        item.classList.add('open');
+        // Smooth scroll to show the answer
+        setTimeout(() => {
+          item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+      }
+    }
+    // Open first by default already done via 'open' class in HTML
+  </script>
 </body>
 </html>
