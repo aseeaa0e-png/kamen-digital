@@ -37,6 +37,11 @@
 
     main{padding:40px 0 60px}
 
+    /* ── Choose-path intro ────────────────────────── */
+    .choose-head{text-align:center;margin-bottom:30px}
+    .choose-head h2{font-family:'Reem Kufi',sans-serif;font-size:clamp(1.3rem,3vw,1.8rem);margin:0 0 10px}
+    .choose-head p{color:var(--muted);max-width:640px;margin:0 auto;font-size:.98rem}
+
     /* ── Path cards ───────────────────────────────── */
     .paths{display:grid;grid-template-columns:1.3fr .85fr;gap:20px;align-items:stretch;margin-bottom:26px}
     .path-card{background:var(--card);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;box-shadow:0 14px 40px rgba(16,24,39,.07)}
@@ -47,15 +52,15 @@
     .path-card.secondary .path-badge{background:rgba(53,198,181,.13);color:#0e7a70}
     .path-card h2{font-family:'Reem Kufi',sans-serif;font-size:clamp(1.3rem,3vw,1.7rem);margin:0 0 8px}
     .path-card p{color:var(--muted);margin:0 0 20px;flex:1}
-    .path-btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;padding:14px 22px;font-weight:900;font-family:'Reem Kufi',sans-serif;cursor:pointer;align-self:flex-start;transition:transform .18s}
+    .path-card p.plus-note{flex:0 0 auto;font-size:.85rem;margin:-8px 0 16px}
+    .path-btn-group{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto}
+    .path-btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;padding:14px 22px;font-weight:900;font-family:'Reem Kufi',sans-serif;cursor:pointer;transition:transform .18s}
     .path-btn:hover{transform:translateY(-2px)}
     .path-card.primary .path-btn{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#1f2937}
+    .path-btn-secondary{background:rgba(216,181,103,.12);color:#8a671b;border:1.5px solid rgba(216,181,103,.4)}
     .path-card.secondary .path-btn{background:rgba(53,198,181,.13);color:#0e7a70;border:1.5px solid rgba(53,198,181,.4)}
-
-    /* ── Mini flow (inside secondary card) ─────────── */
-    .mini-flow{display:flex;flex-direction:column;gap:10px;margin:0 0 20px;flex:1}
-    .mf-step{display:flex;align-items:center;gap:10px;font-size:.92rem;color:var(--ink);font-weight:700}
-    .mf-dot{width:26px;height:26px;border-radius:50%;background:rgba(53,198,181,.15);color:#0e7a70;display:flex;align-items:center;justify-content:center;font-family:'Reem Kufi',sans-serif;font-weight:900;font-size:.8rem;flex:0 0 auto}
+    .path-btn-wa{background:#20b15a;color:#fff}
+    .path-btn-wa:hover{background:#1a9a4c}
 
     /* ── Order note ───────────────────────────────── */
     .order-note{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 20px;color:#475467;font-size:.95rem;text-align:center;margin-bottom:34px}
@@ -107,30 +112,36 @@
 
   <main>
     <div class="wrap">
+      <div class="choose-head">
+        <h2>اختر طريقة مشاهدة الديمو</h2>
+        <p>اختر المسار الأقرب لك: هل تريد رؤية كامن كصاحب مشروع يبحث عن تنظيم الطلبات؟ أم كشريك يريد فهم طريقة التكامل والتنفيذ؟</p>
+      </div>
       <div class="paths">
         <article class="path-card primary">
           <span class="path-badge">من مُسلَّمات تأسيس كامن الرقمي</span>
-          <h2>المعرض التجريبي كما يراه العميل</h2>
-          <p>شاهد الواجهة كما يراها العميل، ثم اطلب عرض سعر من داخل المعرض.</p>
-          <a class="path-btn" href="https://aseeaa0e-png.github.io/ardiyat-aldiyar/" target="_blank" rel="noopener">جرّب كأنك عميل</a>
+          <h2>أنا صاحب مشروع</h2>
+          <p>شاهد كيف يرى العميل العرض، يرسل طلب سعر، ثم يتحول الطلب إلى سجل متابعة واضح.</p>
+          <div class="path-btn-group">
+            <a class="path-btn" href="https://aseeaa0e-png.github.io/ardiyat-aldiyar/" target="_blank" rel="noopener">جرّب كأنك عميل</a>
+            <a class="path-btn path-btn-secondary" href="growth-map.html">ابدأ خارطة كشف كامن مجانًا</a>
+          </div>
         </article>
         <article class="path-card secondary">
-          <span class="path-badge">تصور مستقبلي من كامن بلس</span>
-          <h2>سجل الطلبات وملخص المتابعة</h2>
-          <div class="mini-flow">
-            <div class="mf-step"><span class="mf-dot">1</span><span>طلب جديد</span></div>
-            <div class="mf-step"><span class="mf-dot">2</span><span>تسجيل تلقائي</span></div>
-            <div class="mf-step"><span class="mf-dot">3</span><span>تنبيه فوري</span></div>
-            <div class="mf-step"><span class="mf-dot">4</span><span>متابعة من سجل واحد</span></div>
+          <span class="path-badge">مسار الشريك</span>
+          <h2>أنا شريك أو مقدم خدمة</h2>
+          <p>شاهد كيف يمكن لكامن أن يعمل كمسار تشغيل يجمع الواجهة، الطلب، السجل، والتنبيه.</p>
+          <p class="plus-note">كامن بلس يأتي بعد توفر بيانات حقيقية من السجل.</p>
+          <div class="path-btn-group">
+            <a class="path-btn" href="demo-manager.html">شاهد سجل الطلبات وملخص المتابعة</a>
+            <a class="path-btn path-btn-wa" href="https://wa.me/966553353448?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D9%85%D9%86%D8%A7%D9%82%D8%B4%D8%A9%20%D8%B4%D8%B1%D8%A7%D9%83%D8%A9%20%D9%85%D8%B9%20%D9%83%D8%A7%D9%85%D9%86.%0A%0A%D9%85%D8%AC%D8%A7%D9%84%D9%8A%3A%0A%D9%86%D9%88%D8%B9%20%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%8A%20%D8%A3%D9%82%D8%AF%D9%85%D9%87%D8%A7%3A%0A%D8%A3%D9%82%D8%AA%D8%B1%D8%AD%20%D9%85%D9%88%D8%B9%D8%AF%D9%8B%D8%A7%20%D9%84%D9%85%D9%83%D8%A7%D9%84%D9%85%D8%A9%20%D8%AA%D8%B9%D8%B1%D9%8A%D9%81%D9%8A%D8%A9%20%D9%85%D8%AF%D8%AA%D9%87%D8%A7%2015%20%D8%AF%D9%82%D9%8A%D9%82%D8%A9.%0A%0A%D8%B1%D9%82%D9%85%20%D9%88%D8%A7%D8%AA%D8%B3%D8%A7%D8%A8%3A%0A966553353448" target="_blank" rel="noopener">تواصل للشراكة</a>
           </div>
-          <a class="path-btn" href="demo-manager.html">شاهد سجل الطلبات وملخص المتابعة</a>
         </article>
       </div>
 
       <p class="order-note">التأسيس يرتّب الظهور واستقبال الطلبات أولًا. وبعد توفر بيانات حقيقية، يمكن لكامن بلس قراءة السجل واقتراح فرص التحسين.</p>
 
       <div class="wa-cta">
-        <a class="wa-btn" href="https://wa.me/966553353448?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%B4%D8%A7%D9%87%D8%AF%D8%AA%20%D8%AC%D9%88%D9%84%D8%A9%20%D8%A7%D9%84%D8%AF%D9%8A%D9%85%D9%88%20%D9%88%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A3%D9%86%20%D8%A3%D8%A8%D8%AF%D8%A3%20%D8%A8%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%20%D9%83%D8%A7%D9%85%D9%86%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A." target="_blank" rel="noopener">
+        <a class="wa-btn" href="https://wa.me/966553353448?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%D8%8C%20%D8%B4%D8%A7%D9%87%D8%AF%D8%AA%20%D8%A7%D9%84%D8%AF%D9%8A%D9%85%D9%88%20%D8%A7%D9%84%D8%AA%D8%AC%D8%B1%D9%8A%D8%A8%D9%8A%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%A7%D9%84%D8%AE%D8%B7%D9%88%D8%A9%20%D8%A7%D9%84%D8%A3%D9%86%D8%B3%D8%A8%20%D9%84%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%20%D9%83%D8%A7%D9%85%D9%86%20%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A.%0A%0A%D9%86%D8%B4%D8%A7%D8%B7%D9%8A%3A%0A%D8%A7%D9%84%D9%85%D8%B4%D9%83%D9%84%D8%A9%20%D8%A7%D9%84%D8%A3%D9%82%D8%B1%D8%A8%20%D8%B9%D9%86%D8%AF%D9%8A%3A%0A-%20%D8%A7%D9%84%D8%B8%D9%87%D9%88%D8%B1%0A-%20%D8%A7%D8%B3%D8%AA%D9%82%D8%A8%D8%A7%D9%84%20%D8%A7%D9%84%D8%B7%D9%84%D8%A8%D8%A7%D8%AA%0A-%20%D9%85%D8%AA%D8%A7%D8%A8%D8%B9%D8%A9%20%D8%A7%D9%84%D8%B7%D9%84%D8%A8%D8%A7%D8%AA%0A%0A%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%A8%D8%AF%D8%A1%20%D9%85%D9%86%20%D8%AE%D8%A7%D8%B1%D8%B7%D8%A9%20%D9%83%D8%B4%D9%81%20%D9%83%D8%A7%D9%85%D9%86." target="_blank" rel="noopener">
           أريد أن أبدأ بتأسيس كامن الرقمي
         </a>
       </div>
@@ -142,7 +153,7 @@
       <h2>أكمل جولتك في منظومة كامن</h2>
       <div class="jc-links">
         <a class="jc-btn primary" href="https://aseeaa0e-png.github.io/kamen-digital/">العودة إلى موقع كامن</a>
-        <a class="jc-btn ghost" href="growth-map.html">انتقل إلى خارطة الكشف</a>
+        <a class="jc-btn ghost" href="growth-map.html">ابدأ خارطة كشف كامن مجانًا</a>
         <a class="jc-btn ghost" href="https://aseeaa0e-png.github.io/ardiyat-aldiyar/" target="_blank" rel="noopener">شاهد الديمو الخارجي</a>
       </div>
     </div>
