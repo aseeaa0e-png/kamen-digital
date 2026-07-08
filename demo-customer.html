@@ -62,6 +62,15 @@
     .quote-btn:hover{transform:translateY(-2px)}
     .quote-note{color:rgba(255,255,255,.58);font-size:.85rem;margin-top:16px;max-width:420px;margin-inline:auto}
 
+    /* ── Quote calculator fields ───────────────────── */
+    .calc-form{display:grid;gap:14px;margin:0 0 22px;text-align:right;max-width:360px;margin-inline:auto}
+    .calc-field label{display:block;font-size:.85rem;font-weight:700;color:rgba(255,255,255,.85);margin-bottom:6px}
+    .calc-field label .opt{font-weight:400;color:rgba(255,255,255,.5);font-size:.8rem}
+    .calc-field select,.calc-field input{width:100%;border:1.5px solid rgba(255,255,255,.18);border-radius:12px;padding:11px 14px;font-size:.95rem;font-family:inherit;background:rgba(255,255,255,.08);color:#fff;outline:none}
+    .calc-field select:focus,.calc-field input:focus{border-color:var(--teal)}
+    .calc-field select option{color:#1f2937}
+    .calc-field input::placeholder{color:rgba(255,255,255,.4)}
+
     /* ── Flow ─────────────────────────────────────── */
     .flow-wrap{margin-bottom:30px}
     .flow{display:flex;align-items:flex-start}
@@ -140,8 +149,29 @@
 
       <div class="quote-section">
         <h2>هل أعجبتك أرضية معيّنة؟</h2>
-        <p class="lead">اطلب عرض السعر الآن وسيصلك رد سريع بالتفاصيل والتكلفة المناسبة لمساحتك.</p>
-        <a class="quote-btn" href="https://forms.gle/RYTcgXygePRFwmm2A" target="_blank" rel="noopener">اطلب عرض سعر الآن</a>
+        <p class="lead">اختر المنتج وأدخل المساحة، ثم اطلب عرض السعر — سيُفتح لك النموذج معبأ بهذه التفاصيل تلقائيًا.</p>
+
+        <div class="calc-form">
+          <div class="calc-field">
+            <label for="calcProduct">المنتج</label>
+            <select id="calcProduct">
+              <option>أرضيات SPC</option>
+              <option>باركيه خشبي</option>
+              <option>ديكور جداري</option>
+              <option>أرضيات فينيل</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="calcArea">المساحة التقريبية (م²)</label>
+            <input type="number" id="calcArea" min="1" placeholder="مثال: 40">
+          </div>
+          <div class="calc-field">
+            <label for="calcPrice">السعر التقديري <span class="opt">(اختياري)</span></label>
+            <input type="text" id="calcPrice" placeholder="اتركه فارغًا إن لم تكن متأكدًا">
+          </div>
+        </div>
+
+        <a class="quote-btn" id="quoteBtn" href="https://docs.google.com/forms/d/e/1FAIpQLSeWKMMU11H9rICjedIGSikHXaIZXtulyt9Hg5NRZeNUYgmfwg/viewform" target="_blank" rel="noopener">اطلب عرض سعر الآن</a>
         <p class="quote-note">هذا الطلب يُسجَّل في سجل المتابعة التجريبي ويصل عليه تنبيه فوري.</p>
       </div>
 
@@ -169,5 +199,33 @@
 
   <footer>كامن KAMEN™ — من الكامن إلى الممكن</footer>
 
+  <script>
+  (function () {
+    /* تعبئة تلقائية لنموذج طلب عرض السعر عبر معرّفات الحقول (entry IDs) */
+    const FORM_BASE = 'https://docs.google.com/forms/d/e/1FAIpQLSeWKMMU11H9rICjedIGSikHXaIZXtulyt9Hg5NRZeNUYgmfwg/viewform';
+    const ENTRY = {
+      product: 'entry.864082269',
+      area:    'entry.486333418',
+      price:   'entry.1135246736'
+    };
+
+    const productEl = document.getElementById('calcProduct');
+    const areaEl     = document.getElementById('calcArea');
+    const priceEl    = document.getElementById('calcPrice');
+    const quoteBtn   = document.getElementById('quoteBtn');
+
+    function updateQuoteLink() {
+      const params = new URLSearchParams();
+      if (productEl.value) params.set(ENTRY.product, productEl.value);
+      if (areaEl.value)    params.set(ENTRY.area, areaEl.value + ' م²');
+      if (priceEl.value.trim()) params.set(ENTRY.price, priceEl.value.trim());
+      const query = params.toString();
+      quoteBtn.href = query ? `${FORM_BASE}?${query}` : FORM_BASE;
+    }
+
+    [productEl, areaEl, priceEl].forEach(el => el.addEventListener('input', updateQuoteLink));
+    updateQuoteLink();
+  })();
+  </script>
 </body>
 </html>
